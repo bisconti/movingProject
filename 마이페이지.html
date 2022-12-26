@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+    <style>
+      legend{
+        font-weight: bold;
+      }
+      .wrap {
+        width: 490px;
+        margin: 0 auto;
+        padding-top: 45px;
+      }
+      body {
+        background-color: black;
+      }
+      input {
+        box-sizing: border-box;
+        cursor: pointer;
+      }
+      table {
+        border-collapse: collapse;
+        vertical-align: middle;
+      }
+      th {
+        text-align: left;
+        width: 150px;
+      }
+      th::after {
+        content: "";
+        display: inline-block;
+        box-sizing: border-box;
+        width: 1px;
+        height: 14px;
+      }
+      th,
+      td {
+        padding: 7px;
+      }
+      td {
+        width: 370px;
+      }
+      input[type="text"],
+      input[type="password"] {
+        padding: 10px 15px 10px 10px;
+        border: 1px solid #ccc;
+        width: 250px;
+      }
+      input:focus {
+        outline: none;
+        border: 1px solid red;
+      }
+
+      td > input[type="text"] + input[type="button"] {
+        margin-left: 10px;
+        padding: 8px 10px;
+        background-color: red;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        width: 80px;
+      }
+      .gender_area > td {
+        font-size: 16px;
+      }
+      input[type="submit"] {
+        margin: 0 auto;
+        padding: 10px 10px;
+        margin-left: 40px;
+        background-color: rgb(0, 200, 80);
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        width: 400px;
+      }
+      #all {
+        width: 530px;
+        height: 100%;
+        color: white;
+        margin : 0 auto;
+      }
+      .btn {
+        margin-left: 10px;
+        padding: 8px 10px;
+        background-color: red;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        width: 80px;
+      }
+      input[type="button"] {
+        margin-left: 10px;
+        padding: 8px 10px;
+        background-color: red;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        width: 80px;
+      }
+      .btn_right > input[type="button"] {
+        float: right;
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="all">
+      <form>
+        <br><h2 style="text-align:center;">"userid"님의 마이페이지</h2>
+        <fieldset style="border: 1px solid red; width: 500px">
+          <legend>INFO</legend>
+          <table>
+            <tr>
+              <th colspan="2">
+                <label for="userid"
+                  >현재 이용중인 이용권은 "스탠다드 (HD)" 입니다.</label
+                >
+              </th>
+            </tr>
+            <tr>
+              <th colspan="2">
+                <label for="userpw">다음 결제일은 2022-12-30 일 입니다.</label>
+              </th>
+            </tr>
+            <tr>
+              <th><label for="username">이름</label></th>
+              <td>
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  value="name"
+                  readonly
+                  disabled
+                  style="color: white"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th><label for="userid">아이디</label></th>
+              <td>
+                <input
+                  type="text"
+                  name="userid"
+                  id="userid"
+                  value="id"
+                  readonly
+                  disabled
+                  style="color: white"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th><label for="username">구매금액</label></th>
+              <td>
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  value="9000원"
+                  readonly
+                  disabled
+                  style="color: white"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th><label for="username">다운로드</label></th>
+              <td>
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  value="30회"
+                  readonly
+                  disabled
+                  style="color: white"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th><label for="userid">구독</label></th>
+              <td>
+                <input
+                  type="text"
+                  name="userid"
+                  id="userid"
+                  value="월간이용권"
+                  readonly
+                  disabled
+                  style="color: white"
+                />
+                <input type="button" value="구독취소" />
+              </td>
+            </tr>
+          </table>
+        </fieldset><br>
+        <fieldset style="border: 1px solid red; width: 500px">
+          <legend>PASSOWRD</legend>
+          <table>
+            <tr>
+                <th><label for="userpw">현재 비밀번호</label></th>
+                <td>
+                  <input type="password" name="userpw" id="userpw" />
+                </td>
+              </tr>
+            <tr>
+              <th><label for="userpw">비밀번호</label></th>
+              <td>
+                <input type="password" name="userpw" id="userpw" />
+              </td>
+            </tr>
+            <tr>
+              <th><label for="userpw_re">비밀번호 확인</label></th>
+              <td>
+                <input type="password" name="userpw_re" id="userpw_re" onkeyup="pwcheck()"/>
+                <input type="button" value="변경" />
+              </td>
+            </tr>
+          </table>
+        </fieldset><br>
+        <fieldset style="border: 1px solid red; width: 500px">
+          <legend>PHONE</legend>
+          <table>
+            <tr>
+              <th><label for="userid">휴대폰번호</label></th>
+              <td>
+                <input type="text" name="userid" id="userid" value="01011112222"/>
+                <input type="button" value="인증번호" />
+              </td>
+            </tr>
+            <tr>
+              <th><label for="userid">인증번호입력</label></th>
+              <td>
+                <input type="text" name="userid" id="userid" />
+                <input type="button" value="인증확인" />
+              </td>
+            </tr>
+          </table>
+        </fieldset><br>
+        <fieldset style="border: 1px solid red; width: 500px">
+          <legend>ARRDRESS</legend>
+          <table>
+            <tr class="zipcode_area">
+              <th>우편번호</th>
+              <td>
+                <input
+                  type="text"
+                  id="sample6_postcode"
+                  placeholder="우편번호"
+                  name="zipcode"
+                  value="333021"
+                  onclick="sample6_execDaumPostcode()"
+                />
+                <input
+                  type="button"
+                  value="우편번호"
+                  onclick="sample6_execDaumPostcode()"
+                />
+              </td>
+            </tr>
+            <tr class="addr_area">
+              <th>주소</th>
+              <td>
+                <input
+                  type="text"
+                  id="sample6_address"
+                  placeholder="주소"
+                  name="addr"
+                  value="경기도 평택시"
+                  readonly
+                />
+              </td>
+            </tr>
+            <tr>
+              <th>상세주소</th>
+              <td>
+                <input
+                  type="text"
+                  id="sample6_detailAddress"
+                  placeholder="상세주소"
+                  value="고속도로 422"
+                  name="addrdetail"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th>참고항목</th>
+              <td>
+                <input
+                  type="text"
+                  id="sample6_extraAddress"
+                  placeholder="참고항목"
+                  name="addretc"
+                  value="10335"
+                  readonly
+                  disabled
+                  style="color: white"
+                />
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+body {
+    background-color: rgb(20, 20, 20);
+}
+
+.join_page {
+    /* margin: 0 auto; */
+    height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+
+div {
+    margin-bottom: 17px;
+}
+
+.lor-content{
+    width: 300px;
+}
+input,button,textarea {
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    font-family: HelveticaNeue-Light, AppleSDGothicNeo-Light, 'Noto Sans', 'Malgun Gothic', '맑은 고딕', sans-serif;
+    font-weight: 400;
+    border: 0;
+    outline: 0;
+    background: transparent;
+}
+
+input {
+    background-color: rgb(54, 54, 54);
+    width: 285px;
+    height: 46px;
+    padding-left: 15px;
+    border: none;
+    color:white;
+}
+
+input::placeholder {
+    color: #e2e2e2;
+}
+
+.lor-header{
+    background: url(/images/moving_logo.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: auto; height: auto;
+    width: 178px;
+    height: 50px;
+}
+
+.lor-header > a > h1 {
+    /* display: none; */
+    opacity: 0;
+    
+}
+
+.joinview{
+    text-align: right;
+}
+.joinview .join{
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.btn-submit>input {
+    width: 300px;
+    height: 50px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+
+.zipcode_area{
+    width: 300px;
+    height: 50px;
+}
+
+.userid #user_id{
+    width: 65%;
+}
+.userid > #user_id_btn{
+    width: 28%;
+    text-align: left;
+    background-color: red;
+}
+
+.zipcode_area #sample6_postcode{
+    width: 55%;
+}
+#sample6_postcode_btn{
+    width: 38%;
+    text-align: left;
+    background-color: red;
+}
+div > #cellphone {
+    width: 55%;
+}
+div > #cellphone_btn{
+    width: 38%;
+    text-align: left;
+    background-color: red;
+}
