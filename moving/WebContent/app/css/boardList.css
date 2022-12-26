@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+body {
+  background-color: #212121;
+  color: white;
+}
+td,
+th {
+  text-align: center;
+  color: white;
+}
+.page-link {
+  color: #999;
+  background-color: #000;
+  border-color: #444;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #ccc;
+  font-weight: bold;
+  background-color: #333;
+  border-color: #444;
+}
+
+.page-link:focus,
+.page-link:hover {
+  color: #ccc;
+  background-color: #222;
+  border-color: #444;
+}
+
+
+input[type="button"] {
+  margin-left: 10px;
+  padding: 8px 10px;
+  background-color: red;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  width: 80px;
+}
+.new {
+  animation-name: blink;
+  animation-duration: 1.5s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+  from {
+    color: white;
+  }
+  30% {
+    color: yellow;
+  }
+  to {
+    color: red;
+    font-weight: bold;
+  }
+}
+#circle1 {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: #212529;
+  position: absolute;
+  left: 8%;
+  top: 7%;
+  z-index: -1;
+}
+#board {
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+#circle2 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #212529;
+  position: absolute;
+  left: 60%;
+  top: 10%;
+  z-index: -50;
+}
+#cntBox {
+  width: 1000px;
+  height: 50px;
+  margin: 0 auto;
+}
+#tableHover{
+    width: 1000px; 
+    margin: 0 auto; 
+    margin-top: 10px;
+}
+#circle3{
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    background-color: #212529; 
+    position: absolute; 
+    left : 30%; 
+    bottom: 12%;
+    z-index: -50;
+}
+#circle4{
+    width: 300px; 
+    height: 300px; 
+    border-radius: 50%;
+    background-color: #212529; 
+    position: absolute; 
+    left : 70%; 
+    bottom: 12%;
+    z-index: -50;
+}
+#btnBox{
+    width: 1000px; 
+    margin: 0 auto;
+}
+#btnBox > div:first-child{
+    width: 300px; 
+    margin-left: 81.5%;
+}
+.navb{
+    width: 1000px; 
+    margin: 0 auto;
+}
+.navb2{
+    margin-top: 20px;
+}

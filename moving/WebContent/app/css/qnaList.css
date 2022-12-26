@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+body {
+  background-color: #212121;
+  color: white;
+}
+.v-line {
+  border-left: 2px solid red;
+  margin-top: 10px;
+  height: 480px;
+}
+tr,
+th,
+td {
+  text-align: center;
+}
+input[type="button"] {
+  margin-left: 10px;
+  padding: 8px 10px;
+  background-color: red;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+}
+
+#qnaname1 {
+  width: 1300px;
+  margin: 0 auto;
+  margin-top: 5%;
+  border-radius: 5px;
+  font-size: 3rem;
+  text-align: center;
+}
+#qnaname2 {
+  width: 1300px;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+#dan{
+    width: 1300px;
+    height: 500px;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+.divBox{
+    width: 400px; 
+    height: 500px
+}
+.divBox > div:first-child{
+  width: 400px; 
+  height: 90px; 
+  border-bottom : 1px solid white; 
+  margin-bottom:20px; text-align: center; 
+  font-size: 1.5rem;
+}
+.divBox > div:last-child{
+  width: 400px; 
+  height: 390px;
+}
+.divBox > .lh{
+  line-height: 90px;
+}
+#btnBox{
+    width: 1300px; 
+    margin: 0 auto; 
+    margin-top: 20px;
+}
+#btnBox > input[type="button"]{
+    float: right;
+}
