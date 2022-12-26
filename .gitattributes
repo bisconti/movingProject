@@ -1,5 +1,0 @@
-# Auto detect text files and perform LF normalization
-* text=auto
-mkdir helloworld
-cd helloworld
-git init
