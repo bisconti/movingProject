@@ -23,7 +23,6 @@
 
 					<article>
 						<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
-
 					</article>
 
 					<article>
