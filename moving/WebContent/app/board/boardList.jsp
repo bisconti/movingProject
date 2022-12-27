@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,12 +17,12 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
-    <link href="../css/boardList.css" rel="stylesheet">
+    <link href="/app/css/boardList.css" rel="stylesheet">
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
 <div id="circle1"></div>
-    <h2 id="board">게시판</h2>
+    <h2 id="board">커뮤니티</h2>
     <div id="circle2"></div>
     <div id="cntBox">
       <div class="float-end mb-2">
@@ -43,60 +44,14 @@
         </tr>
       </thead>
       <tbody>
+      	<c:forEach items="${boardList}" var="board">
         <tr>
-          <th scope="row">1</th>
-          <td>안녕하세요 <span class="new">new!</span></td>
-          <td>user1</td>
-          <td>2022-12-22</td>
+          <th scope="row">${board.boardnum}</th>
+          <td>${board.boardtitle} <span class="new">new!</span></td>
+          <td>${board.userid}</td>
+          <td>${board.regdate}</td>
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>환불해주세요</td>
-          <td>user2</td>
-          <td>2022-12-23</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>굿</td>
-          <td>user3</td>
-          <td>2022-12-33</td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td>비밀번호 까먹엇어요</td>
-          <td>user1</td>
-          <td>2022-12-22</td>
-        </tr>
-        <tr>
-          <th scope="row">5</th>
-          <td>무빙 좋네요</td>
-          <td>user2</td>
-          <td>2022-12-23</td>
-        </tr>
-        <tr>
-          <th scope="row">6</th>
-          <td>별로에요</td>
-          <td>user3</td>
-          <td>2022-12-33</td>
-        </tr>
-        <tr>
-          <th scope="row">7</th>
-          <td>너무 비싸요</td>
-          <td>user3</td>
-          <td>2023-02-23</td>
-        </tr>
-        <tr>
-          <th scope="row">8</th>
-          <td>너무 싸요</td>
-          <td>user3</td>
-          <td>2025-09-09</td>
-        </tr>
-        <tr>
-          <th scope="row">9</th>
-          <td>movie</td>
-          <td>user1</td>
-          <td>2022-05-19</td>
-        </tr>
+        </c:forEach>
       </tbody>
     </table>
     <br />
@@ -119,21 +74,28 @@
 
     <nav aria-label="Page navigation example" class="navb navb2">
       <ul class="pagination justify-content-center">
+    	<c:if test="${startPage != 1}">
         <li class="page-item">
           <a class="page-link" href="#" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">4</a></li>
-        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        </c:if>
+        <c:forEach var="i" begin="${startPage }" end="${endPage}">
+			<c:if test="${i == page}">
+        		<li class="page-item"><a class="page-link" href="#">${i}</a></li>
+        	</c:if>
+			<c:if test="${i != page }">
+       			<li class="page-item"><a class="page-link" href="#">${i}</a></li>
+        	</c:if>
+		</c:forEach>
+        <c:if test="${endPage != totalPage}">
         <li class="page-item">
           <a class="page-link" href="#" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>
+        </c:if>
       </ul>
     </nav>
 <%@include file="../common/footer.jsp" %>    
