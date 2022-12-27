@@ -58,7 +58,7 @@ html,header,head{
 #magnifying{
     width: 2%;
     height: 35%;
-    background: url(./images/magnifying-removebg-preview.png) no-repeat;
+    background: url(/app/img/magnifying-removebg-preview.png) no-repeat;
     background-size: contain;
     cursor: pointer;
     border: none;
