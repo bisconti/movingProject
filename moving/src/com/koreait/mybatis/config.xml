@@ -19,6 +19,7 @@
 	</environments>
 	<mappers>
 		<mapper resource="com/koreait/mapper/user.xml"/>
+		<mapper resource="com/koreait/mapper/movie.xml"/>
 	</mappers>
 </configuration>
 
