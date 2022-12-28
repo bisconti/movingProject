@@ -3,22 +3,22 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Movie">
-	<select id="mostFast">
+	<select id="mostFast" parameterType="_int" resultType="String">
 		select md.moviephoto from movie m join moviedata md 
 		on m.movienum = md.movienum where m.movienum = 
 		(select movienum from movie order by movierelease desc limit ${i},1)
 	</select>
-	<select id="watched">
+	<select id="watched" parameterType="_int" resultType="String">
 		select md.moviephoto from moviedata md join watched w
 		on md.movienum = w.movienum where md.movienum =
 		(select movienum from watched order by time desc limit ${i},1)
 	</select>
-	<select id="mostView">
+	<select id="mostView" parameterType="_int" resultType="String">
 		select md.moviephoto from moviedata md join movie m
 		on m.movienum = md.movienum where md.movienum =
 		(select movienum from movie order by view_cnt desc limit ${i},1)
 	</select>
-	<select id="mostLike">
+	<select id="mostLike" parameterType="_int" resultType="String">
 		select md.moviephoto from moviedata md join movie_like ml on md.movienum = ml.movienum
 		join movie m on m.movienum = ml.movienum where
 		(select movienum from movie_like group by movienum order by movienum limit 0,1)

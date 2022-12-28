@@ -18,11 +18,10 @@
 				<div id="title1"><h2>개봉일 순</h2></div>
 				<div class="reel">
 				<c:forEach var="i" begin="1" end="10">
-				
-				</c:forEach>
 					<article>
-						<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
-					</article>
+						<a href="#" class="image featured"><img src="" alt="" /></a>
+					</article>			
+				</c:forEach>
 
 					<article>
 						<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
@@ -166,6 +165,11 @@
 		<script src="/app/assets/js/breakpoints.min.js"></script>
 		<script src="/app/assets/js/util.js"></script>
 		<script src="/app/assets/js/main.js"></script>
+		<script>
+			function name() {
+				
+			}
+		</script>
 <%@include file="/app/common/footer.jsp" %>			
 </body>
 </html>
