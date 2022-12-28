@@ -15,8 +15,9 @@ public class BoardFrontController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String requestURI = req.getRequestURI();
-		String contextPath = req.getContextPath();
+		//흐름 나누기
+		String requestURI = req.getRequestURI();// ???????/user/userjoin.us
+		String contextPath = req.getContextPath();// ??????(web_module명)
 		String command = requestURI.substring(contextPath.length());
 		System.out.println(command);
 		ActionTo transfer = null;
@@ -27,6 +28,9 @@ public class BoardFrontController extends HttpServlet{
 				transfer = new BoardListAction().execute(req,resp);
 			} catch (Exception e) {
 				System.out.println("WARN:BoardList : "+e);
+//				transfer = new ActionTo();
+//				transfer.setPath("/error.jsp");
+//				transfer.setRedirect(false);
 			}
 			break;
 		case "/board/boardview.bo":
@@ -40,13 +44,6 @@ public class BoardFrontController extends HttpServlet{
 			transfer = new ActionTo();
 			transfer.setRedirect(false);
 			transfer.setPath("/app/board/writeview.jsp");
-			break;
-		case "/board/boardwriteok.bo":
-			try {
-				transfer = new BoardWriteOkAction().execute(req,resp);
-			} catch (Exception e) {
-				System.out.println("WARN:BoardWriteOk : "+e);
-			}
 			break;
 		case "/board/boardmodify.bo":
 			try {

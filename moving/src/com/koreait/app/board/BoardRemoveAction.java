@@ -20,7 +20,8 @@ public class BoardRemoveAction implements Action{
 			transfer.setPath(req.getContextPath()+"/board/boardlist.bo");
 		}
 		else {
-			transfer.setPath(req.getContextPath()+"/board/boardview.bo?boardnum="+boardnum);
+			// 실패
+//			transfer.setPath(req.getContextPath()+"/board/boardview.bo?boardnum="+boardnum);
 		}
 		return transfer;
 	}

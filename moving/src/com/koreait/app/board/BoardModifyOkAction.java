@@ -11,6 +11,7 @@ import com.koreait.dto.BoardDTO;
 public class BoardModifyOkAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		
 		int boardnum = Integer.parseInt(req.getParameter("boardnum"));
 		String boardtitle = req.getParameter("boardtitle");
 		String boardcontents = req.getParameter("boardcontents");
@@ -31,7 +32,8 @@ public class BoardModifyOkAction implements Action{
 			transfer.setPath(req.getContextPath()+"/board/boardview.bo?boardnum="+boardnum+"&page="+page+"&q="+q);
 		}
 		else {
-			transfer.setPath(req.getContextPath()+"/board/boardview.bo?boardnum="+boardnum+"&page="+page+"&q="+q);
+			// 실패
+//			transfer.setPath(req.getContextPath()+"/board/boardview.bo?boardnum="+boardnum+"&page="+page+"&q="+q);
 		}
 		return transfer;
 	}

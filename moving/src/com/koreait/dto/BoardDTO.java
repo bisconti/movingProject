@@ -6,7 +6,14 @@ public class BoardDTO {
     private String boardcontents;
     private String userid;
     private String regdate;
+    private int readcount;
     
+	public int getReadcount() {
+		return readcount;
+	}
+	public void setReadcount(int readcount) {
+		this.readcount = readcount;
+	}
 	public String getRegdate() {
 		return regdate;
 	}

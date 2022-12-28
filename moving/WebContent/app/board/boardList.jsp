@@ -20,7 +20,7 @@
     <link href="/app/css/boardList.css" rel="stylesheet">
 </head>
 <body>
-<%@include file="../common/header.jsp" %>
+<%@include file="/app/common/header.jsp" %>
 <div id="circle1"></div>
     <h2 id="board">커뮤니티</h2>
     <div id="circle2"></div>
@@ -41,15 +41,21 @@
           <th scope="col">제목</th>
           <th scope="col">글쓴이</th>
           <th scope="col">작성일</th>
+          <th scope="col">조회수</th>
         </tr>
       </thead>
       <tbody>
       	<c:forEach items="${boardList}" var="board">
         <tr>
           <th scope="row">${board.boardnum}</th>
-          <td>${board.boardtitle} <span class="new">new!</span></td>
+          <td style="width : 33%"><a id="tt" href="${cp}/board/boardview.bo?boardnum=${board.boardnum}&page=${page}&q=${keyword}">${board.boardtitle}</a> 
+
+          		<span class="new"> new!</span>
+
+          </td>
           <td>${board.userid}</td>
           <td>${board.regdate}</td>
+          <td>${board.readcount}</td>
         </tr>
         </c:forEach>
       </tbody>
@@ -57,17 +63,16 @@
     <br />
     <div id="circle3"></div>
     <div id="circle4"></div>
-    <div id="btnBox">
-      <div>
-        <input type="button" value="글쓰기" />
-        <input type="button" value="목록" />
-      </div>
-    </div>
+    <table id="writeBox">
+		<tr align="right" valign="middle">
+			<td><a class="write" href="${cp}/board/boardwrite.bo?page=${page}&q=${keyword}">글쓰기</a></td>
+		</tr>
+	</table>
     <nav class="navbar navbar-expand-lg navb">
       <div class="container-fluid">
         <form class="d-flex" role="search" style="margin: 0 auto">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button class="btn btn-outline-danger" type="submit">Search</button>
+          <input class="form-control me-2" type="search" id="q" name="q" value="${keyword}" placeholder="Search" aria-label="Search"/>
+          <button class="btn btn-outline-danger" type="button" onclick="search()">Search</button>
         </form>
       </div>
     </nav>
@@ -83,7 +88,7 @@
         </c:if>
         <c:forEach var="i" begin="${startPage }" end="${endPage}">
 			<c:if test="${i == page}">
-        		<li class="page-item"><a class="page-link" href="#">${i}</a></li>
+        		<li class="page-item"><a class="page-link nowPage" href="#">${i}</a></li>
         	</c:if>
 			<c:if test="${i != page }">
        			<li class="page-item"><a class="page-link" href="#">${i}</a></li>
@@ -97,7 +102,20 @@
         </li>
         </c:if>
       </ul>
-    </nav>
-<%@include file="../common/footer.jsp" %>    
+    </nav>	   
+<%@include file="/app/common/footer.jsp" %>    
 </body>
+<script>
+	function search(){
+		const q = document.getElementById("q");
+		//유효성 검사
+		if(q.value == ""){
+			alert("검색어를 입력해주세요!");
+			q.focus();
+			return false;
+		}
+		location.href = "${cp}/board/boardlist.bo?q="+q.value;
+	}
+
+</script>
 </html>

@@ -14,11 +14,11 @@ public class BoardViewAction implements Action{
 		int boardnum = Integer.parseInt(req.getParameter("boardnum"));
 		BoardDAO bdao = new BoardDAO();
 		BoardDTO board = bdao.getDetail(boardnum);
-		req.setAttribute("board", board);
 		
+		req.setAttribute("board", board);
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(false);
-		transfer.setPath("/app/board/getview.jsp");
+		transfer.setPath("/app/board/boardDetail.jsp");
 		
 		return transfer;
 	}

@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+body{
+    background-color: black;
+    color: white;
+}
+table{
+    width: 1000px;
+    margin: 0 auto;
+}
+.td{
+    width: 100px;
+    text-align: center;
+    background-color: #212121;
+    padding: 10px;
+}
+#tables, .tr, .td{
+	border: 1px solid white;
+}
+.td_text{
+    width: 150px;
+    padding: 5px;
+}
+.contents{
+    height: 300px;
+}
+.btn{
+	display : inline-block;
+	width: 100px;
+	height: 30px;
+	border-radius : 7px;
+	background-color:red;
+	float : right;
+	color : white;
+}
