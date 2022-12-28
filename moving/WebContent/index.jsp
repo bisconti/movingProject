@@ -17,6 +17,9 @@
 			<section class="carousel">
 				<div id="title1"><h2>개봉일 순</h2></div>
 				<div class="reel">
+				<c:forEach var="i" begin="1" end="10">
+				
+				</c:forEach>
 					<article>
 						<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
 					</article>
