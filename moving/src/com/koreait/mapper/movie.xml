@@ -6,7 +6,7 @@
 	<select id="mostFast">
 		select md.moviephoto from movie m join moviedata md 
 		on m.movienum = md.movienum where m.movienum = 
-		(select movienum from movie order by movierelease desc limit ${i},1);
+		(select movienum from movie order by movierelease desc limit ${i},1)
 	</select>
 	<select id="watched">
 		select md.moviephoto from moviedata md join watched w
@@ -19,7 +19,9 @@
 		(select movienum from movie order by view_cnt desc limit ${i},1)
 	</select>
 	<select id="mostLike">
-		(select count(movienum) from movie_like order by )
+		select md.moviephoto from moviedata md join movie_like ml on md.movienum = ml.movienum
+		join movie m on m.movienum = ml.movienum where
+		(select movienum from movie_like group by movienum order by movienum limit 0,1)
+		group by m.movienum order by m.movienum limit ${i},1
 	</select>
-	
 </mapper>
