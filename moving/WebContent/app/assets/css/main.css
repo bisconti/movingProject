@@ -111,9 +111,6 @@ input, select, textarea {
 		color: white;
 	}
 
-	#body{
-		background-color: black;
-	}
 
 /* Basic */
 
@@ -126,7 +123,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #212121;
+		background-color: black;
 		color: #5b5b5b;
 		font-size: 15pt;
 		line-height: 1.85em;
