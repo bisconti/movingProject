@@ -12,6 +12,21 @@ public class MovieDTO {
 	private String national;
 	private String agelimit;
 	private int view_cnt;
+	private String moviephoto;
+	private String moviefilm;
+	
+	public String getMoviephoto() {
+		return moviephoto;
+	}
+	public void setMoviephoto(String moviephoto) {
+		this.moviephoto = moviephoto;
+	}
+	public String getMoviefilm() {
+		return moviefilm;
+	}
+	public void setMoviefilm(String moviefilm) {
+		this.moviefilm = moviefilm;
+	}
 	public int getMovienum() {
 		return movienum;
 	}

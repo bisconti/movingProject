@@ -24,4 +24,17 @@
 		(select movienum from movie_like group by movienum order by movienum limit 0,1)
 		group by m.movienum order by m.movienum limit ${i},1
 	</select>
+	<select id="movieDetail" parameterType="moviedto" resultType="moviedto">
+		select * from movie where movienum=#{movienum}
+	</select>
+	<insert id="wishMovie">
+		select * from wishlist where movienum=#{movienum}
+	</insert>
+	<insert id="likeMovie">
+		select * from movie_like where movienum=#{movienum}
+	</insert>
+	<select id="similarType">
+		select md.moviephoto from movie m join moviedata md on m.movienum = md.movienum
+		where typename = (select typename from movie where movienum = #{movienum});
+	</select>
 </mapper>
