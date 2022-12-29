@@ -3,6 +3,7 @@ package com.koreait.index;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,13 +25,24 @@ public class IndexFrontController extends HttpServlet{
 		ActionTo transfer = null;
 		
 		switch(command) {
-		case "/":
+		case "/home.ho":
 			try {
-				new MostFastMovieAction().execute(req,resp);
+				transfer = new MostFastMovieAction().execute(req,resp);
 			} catch (Exception e) {
 				System.out.println("WARN: MostFast: "+e);
 			}
 			break;
+		}
+		
+		if(transfer != null) {
+			if(transfer.isRedirect()) {
+				//Redirect 방식
+				resp.sendRedirect(transfer.getPath());
+			}
+			else {
+				//Forward 방식
+				req.getRequestDispatcher(transfer.getPath()).forward(req, resp);
+			}
 		}
 	}
 

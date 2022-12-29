@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title></title>
+<c:set var="cp" value="${pageContext.request.contextPath}" scope="session"/>
 <style>
 html,header,head{
     width: 100%;
@@ -102,8 +98,6 @@ html,header,head{
     border: none;
 }
 </style>
-</head>
-<body>
 <header>
     <div id="header">
         <div id="logo">
@@ -115,9 +109,7 @@ html,header,head{
             </span>
         </div>
         <div id="login">
-            <a href="./loginview.html" id="login_a"><span>로그인</span></a>
+            <a href="/user/userlogin.us" id="login_a"><span>로그인</span></a>
         </div>
     </div>
 </header>
-</body>
-</html>

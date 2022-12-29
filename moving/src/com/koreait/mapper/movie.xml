@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Movie">
-	<select id="mostFast" parameterType="_int" resultType="String">
-		select md.moviephoto from movie m join moviedata md 
-		on m.movienum = md.movienum where m.movienum = 
+	<select id="mostFast" resultType="moviedto">
+		select * from movie m join moviedata md 
+		on m.movienum = md.movienum where  m.movienum =
 		(select movienum from movie order by movierelease desc limit ${i},1)
 	</select>
 	<select id="watched" parameterType="_int" resultType="String">

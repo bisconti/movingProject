@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<link rel="stylesheet" href="/app/assets/css/main.css" />
+<link rel="stylesheet" href="${cp}/app/assets/css/main.css" />
 </head>
 <body>
 <%@include file="/app/common/header.jsp" %>
@@ -17,11 +17,10 @@
 			<section class="carousel">
 				<div id="title1"><h2>개봉일 순</h2></div>
 				<div class="reel">
-				<c:forEach var="i" begin="1" end="10">
+				
 					<article>
-						<a href="#" class="image featured"><img src="" alt="" /></a>
-					</article>			
-				</c:forEach>
+						<a href="#" class="image featured"><img src="" alt=""/></a>
+					</article>
 
 					<article>
 						<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
