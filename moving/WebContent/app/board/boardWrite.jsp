@@ -60,7 +60,7 @@
 
             <div class="form-group">
                 <label for="userid" class="n">작성자</label>
-                <input type="text" name="userid" class="form-control bc" value="user11" id="userid" disabled readonly>
+                <input type="text" name="userid" class="form-control bc" value="user11" id="userid" readonly>
             </div>
     
             <div class="form-group">

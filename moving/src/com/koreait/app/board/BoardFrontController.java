@@ -16,8 +16,8 @@ public class BoardFrontController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//흐름 나누기
-		String requestURI = req.getRequestURI();// ???????/user/userjoin.us
-		String contextPath = req.getContextPath();// ??????(web_module명)
+		String requestURI = req.getRequestURI();
+		String contextPath = req.getContextPath();
 		String command = requestURI.substring(contextPath.length());
 		System.out.println(command);
 		ActionTo transfer = null;
@@ -28,9 +28,6 @@ public class BoardFrontController extends HttpServlet{
 				transfer = new BoardListAction().execute(req,resp);
 			} catch (Exception e) {
 				System.out.println("WARN:BoardList : "+e);
-//				transfer = new ActionTo();
-//				transfer.setPath("/error.jsp");
-//				transfer.setRedirect(false);
 			}
 			break;
 		case "/board/boardview.bo":

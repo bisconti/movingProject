@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +39,7 @@
             </tr>
             <tr class="tr">
                 <td class="td">작성일</td>
-                <td class="td_text">${board.regdate }</td> 
+                <td class="td_text"><fmt:formatDate value="${board.regdate}" pattern="yyyy.MM.dd HH:mm:ss"/></td> 
                 <td class="td">조회수</td>
                 <td class="td_text">${board.readcount }</td>
             </tr>
@@ -55,7 +56,8 @@
         <table>
         <tr>
           <td colspan="4" align="center" id="rights">
-              	<c:if test="${board.userid == loginUser }">
+              	<%--<c:if test="${board.userid == loginUser }"> --%>
+              	<c:if test="${board.userid == 'user11' }">
 					<a class="btn" href="${cp}/board/boardmodify.bo?boardnum=${board.boardnum}&page=${param.page}&q=${param.q}">수정</a>&nbsp;&nbsp;
 					<a class="btn" href="${cp}/board/boardremove.bo?boardnum=${board.boardnum}">삭제</a>&nbsp;&nbsp;
 				</c:if>

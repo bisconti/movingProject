@@ -1,5 +1,7 @@
 package com.koreait.app.board;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,7 +18,7 @@ public class BoardWriteOkAction implements Action{
 		board.setBoardtitle(req.getParameter("boardtitle"));
 		board.setBoardcontents(req.getParameter("boardcontents"));
 		
-		String userid = "hello";
+		String userid = req.getParameter("userid");
 		System.out.println(userid);
 		board.setUserid(userid);
 		
@@ -24,8 +26,16 @@ public class BoardWriteOkAction implements Action{
 		ActionTo transfer = new ActionTo();
 		int boardnum = 0;
 		
+		resp.setCharacterEncoding("UTF-8");
+		
+		resp.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter out = resp.getWriter();
+		
 		if(bdao.insertBoard(board)) {
 			boardnum = bdao.getLastNum(userid); 
+			out.println("<script>alert('등록 성공!');</script>");
+			out.flush();
 			transfer.setRedirect(true);
 			transfer.setPath(req.getContextPath()+"/board/boardview.bo?boardnum="+boardnum);
 		}

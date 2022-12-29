@@ -22,9 +22,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="/app/css/boardList.css" rel="stylesheet">
     <script src="/app/js/boardList.js"></script>
-    <script>
-    	const conPath = "${pageContext.request.contextPath}";
-    </script>
 </head>
 <body>
 <%@include file="/app/common/header.jsp" %>
@@ -44,11 +41,8 @@
       </form> 
       </div>
     </div>
-    <jsp:useBean id="toDay" class="java.util.Date"/>
-    <fmt:formatDate value="${toDay }" pattern="yyyyMMdd" var="nowDate"/>
-    <c:out value="${nowDate}"/>
-    
-    
+    <c:set var="now" value="<%=new java.util.Date()%>" /><!-- 현재시간 -->
+	
     <table class="table table-dark table-hover" id="tableHover">
       <thead>
         <tr>
@@ -64,10 +58,14 @@
         <tr>
           <th scope="row">${board.boardnum}</th>
           <td style="width : 33%"><a id="tt" href="${cp}/board/boardview.bo?boardnum=${board.boardnum}&page=${page}&q=${keyword}">${board.boardtitle}</a> 
-          		<span class="new"> new!</span>
+				<fmt:parseNumber value="${now.time / (1000*60*60*24)}" integerOnly="true" var="today" />
+					<fmt:parseNumber value="${board.regdate.time / (1000*60*60*24)}" integerOnly="true" var="boarddate" />
+					<c:if test="${today - boarddate le 1}">
+		          		<span class="new"> new!</span>
+					</c:if> 
           </td>
           <td>${board.userid}</td>
-          <td>${board.regdate}</td>
+          <td><fmt:formatDate value="${board.regdate}" pattern="yyyy.MM.dd HH:mm:ss"/></td>
           <td>${board.readcount}</td>
         </tr>
         </c:forEach>

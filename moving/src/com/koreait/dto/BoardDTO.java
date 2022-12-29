@@ -1,24 +1,26 @@
 package com.koreait.dto;
 
+import java.util.Date;
+
 public class BoardDTO {
 	private int boardnum;
     private String boardtitle;
     private String boardcontents;
-    private String regdate;
-    private int readcount;
+    private Date regdate;
+	private int readcount;
     private String userid;
     
+    public Date getRegdate() {
+    	return regdate;
+    }
+    public void setRegdate(Date regdate) {
+    	this.regdate = regdate;
+    }
 	public int getReadcount() {
 		return readcount;
 	}
 	public void setReadcount(int readcount) {
 		this.readcount = readcount;
-	}
-	public String getRegdate() {
-		return regdate;
-	}
-	public void setRegdate(String regdate) {
-		this.regdate = regdate;
 	}
 	public int getBoardnum() {
 		return boardnum;
