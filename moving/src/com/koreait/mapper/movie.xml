@@ -37,4 +37,9 @@
 		select md.moviephoto from movie m join moviedata md on m.movienum = md.movienum
 		where typename = (select typename from movie where movienum = #{movienum});
 	</select>
+	<select id="moviesearchtitle" parameterType="String" resultType="moviedto">
+		select *from movie m 
+		join moviedata md on m.movienum = md.movienum
+		where movietitle like #{search} or actorname like #{search} or typename like #{search};
+	</select>
 </mapper>

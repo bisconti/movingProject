@@ -8,52 +8,41 @@
 <link rel="stylesheet" href="/app/css/movingsearch.css">
 </head>
 <body>
-	<%@include file="../common/header.jsp"%><br>
-	<br>
+	<%@include file="../common/header.jsp"%>
 	<!--search-->
 	<div id="wrap">
+		<%
+			System.out.println("제발..");
+		%>
+		<c:choose>
+		<c:when test="${movieList != null and movieList.size()>0}">
+			<%
+				System.out.println("제발..");
+			%>
 		<div class="search_result">
-			<h2 id="title">"OOO"</h2>
-			<p id="result">님의 검색 결과 입니다.</p>
+			<h2 id="title">${ms}</h2>
+			<p id="result">의 검색 결과 입니다.</p>
 		</div>
-		<div class="movie_box">
-			<div id="photo">
-				<a href=""><img id="image" src="/images/007 스펙터.jpg" alt=""></a>
+			<c:forEach items="${movieList}" var="movie">
+				<div class="movie_box">
+					<div id="photo">
+						<a href=""><img id="image" src="/app/file/${movie.moviephoto}" alt=""></a>
+					</div>
+					<div id="info">
+						<h2>${movie.movietitle}</h2>
+						<h3>줄거리</h3>
+						<p id="contents">"${movie.moviecontents}"</p>
+					</div>
+				</div>
+			</c:forEach>
+		</c:when>
+		<c:otherwise>
+			<div class="search_result">
+				<h2 id="title">${ms}</h2>
+				<p id="result">의 검색 결과가 존재하지 않습니다.</p>
 			</div>
-			<div id="info">
-				<h2>제목</h2>
-				<h3>줄거리</h3>
-				<p id="contents">Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Labore earum corporis, molestiae consectetur
-					delectus omnis temporibus iusto provident porro adipisci in officia
-					culpa tempora ex ratione pariatur at nobis inventore?</p>
-			</div>
-		</div>
-
-		<div class="movie_box">
-			<div id="photo">
-				<a href=""><img id="image" src="/images/20세기소녀.jpg" alt=""></a>
-			</div>
-			<div id="info">
-				<h2>제목</h2>
-				<h3>줄거리</h3>
-				<p id="contents">Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Labore earum corporis, molestiae consectetur
-					delectus omnis temporibus iusto provident porro adipisci in officia
-					culpa tempora ex ratione pariatur at nobis inventore?Lorem ipsum
-					dolor sit amet consectetur adipisicing elit. Labore earum corporis,
-					molestiae consectetur delectus omnis temporibus iusto provident
-					porro adipisci in officia culpa tempora ex ratione pariatur at
-					nobis inventore?Lorem ipsum dolor sit amet consectetur adipisicing
-					elit. Labore earum corporis, molestiae consectetur delectus omnis
-					temporibus iusto provident porro adipisci in officia culpa tempora
-					ex ratione pariatur at nobis inventore?Lorem ipsum dolor sit amet
-					consectetur adipisicing elit. Labore earum corporis, molestiae
-					consectetur delectus omnis temporibus iusto provident porro
-					adipisci in officia culpa tempora ex ratione pariatur at nobis
-					inventore?</p>
-			</div>
-		</div>
+		</c:otherwise>
+		</c:choose>
 	</div>
 	<%@include file="../common/footer.jsp"%>
 </body>
