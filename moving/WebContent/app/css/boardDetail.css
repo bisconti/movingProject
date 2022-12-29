@@ -25,11 +25,13 @@ table{
     height: 300px;
 }
 .btn{
-	display : inline-block;
 	width: 100px;
-	height: 30px;
+	height: 40px;
 	border-radius : 7px;
 	background-color:red;
-	float : right;
 	color : white;
+}
+#rights{
+	display: flex;
+	justify-content : flex-end;
 }

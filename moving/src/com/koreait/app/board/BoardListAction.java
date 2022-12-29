@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.koreait.action.Action;
 import com.koreait.action.ActionTo;
@@ -17,10 +18,11 @@ public class BoardListAction implements Action{
 		String temp = req.getParameter("page");
 		String keyword = req.getParameter("q");
 		
-		int page = temp == null ? 1 : Integer.parseInt(temp);
+		HttpSession session = req.getSession();
+		Integer pageSize = (Integer)session.getAttribute("pageSize");
+	    if(pageSize == null) pageSize = 10;
 		
-		//한 페이지에서 보여줄 게시글의 개수
-		int pageSize = 10;
+		int page = temp == null ? 1 : Integer.parseInt(temp);
 		
 		//전체 게시글의 개수
 		int totalCnt = bdao.getBoardCnt(keyword);
@@ -48,7 +50,8 @@ public class BoardListAction implements Action{
 		req.setAttribute("startPage", startPage);
 		req.setAttribute("endPage", endPage);
 		req.setAttribute("keyword", keyword);
-		
+		req.setAttribute("pageSize", pageSize);
+		req.setAttribute("url", req.getRequestURI());
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(false);
 		transfer.setPath("/app/board/boardList.jsp");

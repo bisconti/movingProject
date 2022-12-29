@@ -1,6 +1,7 @@
 package com.koreait.dto;
 
 public class UserDTO {
+	private int id;
 	private String userid;
     private String userpw;
     private String username;
@@ -11,6 +12,12 @@ public class UserDTO {
     private String addretc;
     private String userhobby;
     
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getUserid() {
 		return userid;
 	}

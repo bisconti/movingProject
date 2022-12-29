@@ -53,6 +53,9 @@ public class BoardDAO {
 	public boolean removeBoard(int boardnum) {
 		return sqlsession.delete("Board.removeBoard",boardnum) == 1;
 	}
+	public void updateReadcount(int boardnum) {
+		sqlsession.update("Board.updateReadcount",boardnum);
+	}
 	
 }
 

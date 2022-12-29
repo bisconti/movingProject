@@ -43,8 +43,15 @@ public class BoardFrontController extends HttpServlet{
 		case "/board/boardwrite.bo":
 			transfer = new ActionTo();
 			transfer.setRedirect(false);
-			transfer.setPath("/app/board/writeview.jsp");
+			transfer.setPath("/app/board/boardWrite.jsp");
 			break;
+		case "/board/boardwriteok.bo":
+			try {
+				transfer = new BoardWriteOkAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("WARN:BoardWriteOk : "+e);
+			}
+			break;	
 		case "/board/boardmodify.bo":
 			try {
 				transfer = new BoardModifyAction().execute(req,resp);
@@ -65,6 +72,12 @@ public class BoardFrontController extends HttpServlet{
 			} catch (Exception e) {
 				System.out.println("WARN:BoardRemove : "+e);
 			}
+			break;
+		case "/board/pageSize.bo":
+		    int page = Integer.parseInt(req.getParameter("page"));
+		    Integer pageSize = Integer.parseInt(req.getParameter("pageSize"));
+		    req.getSession().setAttribute("pageSize", pageSize);
+		    resp.sendRedirect(req.getContextPath() + "/board/boardlist.bo?page="+page);
 			break;
 		}
 		

@@ -18,18 +18,23 @@
       crossorigin="anonymous"
     ></script>
     <link href="/app/css/boardDetail.css" rel="stylesheet">
+    <style>
+    #rights > a:hover{
+    	background-color : #990000;
+    }
+    </style>
 </head>
 <body>
 <%@include file="/app/common/header.jsp" %><br><br><br><br>
     <h2 style="width: 1000px; margin : 0 auto;">detail</h2><br>
     <form name="writeFrm">
-        <input type="hidden" name="num" value="1" /> 
+        <input type="hidden" name="id" value="${board.boardnum}"/>     
         <table border="1" width="90%" id="tables">
             <tr class="tr">
                 <td class="td">번호</td>
                 <td class="td_text">${board.boardnum }</td> 
                 <td class="td">작성자</td>
-                <td class="td_text">userid</td>
+                <td class="td_text">user11</td>
             </tr>
             <tr class="tr">
                 <td class="td">작성일</td>
@@ -49,16 +54,22 @@
         <br>
         <table>
         <tr>
-          <td colspan="4" align="center">
+          <td colspan="4" align="center" id="rights">
               	<c:if test="${board.userid == loginUser }">
 					<a class="btn" href="${cp}/board/boardmodify.bo?boardnum=${board.boardnum}&page=${param.page}&q=${param.q}">수정</a>&nbsp;&nbsp;
 					<a class="btn" href="${cp}/board/boardremove.bo?boardnum=${board.boardnum}">삭제</a>&nbsp;&nbsp;
 				</c:if>
-				<a class="btn" href="${cp }/board/boardlist.bo?page=${param.page}&q=${param.q}">목록</a>
+				<c:if test="${param.page != null}">
+					<a class="btn" href="${cp }/board/boardlist.bo?page=${param.page}&q=${param.q}">목록</a>
+				</c:if>
+				<c:if test="${param.page == null}">
+					<a class="btn" href="${cp }/board/boardlist.bo?page=1">목록</a>
+				</c:if>
           </td>
         </tr>
         </table><br>
     </form>
+<%@include file="/app/comment/comment.jsp" %> 
 <%@include file="/app/common/footer.jsp" %>    
 </body>
 </html>
