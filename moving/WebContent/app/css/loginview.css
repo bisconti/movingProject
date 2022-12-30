@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-    background-color: #212121;
+    background-color: black;
 }
 
 .login_page {
@@ -43,7 +43,7 @@ input::placeholder {
 }
 
 .lor-header{
-    background: url(/images/moving_logo.png) no-repeat;
+    background: url(/app/img/moving_logo.png) no-repeat;
     background-size: cover;
     background-position: center;
     width: auto; height: auto;

@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/app/css/joinview_2.css">
 <body>
 <div id="wrap">
-<form action="/joinview.html">
+<form action="/app/user/joinview.jsp" onsubmit="체크박스유효성검사">
         <h2 class="h2">홈페이지 이용약관</h2>
         <div class="agree">
             <div tabindex="0">
@@ -371,4 +371,9 @@
 </div>    
 <br><br><br>
 </body>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+	const cp = "${cp}";
+</script>
+<script src="${cp}/app/user/user.js"></script>
 </html>

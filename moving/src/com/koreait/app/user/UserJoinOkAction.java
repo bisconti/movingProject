@@ -22,10 +22,11 @@ public class UserJoinOkAction implements Action{
 		user.setUsername(req.getParameter("username"));
 		user.setUsergender(req.getParameter("usergender"));
 		user.setZipcode(req.getParameter("zipcode"));
-		user.setAddr(req.getParameter("addr"));
-		user.setAddrdetail(req.getParameter("addrdetail"));
-		user.setAddretc(req.getParameter("addretc"));
-		user.setUserhobby(String.join(",", req.getParameterValues("userhobby")));
+		user.setUseraddr(req.getParameter("useraddr"));
+		user.setUseraddrdetail(req.getParameter("useraddrdetail"));
+		user.setUseraddretc(req.getParameter("useraddretc"));
+		user.setUserbirth(String.join("-", req.getParameterValues("userbirth")));;
+		user.setUserphone(req.getParameter("userphone"));
 		
 		System.out.println("INFO:user객체 - "+user);
 		
