@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="cp" value="${pageContext.request.contextPath}" scope="session"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +59,7 @@ html,header,head{
 #magnifying{
     width: 2%;
     height: 35%;
-    background: url(./images/magnifying-removebg-preview.png) no-repeat;
+    /* background: url(./images/magnifying-removebg-preview.png) no-repeat; */
     background-size: contain;
     cursor: pointer;
     border: none;
@@ -107,7 +108,7 @@ html,header,head{
 <header>
     <div id="header">
         <div id="logo">
-            <a href="./main.html"><img src="/app/img/moving_logo.png" alt="" id="logos"></a>
+            <a href="/index.jsp"><img src="/app/img/moving_logo.png" alt="" id="logos"></a>
         </div>
         <div id="search">
             <span>
@@ -115,9 +116,11 @@ html,header,head{
             </span>
         </div>
         <div id="login">
-            <a href="./loginview.html" id="login_a"><span>로그인</span></a>
+            <a href="${cp}/user/userlogin.us" id="login_a"><span>로그인</span></a>
         </div>
     </div>
 </header>
 </body>
+<script>
+</script>
 </html>
