@@ -30,14 +30,14 @@ public class UserLoginOkAction implements Action {
 			//alert('apple님 어서오세요~!');
 			out.print("alert('"+userid+"님 어서오세요~!');");
 			//location.href = '????/board/boardlist.bo';
-			out.print("location.href='"+ req.getContextPath()+"/board/boardlist.bo';");
+			out.print("location.href='"+ req.getContextPath()+"/';");
 			//</script>
 			out.print("</script>");
 		}
 		else {
 			out.print("<script>");
-			out.print("alert('로그인 실패!')");
-			out.print("location.href='"+ req.getContextPath()+"/';");
+			out.print("alert('로그인 실패!');");
+			out.print("location.href='"+ req.getContextPath()+"/user/userlogin.us';");
 			out.print("</script>");
 		}
 		return null;
