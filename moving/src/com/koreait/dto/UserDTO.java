@@ -2,15 +2,16 @@ package com.koreait.dto;
 
 public class UserDTO {
 	private String userid;
-    private String userpw;
-    private String username;
-    private String usergender;
+	private String userpw;
+	private String username;
+	private String usergender;
 	private String zipcode;
-    private String addr;
-    private String addrdetail;
-    private String addretc;
-    private String userhobby;
-    
+	private String useraddr;
+	private String useraddrdetail;
+	private String useraddretc;
+	private String userbirth;
+	private String userphone;
+	
 	public String getUserid() {
 		return userid;
 	}
@@ -41,36 +42,46 @@ public class UserDTO {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
-	public String getAddr() {
-		return addr;
+	public String getUseraddr() {
+		return useraddr;
 	}
-	public void setAddr(String addr) {
-		this.addr = addr;
+	public void setUseraddr(String useraddr) {
+		this.useraddr = useraddr;
 	}
-	public String getAddrdetail() {
-		return addrdetail;
+	public String getUseraddrdetail() {
+		return useraddrdetail;
 	}
-	public void setAddrdetail(String addrdetail) {
-		this.addrdetail = addrdetail;
+	public void setUseraddrdetail(String useraddrdetail) {
+		this.useraddrdetail = useraddrdetail;
 	}
-	public String getAddretc() {
-		return addretc;
+	public String getUseraddretc() {
+		return useraddretc;
 	}
-	public void setAddretc(String addretc) {
-		this.addretc = addretc;
+	public void setUseraddretc(String useraddretc) {
+		this.useraddretc = useraddretc;
 	}
-	public String getUserhobby() {
-		return userhobby;
+	public String getUserbirth() {
+		return userbirth;
 	}
-	public void setUserhobby(String userhobby) {
-		this.userhobby = userhobby;
+	public void setUserbirth(String userbirth) {
+		this.userbirth = userbirth;
+	}
+	public String getUserphone() {
+		return userphone;
+	}
+	public void setUserphone(String userphone) {
+		this.userphone = userphone;
 	}
 	
 	@Override
 	public String toString() {
 		return "UserDTO [userid=" + userid + ", userpw=" + userpw + ", username=" + username + ", usergender="
-				+ usergender + ", zipcode=" + zipcode + ", addr=" + addr + ", addrdetail=" + addrdetail + ", addretc="
-				+ addretc + ", userhobby=" + userhobby + "]";
+				+ usergender + ", zipcode=" + zipcode + ", useraddr=" + useraddr + ", useraddrdetail=" + useraddrdetail
+				+ ", useraddretc=" + useraddretc + ", userbirth=" + userbirth + ", userphone=" + userphone + "]";
 	}
+	
+	
+    
+	
 	
 }
