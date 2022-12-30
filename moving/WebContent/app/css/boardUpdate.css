@@ -21,30 +21,27 @@ table{
     width: 150px;
     padding: 5px;
 }
-.contents{
-    height: 300px;
-}
-.btn{
+.btns{
 	width: 100px;
 	height: 40px;
 	border-radius : 7px;
 	background-color:red;
+	color : white;
+	text-decoration:none;
+	line-height: 40px;
+}
+.btns:hover{
+	background-color: #D01212;
+	text-decoration:none;
 	color : white;
 }
 #rights{
 	display: flex;
 	justify-content : flex-end;
 }
-.bg{
-	width: 100px; 
-	height: 40px; 
-	border-radius : 7px; 
-	background-color:red; 
-	color : white; 
-	line-height: 40px; 
-	text-decoration : none;"
+.upcolor{
+	color : black;
 }
-.bg:hover{
-	color : white;
-	background-color: #D01222;
+.upsize{
+	width: 300px;
 }

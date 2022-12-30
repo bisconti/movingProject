@@ -1,5 +1,6 @@
 package com.koreait.app.board;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -29,6 +30,8 @@ public class BoardModifyOkAction implements Action{
 		BoardDAO bdao = new BoardDAO();
 		
 		if(bdao.updateBoard(board)) {
+			Cookie cookie = new Cookie("check", "ut");
+			resp.addCookie(cookie);
 			transfer.setPath(req.getContextPath()+"/board/boardview.bo?boardnum="+boardnum+"&page="+page+"&q="+q);
 		}
 		else {

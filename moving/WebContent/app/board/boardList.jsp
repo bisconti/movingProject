@@ -8,22 +8,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="/app/css/boardList.css" rel="stylesheet">
     <script src="/app/js/boardList.js"></script>
+    <script>
+    	const conPath = "${pageContext.request.contextPath}";
+    </script>
 </head>
 <body>
+<%
+	String c = request.getHeader("Cookie");
+	String userid = "";
+	if(c != null){
+		Cookie[] cookies = request.getCookies();
+		for(Cookie cookie : cookies){
+			if(cookie.getValue().equals("rt")){
+%>
+				<script>alert("삭제 성공!");</script>
+<%
+				userid = cookie.getValue();
+				cookie.setMaxAge(0);
+				response.addCookie(cookie);
+				break;
+			}
+		}
+	}
+%>
 <%@include file="/app/common/header.jsp" %>
 <div id="circle1"></div>
     <h2 id="board">커뮤니티</h2>
@@ -58,11 +70,11 @@
         <tr>
           <th scope="row">${board.boardnum}</th>
           <td style="width : 33%"><a id="tt" href="${cp}/board/boardview.bo?boardnum=${board.boardnum}&page=${page}&q=${keyword}">${board.boardtitle}</a> 
-				<fmt:parseNumber value="${now.time / (1000*60*60*24)}" integerOnly="true" var="today" />
-					<fmt:parseNumber value="${board.regdate.time / (1000*60*60*24)}" integerOnly="true" var="boarddate" />
-					<c:if test="${today - boarddate le 1}">
-		          		<span class="new"> new!</span>
-					</c:if> 
+			<fmt:parseNumber value="${now.time / (1000*60*60*24)}" integerOnly="true" var="today" />
+			<fmt:parseNumber value="${board.regdate.time / (1000*60*60*24)}" integerOnly="true" var="boarddate" />
+			<c:if test="${today - boarddate le 0.5}">
+          		<span class="new"> new!</span>
+			</c:if> 
           </td>
           <td>${board.userid}</td>
           <td><fmt:formatDate value="${board.regdate}" pattern="yyyy.MM.dd HH:mm:ss"/></td>
@@ -76,7 +88,7 @@
     <div id="circle4"></div>
     <table id="writeBox">
 		<tr align="right" valign="middle">
-			<td><a class="write" href="${cp}/board/boardwrite.bo?page=${page}&q=${keyword}">글쓰기</a></td>
+			<td><a class="writes" href="${cp}/board/boardwrite.bo?page=${page}&q=${keyword}">글쓰기</a></td>
 		</tr>
 	</table>
     <nav class="navbar navbar-expand-lg navb">
@@ -127,6 +139,15 @@
 		}
 		location.href = "${cp}/board/boardlist.bo?q="+q.value;
 	}
+	
+	$(function(){
+		$("[name='pageSize']").change(function(){
 
+			let frm = $("[name='frmPageRows']");
+			frm.attr("method", "POST");
+			frm.attr("action", conPath+"/board/pageSize.bo");
+			frm.submit();
+		});
+	});
 </script>
 </html>
