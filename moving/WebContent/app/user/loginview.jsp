@@ -25,7 +25,7 @@
                     <input type="password" name="userpw" id="userpw" placeholder="비밀번호를 입력해주세요">
                 </div>
                 <div class="joinview">
-                    <a href="/app/user/joinview.jsp" class="join" rel="nofollow">회원가입</a>
+                    <a href="/app/user/tos.jsp" class="join" rel="nofollow">회원가입</a>
                 </div>
                 <div class="btn-submit">
                     <input type="submit" value="로그인"></input>
