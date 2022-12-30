@@ -56,8 +56,7 @@
         <table>
         <tr>
           <td colspan="4" align="center" id="rights">
-              	<%--<c:if test="${board.userid == loginUser }"> --%>
-              	<c:if test="${board.userid == 'user11' }">
+              	<c:if test="${board.userid == loginUser }">
 					<a class="btn" href="${cp}/board/boardmodify.bo?boardnum=${board.boardnum}&page=${param.page}&q=${param.q}">수정</a>&nbsp;&nbsp;
 					<a class="btn" href="${cp}/board/boardremove.bo?boardnum=${board.boardnum}">삭제</a>&nbsp;&nbsp;
 				</c:if>

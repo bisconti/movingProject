@@ -17,35 +17,7 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-    <style>
-        body{
-            background-color: black;
-        }
-        .n{
-            color: white;
-        }
-        .color {
-            background-color: red;
-            color: white;
-            float : right;
-        }
-        #both{
-            clear: both;
-        }
-        h2{
-            width: 1000px;
-            margin: 0 auto;
-            color: white;
-            margin-bottom: 20px;
-        }
-        .formD{
-            width: 1000px; 
-            margin: 0 auto; 
-            border : 1px solid red; 
-            padding: 20px; 
-            border-radius: 20px;
-        }
-    </style>
+    <link href="/app/css/boardWrite.css" rel="stylesheet">
 </head>
 <body>
 <%@include file="/app/common/header.jsp" %>
@@ -60,7 +32,7 @@
 
             <div class="form-group">
                 <label for="userid" class="n">작성자</label>
-                <input type="text" name="userid" class="form-control bc" value="user11" id="userid" readonly>
+                <input type="text" name="userid" class="form-control bc" value="${loginUser}" id="userid" readonly>
             </div>
     
             <div class="form-group">
