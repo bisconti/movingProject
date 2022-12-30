@@ -12,20 +12,16 @@ public class MovieDAO {
 	}
 
 	public MovieDTO MostFast(int i) {
-		for (int i = 0; i < 9; i++) {
-			return sqlsession.selectOne("Movie.mostFast",i);
-			
-		}
+		return sqlsession.selectOne("Movie.mostFast",i);
 	} 
-	
-	public String Watched() {
-		return sqlsession.selectOne("Movie.watched");
+	public MovieDTO Watched(int i) {
+		return sqlsession.selectOne("Movie.watched",i);
 	}
-	public String MostView() {
-		return sqlsession.selectOne("Movie.mostView");
+	public MovieDTO MostView(int i) {
+		return sqlsession.selectOne("Movie.mostView",i);
 	}
-	public String MostLike() {
-		return sqlsession.selectOne("Movie.mostLike");
+	public MovieDTO MostLike(int i) {
+		return sqlsession.selectOne("Movie.mostLike",i);
 	}
 
 	

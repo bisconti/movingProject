@@ -17,45 +17,44 @@
 			<section class="carousel">
 				<div id="title1"><h2>개봉일 순</h2></div>
 				<div class="reel">
-				
 					<article>
-						<a href="#" class="image featured"><img src="" alt=""/></a>
+						<a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
 					</article>
 
 					<article>
-						<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+						<a href="${cp}/movie/moviedetail.mo?movienum=${movie2.movienum}" class="image featured"><img src="../app/file/${movie2.moviephoto}" alt="" /></a>
 					</article>
 
 					<article>
-						<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+						<a href="${cp}/movie/moviedetail.mo?movienum=${movie3.movienum}" class="image featured"><img src="../app/file/${movie3.moviephoto}" alt="" /></a>
 					</article>
 
 					<article>
-						<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+						<a href="${cp}/movie/moviedetail.mo?movienum=${movie4.movienum}" class="image featured"><img src="../app/file/${movie4.moviephoto}" alt="" /></a>
 					</article>
 
 					<article>
-						<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+						<a href="${cp}/movie/moviedetail.mo?movienum=${movie5.movienum}" class="image featured"><img src="../app/file/${movie5.moviephoto}" alt="" /></a>
 					</article>
 
 					<article>
-						<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+						<a href="${cp}/movie/moviedetail.mo?movienum=${movie6.movienum}" class="image featured"><img src="../app/file/${movie6.moviephoto}" alt="" /></a>
 					</article>
 
 					<article>
-						<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+						<a href="${cp}/movie/moviedetail.mo?movienum=${movie7.movienum}" class="image featured"><img src="../app/file/${movie7.moviephoto}" alt="" /></a>
 					</article>
 
 					<article>
-						<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+						<a href="${cp}/movie/moviedetail.mo?movienum=${movie8.movienum}" class="image featured"><img src="../app/file/${movie8.moviephoto}" alt="" /></a>
 					</article>
 
 					<article>
-						<a href="#" class="image featured"><img src=../app/img/007스펙터.jpg alt="" /></a>
+						<a href="${cp}/movie/moviedetail.mo?movienum=${movie9.movienum}" class="image featured"><img src="../app/file/${movie9.moviephoto}" alt="" /></a>
 					</article>
 
 					<article>
-						<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+						<a href="${cp}/movie/moviedetail.mo?movienum=${movie10.movienum}" class="image featured"><img src="../app/file/${movie10.moviephoto}" alt="" /></a>
 					</article>
 				</div>
 			</section>
@@ -67,43 +66,43 @@
 						<div id="title3"><h2>조회수 순</h2></div>
 						<div class="reel">
 							<article>
-								<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+								<a href="#" class="image featured"><img src="../app/file/${movie11.moviephoto}" alt="" /></a>
 							</article>
 	
 							<article>
-								<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+								<a href="#" class="image featured"><img src="../app/file/${movie12.moviephoto}" alt="" /></a>
 							</article>
 	
 							<article>
-								<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+								<a href="#" class="image featured"><img src="../app/file/${movie13.moviephoto}" alt="" /></a>
 							</article>
 	
 							<article>
-								<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+								<a href="#" class="image featured"><img src="../app/file/${movie14.moviephoto}" alt="" /></a>
 							</article>
 	
 							<article>
-								<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+								<a href="#" class="image featured"><img src="../app/file/${movie15.moviephoto}" alt="" /></a>
 							</article>
 	
 							<article>
-								<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+								<a href="#" class="image featured"><img src="../app/file/${movie16.moviephoto}" alt="" /></a>
 							</article>
 	
 							<article>
-								<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+								<a href="#" class="image featured"><img src="../app/file/${movie17.moviephoto}" alt="" /></a>
 							</article>
 	
 							<article>
-								<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+								<a href="#" class="image featured"><img src="../app/file/${movie18.moviephoto}" alt="" /></a>
 							</article>
 	
 							<article>
-								<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+								<a href="#" class="image featured"><img src="../app/file/${movie19.moviephoto}" alt="" /></a>
 							</article>
 	
 							<article>
-								<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+								<a href="#" class="image featured"><img src="../app/file/${movie20.moviephoto}" alt="" /></a>
 							</article>
 						</div>
 						</section>
@@ -115,43 +114,43 @@
 									<div id="title4"><h2>좋아요 순</h2></div>
 									<div class="reel">
 										<article>
-											<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+											<a href="#" class="image featured"><img src="../app/file/${movie21.moviephoto}" alt="" /></a>
 										</article>
 				
 										<article>
-											<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+											<a href="#" class="image featured"><img src="../app/file/${movie22.moviephoto}" alt="" /></a>
 										</article>
 				
 										<article>
-											<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+											<a href="#" class="image featured"><img src="../app/file/${movie23.moviephoto}" alt="" /></a>
 										</article>
 				
 										<article>
-											<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+											<a href="#" class="image featured"><img src="../app/file/${movie24.moviephoto}" alt="" /></a>
 										</article>
 				
 										<article>
-											<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+											<a href="#" class="image featured"><img src="../app/file/${movie25.moviephoto}" alt="" /></a>
 										</article>
 				
 										<article>
-											<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+											<a href="#" class="image featured"><img src="../app/file/${movie26.moviephoto}" alt="" /></a>
 										</article>
 				
 										<article>
-											<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+											<a href="#" class="image featured"><img src="../app/file/${movie27.moviephoto}" alt="" /></a>
 										</article>
 				
 										<article>
-											<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+											<a href="#" class="image featured"><img src="../app/file/${movie28.moviephoto}" alt="" /></a>
 										</article>
 				
 										<article>
-											<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+											<a href="#" class="image featured"><img src="../app/file/${movie29.moviephoto}" alt="" /></a>
 										</article>
 				
 										<article>
-											<a href="#" class="image featured"><img src="../app/img/007스펙터.jpg" alt="" /></a>
+											<a href="#" class="image featured"><img src="../app/file/${movie30.moviephoto}" alt="" /></a>
 										</article>
 									</div>
 									</section>

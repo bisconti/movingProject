@@ -8,18 +8,18 @@
 		on m.movienum = md.movienum where  m.movienum =
 		(select movienum from movie order by movierelease desc limit ${i},1)
 	</select>
-	<select id="watched" parameterType="_int" resultType="String">
-		select md.moviephoto from moviedata md join watched w
+	<select id="watched" parameterType="_int" resultType="moviedto">
+		select * from moviedata md join watched w
 		on md.movienum = w.movienum where md.movienum =
 		(select movienum from watched order by time desc limit ${i},1)
 	</select>
-	<select id="mostView" parameterType="_int" resultType="String">
-		select md.moviephoto from moviedata md join movie m
+	<select id="mostView" parameterType="_int" resultType="moviedto">
+		select * from moviedata md join movie m
 		on m.movienum = md.movienum where md.movienum =
 		(select movienum from movie order by view_cnt desc limit ${i},1)
 	</select>
-	<select id="mostLike" parameterType="_int" resultType="String">
-		select md.moviephoto from moviedata md join movie_like ml on md.movienum = ml.movienum
+	<select id="mostLike" parameterType="_int" resultType="moviedto">
+		select * from moviedata md join movie_like ml on md.movienum = ml.movienum
 		join movie m on m.movienum = ml.movienum where
 		(select movienum from movie_like group by movienum order by movienum limit 0,1)
 		group by m.movienum order by m.movienum limit ${i},1
