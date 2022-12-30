@@ -5,6 +5,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.koreait.dto.UserDTO" alias="userdto"/>
+		<typeAlias type="com.koreait.dto.BoardDTO" alias="boarddto"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -19,6 +20,7 @@
 	</environments>
 	<mappers>
 		<mapper resource="com/koreait/mapper/user.xml"/>
+		<mapper resource="com/koreait/mapper/board.xml"/>
 	</mappers>
 </configuration>
 
