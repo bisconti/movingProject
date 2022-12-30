@@ -17,15 +17,15 @@
             </a>
         </div>
         <div class="lor-content">
-            <form id="loginForm">
+            <form id="loginForm" action="${cp}/user/userloginok.us">
                 <div class="userid">
                     <input name="userid" id="login_id" placeholder="아이디를 입력해주세요">
                 </div>
                 <div class="userpw">
-                    <input type="password" name="mb_password" id="login_pw" placeholder="비밀번호를 입력해주세요">
+                    <input type="password" name="userpw" id="userpw" placeholder="비밀번호를 입력해주세요">
                 </div>
                 <div class="joinview">
-                    <a href="joinview.html" class="join" rel="nofollow">회원가입</a>
+                    <a href="/app/user/joinview.jsp" class="join" rel="nofollow">회원가입</a>
                 </div>
                 <div class="btn-submit">
                     <input type="submit" value="로그인"></input>
