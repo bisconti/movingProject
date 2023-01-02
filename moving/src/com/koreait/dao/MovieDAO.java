@@ -26,8 +26,8 @@ public class MovieDAO {
 		return sqlsession.selectOne("Movie.mostLike",i);
 	}
 
-	public List<MovieDTO> getDetail(int movienum) {
-		return sqlsession.selectList("Movie.movieDetail",movienum);
+	public MovieDTO getDetail(int movienum) {
+		return sqlsession.selectOne("Movie.movieDetail",movienum);
 	}
 
 	

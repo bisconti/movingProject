@@ -10,7 +10,7 @@
 <body>
    <%@include file="/app/common/header.jsp" %>
       <div id="movie">
-         <iframe width="100%" height="100%" src="../file/${movie1.movie}"></iframe>
+         <iframe width="100%" height="100%" src=""></iframe>
       </div>
       <div id="i">
          <div id="but">
@@ -34,7 +34,7 @@
         <div id="movieopen"><p>${movieList.movierelease}</p></div>
         <div id="actor"><p>${movieList.actorname}</p></div>
         <div id="moviesummary"><p>${movieList.moviecontents}</p></div>
-        <div id="genre"><p>${movieList.typenmae}</p></div>
+        <div id="genre"><p>${movieList.typename}</p></div>
    </div>
    <div id="nextmovie">
       <section class="carousel">

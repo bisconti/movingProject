@@ -97,6 +97,27 @@ html,header,head{
     color: white;
     border: none;
 }
+#mypage{
+    position: absolute;
+    width: 10%;
+    right: 7%;
+}
+#mypage > h5{
+    color: white;
+}
+#myprofile{
+    width: 25%;
+    height: 50%;
+    background-size: contain;
+    margin-top: 13px;
+    margin-left: 40px;
+    border-radius: 100px;
+}
+#welcome{
+    position: absolute;
+    top: 0.1%;
+    right: 10%;
+}
 </style>
 <header>
     <div id="header">
@@ -108,8 +129,19 @@ html,header,head{
                 <input class="cff" type="text" placeholder="    검색어를 입력해주세요(영화명, 배우명)" id="search_what"><input type="button" class="cff" id="magnifying" onclick="location.href='<!-- 검색 시 나오는 페이지에 대한 view-->'">
             </span>
         </div>
-        <div id="login">
-            <a href="/user/userlogin.us" id="login_a"><span>로그인</span></a>
-        </div>
+        <c:if test="${loginUser == null}">
+	        <div id="login">
+	            <a href="/user/userlogin.us" id="login_a"><span>로그인</span></a>
+	        </div>
+        </c:if>
+        <c:if test="${loginUser != null}">
+            <div id="mypage">
+            	<a href=""><img src="/app/img/basicprofile.jpg" alt="" id="myprofile"></a>
+            		<h5 id="welcome">환영합니다! <br></h5>
+        	</div>
+        	<div id="logout">
+	            <a href="/home.ho" id="login_a"><span>로그아웃</span></a>
+	        </div>
+        </c:if>
     </div>
 </header>
