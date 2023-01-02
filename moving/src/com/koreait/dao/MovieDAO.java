@@ -45,6 +45,14 @@ public class MovieDAO {
 	      return (Integer)sqlsession.selectOne("Movie.wishMovie",datas) == 1;
 	}
 
+	public List<MovieDTO> getSimilar(int movienum) {
+		return sqlsession.selectList("Movie.similarType",movienum);
+	}
+
+	public String getmovie(int movienum) {
+	    return sqlsession.selectOne("Movie.getMovie", movienum);
+	}
+
 	
 	
 }	

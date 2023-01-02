@@ -10,11 +10,11 @@
 <body>
    <%@include file="/app/common/header.jsp" %>
       <div id="movie">
-         <iframe width="100%" height="100%" src=""></iframe>
+         <iframe width="100%" height="100%" src="../app/film/${movieList.moviefilm}"></iframe>
       </div>
       <div id="i">
          <div id="but">
-            <a id="a" href="${cp}/movie/movie_subscribe.mo?movienum=${movielist.movienum}">찜하기</a>
+            <a id="a" href="${cp}/movie/movie_subscribe.mo?movienum=${movieList.movienum}">찜하기</a>
             <a href="javascript:;" class="like">
                <img src="https://cdn-icons-png.flaticon.com/128/889/889221.png" alt="좋아요">
             </a>
@@ -39,46 +39,56 @@
    <div id="nextmovie">
       <section class="carousel">
          <div class="reel">
+         <c:if test="${movieList.movienum != movie1.movienum}">
             <article>
                <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
             </article>
-
+         </c:if>
+		 <c:if test="${movieList.movienum != movie2.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie2.movienum}" class="image featured"><img src="../app/file/${movie2.moviephoto}" alt=""/></a>
             </article>
-
+		 </c:if>
+		 <c:if test="${movieList.movienum != movie3.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie3.movienum}" class="image featured"><img src="../app/file/${movie3.moviephoto}" alt=""/></a>
             </article>
-
+		 </c:if>
+		 <c:if test="${movieList.movienum != movie4.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie4.movienum}" class="image featured"><img src="../app/file/${movie4.moviephoto}" alt=""/></a>
             </article>
-
+		 </c:if>
+		 <c:if test="${movieList.movienum != movie5.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie5.movienum}" class="image featured"><img src="../app/file/${movie5.moviephoto}" alt=""/></a>
             </article>
-
+		 </c:if>
+		 <c:if test="${movieList.movienum != movie6.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie6.movienum}" class="image featured"><img src="../app/file/${movie6.moviephoto}" alt=""/></a>
             </article>
-
+		 </c:if>
+	  	 <c:if test="${movieList.movienum != movie7.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie7.movienum}" class="image featured"><img src="../app/file/${movie7.moviephoto}" alt=""/></a>
             </article>
-
+	  	 </c:if>
+		 <c:if test="${movieList.movienum != movie8.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie8.movienum}" class="image featured"><img src="../app/file/${movie8.moviephoto}" alt=""/></a>
             </article>
-
+		 </c:if>
+		 <c:if test="${movieList.movienum != movie9.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie9.movienum}" class="image featured"><img src="../app/file/${movie9.moviephoto}" alt=""/></a>
             </article>
-
+		 </c:if>
+		 <c:if test="${movieList.movienum != movie10.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie10.movienum}" class="image featured"><img src="../app/file/${movie10.moviephoto}" alt=""/></a>
             </article>
-
+		 </c:if>
          </div>
       </section>
    </div>
