@@ -27,7 +27,7 @@ public class MovieDAO {
 	}
 
 	public List<MovieDTO> getDetail(int movienum) {
-		return sqlsession.selectOne("Movie.movieDetail",movienum);
+		return sqlsession.selectList("Movie.movieDetail",movienum);
 	}
 
 	

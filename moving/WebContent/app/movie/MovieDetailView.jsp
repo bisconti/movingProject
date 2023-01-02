@@ -22,7 +22,7 @@
          <div class="right_area">
             <p id="a">좋아요</p>
             <a href="javascript:;" class="icon heart">
-               <img src="../assets/css/images/heart.png" alt="좋아요">
+               <img src="../img/heart.png" alt="좋아요">
             </a>
           </div>
           <div>
@@ -30,7 +30,7 @@
           </div>
       </div>
    <div id="moviecontent">
-   		<div id="movietitle"><p>${movieList.movietitle}</p></div>
+         <div id="movietitle"><p>${movieList.movietitle}</p></div>
         <div id="movieopen"><p>${movieList.movierelease}</p></div>
         <div id="actor"><p>${movieList.actorname}</p></div>
         <div id="moviesummary"><p>${movieList.moviecontents}</p></div>
@@ -40,43 +40,43 @@
       <section class="carousel">
          <div class="reel">
             <article>
-               <a href="#" class="image featured"><img src="../file/${movie1.moviephoto}" alt="" /></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
             </article>
 
             <article>
-               <a href="#" class="image featured"><img src="../img/아바타 물의 길.jpg" alt="" /></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
             </article>
 
             <article>
-               <a href="#" class="image featured"><img src="../img/아바타 물의 길.jpg" alt="" /></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
             </article>
 
             <article>
-               <a href="#" class="image featured"><img src="../img/아바타 물의 길.jpg" alt="" /></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
             </article>
 
             <article>
-               <a href="#" class="image featured"><img src="../img/아바타 물의 길.jpg" alt="" /></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
             </article>
 
             <article>
-               <a href="#" class="image featured"><img src="../img/아바타 물의 길.jpg" alt="" /></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
             </article>
 
             <article>
-               <a href="#" class="image featured"><img src="../img/아바타 물의 길.jpg" alt="" /></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
             </article>
 
             <article>
-               <a href="#" class="image featured"><img src="../img/아바타 물의 길.jpg" alt="" /></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
             </article>
 
             <article>
-               <a href="#" class="image featured"><img src="../img/아바타 물의 길.jpg" alt="" /></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
             </article>
 
             <article>
-               <a href="#" class="image featured"><img src="../img/아바타 물의 길.jpg" alt="" /></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
             </article>
 
          </div>
@@ -146,7 +146,7 @@ $(function(){
          }else{
             $(this).find('i').removeClass('fas').addClass('far')
            $(this).find('img').attr({
-              'src': './img/heart.png',
+              'src': '../img/heart.png',
               alt:"찜하기"
            })
          }

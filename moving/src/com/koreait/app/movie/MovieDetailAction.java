@@ -25,7 +25,7 @@ public class MovieDetailAction implements Action{
       
       ActionTo transfer = new ActionTo();
       transfer.setRedirect(false);
-      transfer.setPath("/app/movie/moviedetail.mo");
+      transfer.setPath("/app/movie/MovieDetailView.jsp");
       return transfer;
    }
 }
