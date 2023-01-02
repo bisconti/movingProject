@@ -1,5 +1,6 @@
 package com.koreait.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -28,6 +29,20 @@ public class MovieDAO {
 
 	public MovieDTO getDetail(int movienum) {
 		return sqlsession.selectOne("Movie.movieDetail",movienum);
+	}
+
+	public boolean movie_like(int movienum, String userid) {
+	    HashMap<String, Object> datas = new HashMap<String, Object>();
+	    datas.put("movienum", movienum);
+	    datas.put("userid", userid);
+	    return (Integer)sqlsession.selectOne("Movie.likeMovie",datas) == 1;
+	}
+
+	public boolean movie_Subscribe(int movienum, String userid) {
+	      HashMap<String, Object> datas = new HashMap<String, Object>();
+	      datas.put("movienum", movienum);
+	      datas.put("userid", userid);
+	      return (Integer)sqlsession.selectOne("Movie.wishMovie",datas) == 1;
 	}
 
 	

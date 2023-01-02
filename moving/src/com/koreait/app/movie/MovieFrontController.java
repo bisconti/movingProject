@@ -31,6 +31,21 @@ public class MovieFrontController extends HttpServlet{
 	            System.out.println("WARN:moviedetail : "+e);
 	         }
 	         break;
+	         
+	    case"/movie/movie_like.mo":
+	         try {
+	             transfer = new MovieLikeAction().execute(req,resp);
+	          } catch (Exception e) {
+	              System.out.println("WARN:movie_like : "+e);
+	          }
+	          break;
+	      case"/movie/movie_subscribe.mo":
+	          try {
+	                transfer = new MovieSubscribeAction().execute(req,resp);
+	             } catch (Exception e) {
+	                System.out.println("WARN:movieSubscribe : "+e);
+	             }
+	             break;
 		}
 		
 		if(transfer != null) {

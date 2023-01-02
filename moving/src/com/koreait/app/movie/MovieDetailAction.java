@@ -15,6 +15,21 @@ public class MovieDetailAction implements Action{
       //데이터수집 -> 처리 -> 결과전송
       MovieDAO mdao = new MovieDAO();
       MovieDTO movieList = new MovieDTO();
+      
+      MovieDTO movie1 = new MovieDTO();
+      MovieDTO movie2 = new MovieDTO();
+      MovieDTO movie3 = new MovieDTO();
+      MovieDTO movie4 = new MovieDTO();
+      MovieDTO movie5 = new MovieDTO();
+      MovieDTO movie6 = new MovieDTO();
+      MovieDTO movie7 = new MovieDTO();
+      MovieDTO movie8 = new MovieDTO();
+      MovieDTO movie9 = new MovieDTO();
+      MovieDTO movie10 = new MovieDTO();
+      
+      
+      
+      
       int movienum = Integer.parseInt(req.getParameter("movienum"));
       
       movieList = mdao.getDetail(movienum);

@@ -27,14 +27,14 @@
 	<select id="movieDetail" parameterType="_int" resultType="moviedto">
 		select * from movie where movienum=#{movienum}
 	</select>
-	<insert id="wishMovie">
-		select * from wishlist where movienum=#{movienum}
+	<insert id="wishMovie" parameterType="hashmap">
+		insert into movie_like values(#{userid},#{movienum})
 	</insert>
-	<insert id="likeMovie">
-		select * from movie_like where movienum=#{movienum}
+	<insert id="likeMovie" parameterType="hashmap">
+		insert into movie_like values(#{userid},#{movienum})
 	</insert>
 	<select id="similarType">
-		select md.moviephoto from movie m join moviedata md on m.movienum = md.movienum
+		select * from movie m join moviedata md on m.movienum = md.movienum
 		where typename = (select typename from movie where movienum = #{movienum});
 	</select>
 </mapper>

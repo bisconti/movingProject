@@ -14,13 +14,13 @@
       </div>
       <div id="i">
          <div id="but">
-            <p id="a">찜하기</p>
+            <a id="a" href="${cp}/movie/movie_subscribe.mo?movienum=${movielist.movienum}">찜하기</a>
             <a href="javascript:;" class="like">
                <img src="https://cdn-icons-png.flaticon.com/128/889/889221.png" alt="좋아요">
             </a>
          </div>
          <div class="right_area">
-            <p id="a">좋아요</p>
+            <a id="a" href="${cp}/movie/movie_like.mo?movienum=${movieList.movienum}">좋아요</a>
             <a href="javascript:;" class="icon heart">
                <img src="../img/heart.png" alt="좋아요">
             </a>
