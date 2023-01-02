@@ -24,10 +24,25 @@ public class MovieFrontController extends HttpServlet{
 		ActionTo transfer = null;
 		
 		switch(command) {
-		
+		case "/movie/moviedetail.mo" :
+	         try {
+	            transfer = new MovieDetailAction().execute(req,resp);
+	         } catch (Exception e) {
+	            System.out.println("WARN:moviedetail : "+e);
+	         }
+	         break;
 		}
 		
-		
+		if(transfer != null) {
+			if(transfer.isRedirect()) {
+				//Redirect 방식
+				resp.sendRedirect(transfer.getPath());
+			}
+			else {
+				//Forward 방식
+				req.getRequestDispatcher(transfer.getPath()).forward(req, resp);
+			}
+		}
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

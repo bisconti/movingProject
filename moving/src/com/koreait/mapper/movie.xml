@@ -24,7 +24,7 @@
 		(select movienum from movie_like group by movienum order by movienum limit 0,1)
 		group by m.movienum order by m.movienum limit ${i},1
 	</select>
-	<select id="movieDetail" parameterType="moviedto" resultType="moviedto">
+	<select id="movieDetail" parameterType="_int" resultType="moviedto">
 		select * from movie where movienum=#{movienum}
 	</select>
 	<insert id="wishMovie">

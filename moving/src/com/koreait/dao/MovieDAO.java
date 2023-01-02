@@ -1,5 +1,7 @@
 package com.koreait.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.koreait.dto.MovieDTO;
@@ -22,6 +24,10 @@ public class MovieDAO {
 	}
 	public MovieDTO MostLike(int i) {
 		return sqlsession.selectOne("Movie.mostLike",i);
+	}
+
+	public List<MovieDTO> getDetail(int movienum) {
+		return sqlsession.selectOne("Movie.movieDetail",movienum);
 	}
 
 	
