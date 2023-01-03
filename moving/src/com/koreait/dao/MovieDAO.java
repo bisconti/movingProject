@@ -20,7 +20,6 @@ public class MovieDAO {
 		List<MovieDTO> title = sqlsession.selectList("Movie.moviesearchtitle", search);
 		return title;
 	}
-}
 
 	public MovieDTO MostFast(int i) {
 		return sqlsession.selectOne("Movie.mostFast",i);

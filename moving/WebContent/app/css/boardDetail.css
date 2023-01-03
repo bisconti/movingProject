@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+body{
+    background-color: black;
+    color: white;
+}
+table{
+    width: 1000px;
+    margin: 0 auto;
+}
+.td{
+    width: 100px;
+    text-align: center;
+    background-color: #212121;
+    padding: 10px;
+}
+#tables, .tr, .td{
+	border: 1px solid white;
+}
+.td_text{
+    width: 150px;
+    padding: 5px;
+}
+.contents{
+    height: 300px;
+}
+.btn{
+	width: 100px;
+	height: 40px;
+	border-radius : 7px;
+	background-color:red;
+	color : white;
+}
+#rights{
+	display: flex;
+	justify-content : flex-end;
+}
+.bg{
+	width: 100px; 
+	height: 40px; 
+	border-radius : 7px; 
+	background-color:red; 
+	color : white; 
+	line-height: 40px; 
+	text-decoration : none;"
+}
+.bg:hover{
+	color : white;
+	background-color: #D01222;
+}

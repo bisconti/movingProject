@@ -5,6 +5,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.koreait.dto.UserDTO" alias="userdto"/>
+		<typeAlias type="com.koreait.dto.BoardDTO" alias="boarddto"/>
 		<typeAlias type="com.koreait.dto.MovieDTO" alias="moviedto"/>
 	</typeAliases>
 	<environments default="development">
@@ -20,6 +21,7 @@
 	</environments>
 	<mappers>
 		<mapper resource="com/koreait/mapper/user.xml"/>
+		<mapper resource="com/koreait/mapper/board.xml"/>
 		<mapper resource="com/koreait/mapper/movie.xml"/>
 	</mappers>
 </configuration>

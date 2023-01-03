@@ -62,6 +62,7 @@ public class MovieFrontController extends HttpServlet{
 			if(transfer.isRedirect()) {
 				//Redirect 방식
 				resp.sendRedirect(transfer.getPath());
+			}
 			else {
 				//Forward 방식
 				req.getRequestDispatcher(transfer.getPath()).forward(req, resp);

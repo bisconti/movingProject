@@ -13,15 +13,42 @@ userbirth varchar(100) not null,
 userphone varchar(300) not null
 );
 
+select * from user;
+select * from m_board;
 insert into user values("awnsals","1234","이준민",'M',"경기도 성남시 분당구","27","010-3980-1548");
-
 insert into user values("atnsals","1234","이준민",'M',"경기도 성남시 분당구","27","010-3980-1548");
 insert into user values("mineesik","1234","이준민",'M',"경기도 성남시 분당구","27","010-3980-1548");
 
-create table board(
+select * from m_board;
+select * from user;
+select * from m_comment;
+drop table m_board;
+
+create table user(
+	userid varchar(300) primary key,
+	userpw varchar(300) not null,
+	username varchar(300) not null,
+	usergender enum('M','W'),
+	zipcode varchar(50),
+	useraddr varchar(1000),
+	useraddrdetail varchar(1000),
+	useraddretc varchar(1000),
+	userbirth varchar(100) not null,
+	userphone varchar(300) not null
+);
+select * from user;
+insert into m_board (boardtitle,boardcontents,userid) values('테스트 제목1','테스트 내용1','user1');
+insert into m_board (boardtitle,boardcontents,userid) values('테스트 제목2','테스트 내용2','user2');
+insert into m_board (boardtitle,boardcontents,userid) values('테스트 제목3','테스트 내용3','user2');
+insert into m_board (boardtitle,boardcontents,userid)
+	(select boardtitle,boardcontents,userid from m_board);
+
+create table m_board(
 boardnum int primary key auto_increment,
 boardtitle varchar(300),
 boardcontents varchar(300),
+regdate datetime default now(),
+readcount int default 0,
 userid varchar(300),
 foreign key(userid) references user(userid)
 );
@@ -32,7 +59,7 @@ boardnum int,
 userid varchar(300),
 commentcontents varchar(1000),
 time datetime default now(),
-foreign key(boardnum) references board(boardnum)
+foreign key(boardnum) references m_board(boardnum)
 );
 
 create table qna(

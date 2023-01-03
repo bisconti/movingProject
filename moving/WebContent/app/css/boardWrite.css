@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+
+body{
+    background-color: black;
+}
+.n{
+    color: white;
+}
+.color {
+    background-color: red;
+    color: white;
+    float : right;
+}
+#both{
+    clear: both;
+}
+h2{
+    width: 1000px;
+    margin: 0 auto;
+    color: white;
+    margin-bottom: 20px;
+}
+.formD{
+    width: 1000px; 
+    margin: 0 auto; 
+    border : 1px solid red; 
+    padding: 20px; 
+    border-radius: 20px;
+}
