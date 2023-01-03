@@ -15,24 +15,6 @@
     <link href="/app/css/boardUpdate.css" rel="stylesheet">
 </head>
 <body>
-<%
-	String c = request.getHeader("Cookie");
-	String userid = "";
-	if(c != null){
-		Cookie[] cookies = request.getCookies();
-		for(Cookie cookie : cookies){
-			if(cookie.getValue().equals("ut")){
-%>
-				<script>alert("수정 성공!");</script>
-<%
-				userid = cookie.getValue();
-				cookie.setMaxAge(0);
-				response.addCookie(cookie);
-				break;
-			}
-		}
-	}
-%> 
 <%@include file="/app/common/header.jsp" %>
 <br><br><br><br><br><br>
 <h2 style="width: 1000px; margin : 0 auto;">update</h2><br>
