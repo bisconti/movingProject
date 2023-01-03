@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Movie">
+	<select id="mostFast" resultType="moviedto">
+		select * from movie m join moviedata md 
+		on m.movienum = md.movienum where  m.movienum =
+		(select movienum from movie order by movierelease desc limit ${i},1)
+	</select>
+	<select id="watched" parameterType="_int" resultType="moviedto">
+		select * from moviedata md join watched w
+		on md.movienum = w.movienum where md.movienum =
+		(select movienum from watched order by time desc limit ${i},1)
+	</select>
+	<select id="mostView" parameterType="_int" resultType="moviedto">
+		select * from moviedata md join movie m
+		on m.movienum = md.movienum where md.movienum =
+		(select movienum from movie order by view_cnt desc limit ${i},1)
+	</select>
+	<select id="mostLike" parameterType="_int" resultType="moviedto">
+		select * from moviedata md join movie_like ml on md.movienum = ml.movienum
+		join movie m on m.movienum = ml.movienum where
+		(select movienum from movie_like group by movienum order by movienum limit 0,1)
+		group by m.movienum order by m.movienum limit ${i},1
+	</select>
+	<select id="movieDetail" parameterType="_int" resultType="moviedto">
+		select * from movie m join moviedata md on m.movienum = md.movienum where m.movienum=#{movienum}
+	</select>
+	<insert id="wishMovie" parameterType="hashmap">
+		insert into movie_like values(#{userid},#{movienum})
+	</insert>
+	<insert id="likeMovie" parameterType="hashmap">
+		insert into movie_like values(#{userid},#{movienum})
+	</insert>
+	<select id="similarType" parameterType="_int" resultType="moviedto">
+		select * from movie m join moviedata md on m.movienum = md.movienum
+		where typename = (select typename from movie where movienum = #{movienum})
+	</select>
+	<select id="getMovie" parameterType="_int" resultType="string">
+      	select moviefilm from moviedata where movienum=#{movienum}
+   	</select>
+   	<update id="plusView_cnt" parameterType="_int">
+   		update movie set view_cnt = view_cnt+1 where movienum=#{movienum}
+   	</update>
+   	<delete id="removeWish" parameterType="hashmap">
+   		delete from wishlist where movienum=#{movienum} and userid=#{userid}
+   	</delete>
+   	<delete id="removeLike">
+   		delete from movie_like where movienum=#{movienum} and userid=#{userid}
+   	</delete>
+</mapper>

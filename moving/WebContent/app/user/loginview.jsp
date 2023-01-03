@@ -7,14 +7,16 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 <link rel="stylesheet" href="/app/css/loginview.css">
+<style>
+	.login_page {
+		background-color: black;
+	}
+</style>
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
 	<div class="login_page">
         <div class="lor-header">
-            <a href="main.html" class="lor-logo">
-                <h1>moving</h1>
-            </a>
         </div>
         <div class="lor-content">
             <form id="loginForm">
@@ -32,7 +34,7 @@
                 </div>
             </form>
         </div>
-    </div>
-<%@include file="../common/footer.jsp" %>    
+    </div> 
 </body>
+<%@include file="../common/footer.jsp" %> 
 </html>

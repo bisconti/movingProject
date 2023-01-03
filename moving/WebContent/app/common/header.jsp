@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title></title>
+<c:set var="cp" value="${pageContext.request.contextPath}" scope="session"/>
 <style>
 html,header,head{
     width: 100%;
@@ -58,7 +54,7 @@ html,header,head{
 #magnifying{
     width: 2%;
     height: 35%;
-    background: url(./images/magnifying-removebg-preview.png) no-repeat;
+    background: url(/app/img/magnifying-removebg-preview.png) no-repeat;
     background-size: contain;
     cursor: pointer;
     border: none;
@@ -101,9 +97,28 @@ html,header,head{
     color: white;
     border: none;
 }
+#mypage{
+    position: absolute;
+    width: 10%;
+    right: 7%;
+}
+#mypage > h5{
+    color: white;
+}
+#myprofile{
+    width: 25%;
+    height: 50%;
+    background-size: contain;
+    margin-top: 13px;
+    margin-left: 40px;
+    border-radius: 100px;
+}
+#welcome{
+    position: absolute;
+    top: 0.1%;
+    right: 10%;
+}
 </style>
-</head>
-<body>
 <header>
     <div id="header">
         <div id="logo">
@@ -114,10 +129,19 @@ html,header,head{
                 <input class="cff" type="text" placeholder="    검색어를 입력해주세요(영화명, 배우명)" id="search_what"><input type="button" class="cff" id="magnifying" onclick="location.href='<!-- 검색 시 나오는 페이지에 대한 view-->'">
             </span>
         </div>
-        <div id="login">
-            <a href="./loginview.html" id="login_a"><span>로그인</span></a>
-        </div>
+        <c:if test="${loginUser == null}">
+	        <div id="login">
+	            <a href="/user/userlogin.us" id="login_a"><span>로그인</span></a>
+	        </div>
+        </c:if>
+        <c:if test="${loginUser != null}">
+            <div id="mypage">
+            	<a href=""><img src="/app/img/basicprofile.jpg" alt="" id="myprofile"></a>
+            		<h5 id="welcome">환영합니다! <br></h5>
+        	</div>
+        	<div id="logout">
+	            <a href="/home.ho" id="login_a"><span>로그아웃</span></a>
+	        </div>
+        </c:if>
     </div>
 </header>
-</body>
-</html>
