@@ -25,7 +25,7 @@ public class UserFrontController extends HttpServlet{
 		switch(command) {
 		case "/user/userjoin.us":
 			transfer = new ActionTo();
-			transfer.setPath("/app/user/joinview.jsp");
+			transfer.setPath("/app/user/tos.jsp");
 			transfer.setRedirect(false);
 			break;
 		case "/user/userlogin.us":
