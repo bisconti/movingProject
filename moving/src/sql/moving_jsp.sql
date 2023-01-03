@@ -55,7 +55,7 @@ moviecontents varchar(5000),
 movieended varchar(300),
 national varchar(100),
 agelimit varchar(100),
-view_cnt int default 0
+view_cnt int default 1
 );
 
 create table watched(

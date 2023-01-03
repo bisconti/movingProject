@@ -40,7 +40,13 @@
 	<select id="getMovie" parameterType="_int" resultType="string">
       	select moviefilm from moviedata where movienum=#{movienum}
    	</select>
-   	<update id="plusView_cnt">
+   	<update id="plusView_cnt" parameterType="_int">
    		update movie set view_cnt = view_cnt+1 where movienum=#{movienum}
    	</update>
+   	<delete id="removeWish" parameterType="hashmap">
+   		delete from wishlist where movienum=#{movienum} and userid=#{userid}
+   	</delete>
+   	<delete id="removeLike">
+   		delete from movie_like where movienum=#{movienum} and userid=#{userid}
+   	</delete>
 </mapper>
