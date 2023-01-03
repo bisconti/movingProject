@@ -4,13 +4,13 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="User">
 	<insert id="join" parameterType="userdto">
-		insert into t_user values(#{userid},#{userpw},#{username},#{usergender},
-		#{zipcode},#{addr},#{addrdetail},#{addretc},#{userhobby})
+		insert into user values(#{userid},#{userpw},#{username},#{usergender},
+		#{zipcode},#{useraddr},#{useraddrdetail},#{useraddretc},#{userbirth}, #{userphone})
 	</insert>
 	<select id="login" parameterType="hashmap" resultType="_int">
-		select count(*) from t_user where userid=#{userid} and userpw=#{userpw}
+		select count(*) from user where userid=#{userid} and userpw=#{userpw}
 	</select>
 	<select id="checkId" parameterType="string" resultType="_int">
-		select count(*) from t_user where userid=#{userid}
+		select count(*) from user where userid=#{userid}
 	</select>
 </mapper>

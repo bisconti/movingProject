@@ -10,8 +10,15 @@ import com.koreait.mybatis.SqlMapConfig;
 
 public class MovieDAO {
 	SqlSession sqlsession;
+
 	public MovieDAO() {
 		sqlsession = SqlMapConfig.getFactory().openSession(true);
+	}
+  
+	public List<MovieDTO> searchmovieList(String ms) {
+		String search = "%" + ms + "%";
+		List<MovieDTO> title = sqlsession.selectList("Movie.moviesearchtitle", search);
+		return title;
 	}
 
 	public MovieDTO MostFast(int i) {
@@ -56,7 +63,4 @@ public class MovieDAO {
 	public boolean plusView(int movienum) {
 		return (Integer)sqlsession.update("Movie.plusView_cnt",movienum) == 1;
 	}
-
-	
-	
 }	
