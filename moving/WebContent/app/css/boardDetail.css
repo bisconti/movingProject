@@ -35,3 +35,16 @@ table{
 	display: flex;
 	justify-content : flex-end;
 }
+.bg{
+	width: 100px; 
+	height: 40px; 
+	border-radius : 7px; 
+	background-color:red; 
+	color : white; 
+	line-height: 40px; 
+	text-decoration : none;"
+}
+.bg:hover{
+	color : white;
+	background-color: #D01222;
+}

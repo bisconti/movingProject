@@ -1,0 +1,80 @@
+@import
+	url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600")
+	;
+
+@import url("fontawesome-all.min.css");
+
+/* search */
+body {
+	width: 100%;
+	height: 100%;
+	color: white;
+	background-color: black;
+}
+
+#wrap {
+	width: 100%;
+	height: 100%;
+	padding: 7% 0%;
+	border: 1px solid #000;
+}
+
+.search_result {
+	text-align: center;
+	font-size: 150%;
+}
+
+#title {
+	display: inline-block;
+	border: 1px solid #000;
+}
+
+#result {
+	display: inline-block;
+	border: 1px solid #000;
+}
+
+.movie_box {
+	width: 90%;
+	height: 40%;
+	margin: 0 auto;
+	border: 1px solid #000;
+	clear:both;
+}
+
+#photo {
+	width: 22%;
+	height: 90%;
+	float: left;
+	border: 1px solid #000;
+}
+
+#image {
+	width: 100%;
+	max-height: 100%;
+	border: 1px solid #000;
+}
+
+#info {
+	width: 68%;
+	height: 100%;
+	float: left;
+	padding-left: 2%;
+	border: 1px solid #000;
+}
+
+#contents {
+	width: 100%;
+	height: 50%;
+	overflow: scroll;
+	font-size: 120%;
+	border: 1px solid #000;
+}
+
+#contents::-webkit-scrollbar {
+	display: none;
+}
+
+#contents:hover {
+	cursor: pointer;
+}

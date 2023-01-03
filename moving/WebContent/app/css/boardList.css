@@ -140,17 +140,18 @@ a{
 	color : #212121;
 	font-weight: bold;
 }
-.write{
+.writes{
 	display : inline-block;
 	width: 100px;
-	height: 30px;
-	line-height: 30px;
+	height: 40px;
+	line-height: 40px;
 	border-radius : 7px;
 	background-color:red;
 	float : right;
 }
-.write:hover{
-	color : black;
+.writes:hover{
+	color : white;
+	background-color: #D02222;
 }
 #writeBox{
 	border:0px; 

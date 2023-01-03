@@ -18,10 +18,10 @@ public class BoardViewAction implements Action{
 		BoardDTO board = bdao.getDetail(boardnum);
 		String userid = (String)session.getAttribute("loginUser");
 		
-//		if(!board.getUserid().equals(userid)) {
+		if(!board.getUserid().equals(userid)) {
 			bdao.updateReadcount(boardnum);
 			board.setReadcount(board.getReadcount()+1);
-//		}
+		}
 		req.setAttribute("board", board);
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(false);

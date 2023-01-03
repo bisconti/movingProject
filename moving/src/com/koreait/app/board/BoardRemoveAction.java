@@ -2,6 +2,7 @@ package com.koreait.app.board;
 
 import java.io.PrintWriter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,22 +19,16 @@ public class BoardRemoveAction implements Action{
 		
 		ActionTo transfer = new ActionTo();
 		
-		resp.setCharacterEncoding("UTF-8");
-		resp.setContentType("text/html; charset=utf-8");
-		
-		PrintWriter out = resp.getWriter();
-		
 		transfer.setRedirect(true);
-		out.print("<script>");
 		if(bdao.removeBoard(boardnum)) {
-			out.print("alert('삭제 성공!');");
+			Cookie cookie = new Cookie("check", "rt");
+			resp.addCookie(cookie);
 			transfer.setPath(req.getContextPath()+"/board/boardlist.bo");
 		}
 		else {
 			// 실패
 //			transfer.setPath(req.getContextPath()+"/board/boardview.bo?boardnum="+boardnum);
 		}
-		out.print("</script>");
 		return transfer;
 	}
 }

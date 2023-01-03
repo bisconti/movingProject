@@ -18,7 +18,7 @@ public class BoardModifyAction implements Action{
 		
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(false);
-		transfer.setPath("/app/board/modifyview.jsp");
+		transfer.setPath("/app/board/boardUpdate.jsp");
 		return transfer;
 	}
 }

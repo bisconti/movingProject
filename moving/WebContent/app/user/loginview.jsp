@@ -7,9 +7,14 @@
 <meta charset="UTF-8">
 <title>무빙(moving) 움직이는 영화세상</title>
 <link rel="stylesheet" href="/app/css/loginview.css">
+<style>
+	.login_page {
+		background-color: black;
+	}
+</style>
 </head>
 <body>
-<%@include file="../common/header.jsp" %>
+<%@include file="/app/common/header.jsp" %>
 	<div class="login_page">
         <div class="lor-header">
             <a href="index.jsp" class="lor-logo">
@@ -35,7 +40,7 @@
                 </div>
             </form>
         </div>
-    </div>
-<%@include file="../common/footer.jsp" %>    
+    </div> 
+    <%@include file="/app/common/footer.jsp" %> 
 </body>
 </html>

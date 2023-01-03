@@ -33,7 +33,7 @@ public class UserFrontController extends HttpServlet{
 		case "/user/userlogin.us":
 			transfer = new ActionTo();
 			transfer.setPath("/app/user/loginview.jsp");
-			transfer.setRedirect(false);
+			transfer.setRedirect(true);
 			break;
 		case "/user/userjoinok.us":
 			//처리
@@ -64,7 +64,7 @@ public class UserFrontController extends HttpServlet{
 			out.write("</script>");
 			transfer = new ActionTo();
 			transfer.setPath("/");
-			transfer.setRedirect(false);
+			transfer.setRedirect(true);
 			break;
 		case "/user/idsearch.us" :
 			try {
