@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title></title>
 <style>
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600");
 @import url("/app/assets/css/fontawesome-all.css");
@@ -155,8 +149,6 @@ ul.icons li a:hover {
     font-family: 'Font Awesome 5 Brands';
 }
 </style>
-</head>
-<body>
 <!-- Footer -->
    <div id="footer">
        <div class="container">
@@ -190,5 +182,3 @@ ul.icons li a:hover {
            </section>
        </div>
    </div>
-</body>
-</html>

@@ -14,7 +14,7 @@ public class UserDAO {
 	}
 	public boolean join(UserDTO user) {
 		return sqlsession.insert("User.join",user) == 1;
-	}
+	} 
 	public boolean login(String userid, String userpw) {
 		HashMap<String, String> datas = new HashMap<String, String>();
 		datas.put("userid", userid);
