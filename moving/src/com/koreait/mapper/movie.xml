@@ -40,4 +40,7 @@
 	<select id="getMovie" parameterType="_int" resultType="string">
       	select moviefilm from moviedata where movienum=#{movienum}
    	</select>
+   	<update id="plusView_cnt">
+   		update movie set view_cnt = view_cnt+1 where movienum=#{movienum}
+   	</update>
 </mapper>

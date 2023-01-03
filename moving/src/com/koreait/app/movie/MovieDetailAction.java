@@ -32,6 +32,7 @@ public class MovieDetailAction implements Action{
       int movienum = Integer.parseInt(req.getParameter("movienum"));
       
       List<MovieDTO> movies =  mdao.getSimilar(movienum);
+      //하단 유사 장르 영화 10개 갖고 오는 파트
       movie1 = movies.get(0);
       movie2 = movies.get(1);
       movie3 = movies.get(2);
@@ -54,8 +55,10 @@ public class MovieDetailAction implements Action{
       req.setAttribute("movie9", movie9);
       req.setAttribute("movie10", movie10);
     
+      //영화 상세 메소드(제목, 줄거리, 조회수 등등..)
       movieList = mdao.getDetail(movienum);
-      
+      //조회수 +1
+      mdao.plusView(movienum);
       
       String moviefilm = mdao.getmovie(movienum);
       req.setAttribute("moviefilm", moviefilm);

@@ -175,7 +175,6 @@ $(function(){
                alt:'좋아요 완료'
                 });
           
-          
          }else{
             $(this).find('i').removeClass('fas').addClass('far')
            $(this).find('img').attr({

@@ -53,6 +53,10 @@ public class MovieDAO {
 	    return sqlsession.selectOne("Movie.getMovie", movienum);
 	}
 
+	public boolean plusView(int movienum) {
+		return (Integer)sqlsession.update("Movie.plusView_cnt",movienum) == 1;
+	}
+
 	
 	
 }	
