@@ -40,8 +40,6 @@ public class UserJoinOkAction implements Action{
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(true);
 		
-		new Join_SMS(userphone, check_num);
-		if(Join_SMS.join) {
 		if(udao.join(user)) {
 			out.write("<script>");
 			out.write("alert('회원가입이 완료되었습니다 !');");
@@ -50,7 +48,6 @@ public class UserJoinOkAction implements Action{
 			Cookie cookie = new Cookie("joinid", userid);
 			resp.addCookie(cookie);
 			transfer.setPath(req.getContextPath()+"/user/userlogin.us");
-		}
 		}
 		else {
 			//localhost:9090/????

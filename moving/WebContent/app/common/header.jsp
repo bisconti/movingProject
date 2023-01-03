@@ -125,9 +125,8 @@ html, header, head {
    <header>
       <div id="header">
          <div id="logo">
-            <a href="./main.html"><img src="/app/img/moving_logo.png" alt=""
-               id="logos"></a>
-         </div>
+            <a href="${cp}/"><img src="/app/img/moving_logo.png" alt="" id="logos"></a>
+        </div>
          <div id="search">
             <span> <input class="cff" type="search"
                placeholder="검색어를 입력해주세요(영화명, 배우명)" id="ms" name=ms
@@ -135,9 +134,21 @@ html, header, head {
                id="magnifying" onclick="search()">
             </span>
          </div>
-         <div id="login">
-            <a href="./loginview.html" id="login_a"><span>로그인</span></a>
-         </div>
+         <c:choose>
+           <c:when test="${loginUser == null }">
+              <div id="login">
+                  <a href="${cp}/user/userlogin.us" id="login_a"><span>로그인</span></a>
+              </div>
+           </c:when>
+           <c:otherwise>
+	           <div class="mypage">
+	                 <a href="/app/user/mypage.jsp" id="mypage"><span>마이페이지</span></a>
+	           </div>
+	           <div class="logout">
+	                 <a href="${cp}/user/userlogout.us" id="logout"><span>로그아웃</span></a>
+	           </div>
+           </c:otherwise>
+         </c:choose>
       </div>
    </header>
 </body>

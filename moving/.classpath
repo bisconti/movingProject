@@ -19,5 +19,7 @@
 	<classpathentry kind="lib" path="C:/0900_GB_JHR/jsp/resource/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/lib/standard.jar"/>
 	<classpathentry kind="lib" path="C:/0900_GB_JHR/jsp/resource/mybatis-3.5.11/mybatis-3.5.11.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.30.jar"/>
+	<classpathentry kind="lib" path="C:/0900_GB_JHR/jsp/resource/java-sdk-2.2-http-cv52/javaSDK-2.2.jar"/>
+	<classpathentry kind="lib" path="C:/0900_GB_JHR/jsp/resource/java-sdk-2.2-http-cv52/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
