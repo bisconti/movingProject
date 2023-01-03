@@ -12,16 +12,18 @@ useraddretc varchar(1000),
 userbirth varchar(100) not null,
 userphone varchar(300) not null
 );
-
+select * from user;
+select * from m_board;
 insert into user values("awnsals","1234","이준민",'M',"경기도 성남시 분당구","27","010-3980-1548");
-
 insert into user values("atnsals","1234","이준민",'M',"경기도 성남시 분당구","27","010-3980-1548");
 insert into user values("mineesik","1234","이준민",'M',"경기도 성남시 분당구","27","010-3980-1548");
 
-create table board(
+create table m_board(
 boardnum int primary key auto_increment,
 boardtitle varchar(300),
 boardcontents varchar(300),
+regdate datetime default now(),
+readcount int default 0,
 userid varchar(300),
 foreign key(userid) references user(userid)
 );

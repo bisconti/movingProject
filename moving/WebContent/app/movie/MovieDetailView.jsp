@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-    <link rel="stylesheet" href="../css/MovieDetailView.css">
+    <link rel="stylesheet" href="/app/css/MovieDetailView.css">
 </head>
 <body>
    <%@include file="/app/common/header.jsp" %>
@@ -94,14 +94,14 @@
    </div>
 <%@include file="/app/common/footer.jsp" %>
 </body>
-<script src="../assets/js/jquery.min.js"></script>
-<script src="../assets/js/jquery.dropotron.min.js"></script>
-<script src="../assets/js/jquery.scrolly.min.js"></script>
-<script src="../assets/js/jquery.scrollex.min.js"></script>
-<script src="../assets/js/browser.min.js"></script>
-<script src="../assets/js/breakpoints.min.js"></script>
-<script src="../assets/js/util.js"></script>
-<script src="../assets/js/main.js"></script>
+<script src="/app/assets/js/jquery.min.js"></script>
+<script src="/app/assets/js/jquery.dropotron.min.js"></script>
+<script src="/app/assets/js/jquery.scrolly.min.js"></script>
+<script src="/app/assets/js/jquery.scrollex.min.js"></script>
+<script src="/app/assets/js/browser.min.js"></script>
+<script src="/app/assets/js/breakpoints.min.js"></script>
+<script src="/app/assets/js/util.js"></script>
+<script src="/app/assets/js/main.js"></script>
 <script>
    // <![CDATA[  <-- For SVG support
    if ('WebSocket' in window) {

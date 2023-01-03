@@ -8,17 +8,11 @@
 <link rel="stylesheet" href="/app/css/movingsearch.css">
 </head>
 <body>
-	<%@include file="../common/header.jsp"%>
+	<%@include file="/app/common/header.jsp"%>
 	<!--search-->
 	<div id="wrap">
-		<%
-			System.out.println("제발..");
-		%>
 		<c:choose>
 		<c:when test="${movieList != null and movieList.size()>0}">
-			<%
-				System.out.println("제발..");
-			%>
 		<div class="search_result">
 			<h2 id="title">${ms}</h2>
 			<p id="result">의 검색 결과 입니다.</p>
@@ -44,6 +38,6 @@
 		</c:otherwise>
 		</c:choose>
 	</div>
-	<%@include file="../common/footer.jsp"%>
+	<%@include file="/app/common/footer.jsp"%>
 </body>
 </html>
