@@ -34,8 +34,7 @@ function sendit(){
     }
     const reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[~?!@#$%^&*_-]).{8,}$/;
     if(!reg.test(userpw.value)){
-    	alert("비밀번호는 8자 이상, 숫자, 대문자, 소문자, 특수문자를 모두 하나 이상 포함해야 합니다!");
-    	userpw.focus();
+    	alert("비밀번4호는 8자 이상, 숫자, 대문자, 소문자, 특수문자를 모두 하나 이상 포함해야 합니다!");
     	return false;
     }
     if(/(\w)\1\1\1/.test(userpw.value)){
@@ -86,20 +85,11 @@ function sendit(){
         return false;
     }
     
-    let flag = false;
-    const hobbies = joinForm.userhobby;
-    for(let hobby of hobbies){
-        if(hobby.checked){
-            flag = true;
-            break;
-        }
+    const birthyear =joinForm.birth-year
+    if(birthyear.value == ""){
+    	alert("출생연도를 선택해주세요 !")
+    	birth-year.래쳔
     }
-    if(!flag){
-        alert("취미는 적어도 1개 이상 선택해 주세요!");
-        return false;
-    }
-
-
     return true;
 }
 function checkId(){
@@ -107,7 +97,7 @@ function checkId(){
 	const result = document.getElementById("result");
 	const userid = document.joinForm.userid;
 	if(userid.value == ""){
-		alert("아이디를 입력하세요!");
+//		alert("아이디를 입력하세요!");
 		userid.focus();
 		return false;
 	}
@@ -119,7 +109,7 @@ function checkId(){
 				txt = txt.trim();
 				if(txt == "O"){
 					result.innerHTML = "사용할 수 있는 아이디입니다!";
-					document.joinForm.userpw.focus();
+					
 				}
 				else{
 					result.innerHTML = "중복된 아이디가 있습니다!";
@@ -180,6 +170,97 @@ function sample6_execDaumPostcode() {
         }
     }).open();
 }
+// 생년월일 select박스 클릭시 이벤트 년 월 일 추가되는 이벤트 발생하도록 만드는 스크립트코드
+//'출생 연도' 셀렉트 박스 option 목록 동적 생성
+const birthYearEl = document.querySelector('#birth-year')
+// option 목록 생성 여부 확인
+isYearOptionExisted = false;
+birthYearEl.addEventListener('focus', function () {
+  // year 목록 생성되지 않았을 때 (최초 클릭 시)
+  if(!isYearOptionExisted) {
+    isYearOptionExisted = true
+    for(var i = 1940; i <= 2022; i++) {
+      // option element 생성
+      const YearOption = document.createElement('option')
+      YearOption.setAttribute('value', i)
+      YearOption.innerText = i
+      // birthYearEl의 자식 요소로 추가
+      this.appendChild(YearOption);
+    }
+  }
+});
+
+const birthMonthEl = document.querySelector('#birth-month')
+isMonthOptionExisted = false;
+birthMonthEl.addEventListener('focus', function(){
+    if(!isMonthOptionExisted){
+        isMonthOptionExisted = true
+        for(var i = 01; i <=12; i++) {
+            const MonthOption = document.createElement('option')
+            MonthOption.setAttribute('value', i)
+            MonthOption.innerHTML = i
+            this.appendChild(MonthOption);
+        }
+    }
+})
+
+const birthDayEl = document.querySelector('#birth-day')
+isDayOptionExisted = false;
+birthDayEl.addEventListener('focus', function(){
+    if(!isDayOptionExisted){
+        isDayOptionExisted = true
+        for(var i = 01; i <=31; i++) {
+            const DayOption = document.createElement('option')
+            DayOption.setAttribute('value', i)
+            DayOption.innerHTML = i
+            this.appendChild(DayOption);
+        }
+    }
+})
+// 회원가입 terms 약관체크박스 여부확인.
+    const termsForm = document.termsForm;
+    const terms = termsForm.chked;
+    let flag = false;
+    function termscheck() {
+        for(let term of terms){
+            if(term.checked){
+                flag = true;
+            } else {
+                alert("약관에 동의 후 다음버튼을 클릭해주세요 !")
+                return false;
+                break;
+            }
+        }
+    }
+    
+ // 휴대폰번호 자동 하이픈설정
+    function addHypen(obj) {
+        var number = obj.value.replace(/[^0-9]/g, "");
+        var phone = "";
+
+        if(number.length < 4) {
+            return number;
+        } else if(number.length < 7) {
+            phone += number.substr(0, 3);
+            phone += "-";
+            phone += number.substr(3);
+        } else if(number.length < 11) {
+            phone += number.substr(0, 3);
+            phone += "-";
+            phone += number.substr(3, 3);
+            phone += "-";
+            phone += number.substr(6);
+        } else {
+            phone += number.substr(0, 3);
+            phone += "-";
+            phone += number.substr(3, 4);
+            phone += "-";
+            phone += number.substr(7);
+        }
+        obj.value = phone;
+    }
+
+
 
 
 

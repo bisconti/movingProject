@@ -31,11 +31,15 @@ body {
 }
 .next{
     display: block;
-    width: 100%;
+    width: 50px;
+    height: 40px;
     background-color : #212121;
     margin: 0 auto;
     color : #cccccc;
-    border : none;
+    border : 1px solid white;
+    -webkit-appearance: none;
+  	-moz-appearance: none;
+ 	appearance: none;
 }
 #wrap{
 	width: 1300px;

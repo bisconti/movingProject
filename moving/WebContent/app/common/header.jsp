@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>무빙(moving)</title>
 <style>
 html, header, head {
    width: 100%;
@@ -108,6 +108,17 @@ html, header, head {
    color: white;
    border: none;
 }
+#logout{
+	text-decoration : none;
+	color : white;
+	font-size : 12px;
+}
+#mypage{
+	text-decoration : none;
+	color : white;
+	font-size : 12px;
+}
+
 </style>
 </head>
 <body>
