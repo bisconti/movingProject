@@ -11,7 +11,7 @@ public class UserDTO {
 	private String useraddretc;
 	private String userbirth;
 	private String userphone;
-	
+  
 	public String getUserid() {
 		return userid;
 	}
