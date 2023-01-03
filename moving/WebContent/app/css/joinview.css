@@ -118,11 +118,19 @@ div>p {
 }
 
 div>#userphone {
-	width: 55%;
+	width: 65%;
 }
 
-div>#userphone_btn {
-	width: 38%;
+div> #userphone_btn {
+	width: 28%;
+	text-align: left;
+	background-color: red;
+}
+div > #check_number{
+    width: 65%;
+}
+div> #correct_check {
+	width: 28%;
 	text-align: left;
 	background-color: red;
 }

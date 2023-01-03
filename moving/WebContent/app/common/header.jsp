@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>무빙(moving)</title>
 <style>
 html,header,head{
     width: 100%;
@@ -102,6 +102,17 @@ html,header,head{
     color: white;
     border: none;
 }
+#logout{
+	text-decoration : none;
+	color : white;
+	font-size : 12px;
+}
+#mypage{
+	text-decoration : none;
+	color : white;
+	font-size : 12px;
+}
+
 </style>
 </head>
 <body>
@@ -115,9 +126,21 @@ html,header,head{
                 <input class="cff" type="text" placeholder="    검색어를 입력해주세요(영화명, 배우명)" id="search_what"><input type="button" class="cff" id="magnifying" onclick="location.href='<!-- 검색 시 나오는 페이지에 대한 view-->'">
             </span>
         </div>
-        <div id="login">
-            <a href="${cp}/user/userlogin.us" id="login_a"><span>로그인</span></a>
-        </div>
+        <c:choose>
+        	<c:when test="${loginUser == null }">
+		        <div id="login">
+		            <a href="${cp}/user/userlogin.us" id="login_a"><span>로그인</span></a>
+		        </div>
+        	</c:when>
+        	<c:otherwise>
+				<div class="mypage">
+		            <a href="/app/user/mypage.jsp" id="mypage"><span>마이페이지</span></a>
+		        </div>
+				<div class="logout">
+		            <a href="${cp}/user/userlogout.us" id="logout"><span>로그아웃</span></a>
+		        </div>
+	        </c:otherwise>
+      	</c:choose>
     </div>
 </header>
 </body>

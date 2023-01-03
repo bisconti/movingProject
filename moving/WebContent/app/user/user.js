@@ -170,7 +170,7 @@ function sample6_execDaumPostcode() {
         }
     }).open();
 }
-
+// 생년월일 select박스 클릭시 이벤트 년 월 일 추가되는 이벤트 발생하도록 만드는 스크립트코드
 //'출생 연도' 셀렉트 박스 option 목록 동적 생성
 const birthYearEl = document.querySelector('#birth-year')
 // option 목록 생성 여부 확인
@@ -217,6 +217,48 @@ birthDayEl.addEventListener('focus', function(){
         }
     }
 })
+// 회원가입 terms 약관체크박스 여부확인.
+    const termsForm = document.termsForm;
+    const terms = termsForm.chked;
+    let flag = false;
+    function termscheck() {
+        for(let term of terms){
+            if(term.checked){
+                flag = true;
+            } else {
+                alert("약관에 동의 후 다음버튼을 클릭해주세요 !")
+                return false;
+                break;
+            }
+        }
+    }
+    
+ // 휴대폰번호 자동 하이픈설정
+    function addHypen(obj) {
+        var number = obj.value.replace(/[^0-9]/g, "");
+        var phone = "";
+
+        if(number.length < 4) {
+            return number;
+        } else if(number.length < 7) {
+            phone += number.substr(0, 3);
+            phone += "-";
+            phone += number.substr(3);
+        } else if(number.length < 11) {
+            phone += number.substr(0, 3);
+            phone += "-";
+            phone += number.substr(3, 3);
+            phone += "-";
+            phone += number.substr(6);
+        } else {
+            phone += number.substr(0, 3);
+            phone += "-";
+            phone += number.substr(3, 4);
+            phone += "-";
+            phone += number.substr(7);
+        }
+        obj.value = phone;
+    }
 
 
 

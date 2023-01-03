@@ -79,13 +79,14 @@
 				</div>
 				<div>
 					<input type="text" name="userphone" id="userphone"
-						placeholder="핸드폰번호 입력" maxlength="11"/> 
-					<input type="button" value="인증번호받기" id="userphone_btn">
+						placeholder="핸드폰번호 입력" maxlength="13" onkeyup="addHypen(this);"/> 
+					<input type="button" value="인증번호" id="userphone_btn" onclick="${cp}/user/usercheck_num">
 				</div>
 				<div>
-					<input type="password" name="" id=""
-						placeholder="인증번호를 입력해주세요">
-				</div>
+                	<input type="text" name="check_number" id="check_number"
+               		 placeholder="인증번호를 입력해주세요">
+                	<input type="button" value="인증확인" id="correct_check">
+            	</div>
 				<div class="btn-submit">
 					<input type="submit" value="회원가입"></input>
 				</div>
