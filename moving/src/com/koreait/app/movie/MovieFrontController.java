@@ -2,6 +2,7 @@ package com.koreait.app.movie;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +25,15 @@ public class MovieFrontController extends HttpServlet{
 		ActionTo transfer = null;
 		
 		switch(command) {
+		case "/movie/moviesearch.mo":
+			try {
+				transfer = new MoviesearchAction().execute(req,resp);
+				System.out.println("/movie/moviesearch.mo");
+			} catch (Exception e) {
+				System.out.println("WARN:search" + e);
+			}
+			break;
+
 		case "/movie/moviedetail.mo" :
 	         try {
 	            transfer = new MovieDetailAction().execute(req,resp);
@@ -32,14 +42,14 @@ public class MovieFrontController extends HttpServlet{
 	         }
 	         break;
 	         
-	    case"/movie/movie_like.mo":
+	   case"/movie/movie_like.mo":
 	         try {
 	             transfer = new MovieLikeAction().execute(req,resp);
 	          } catch (Exception e) {
 	              System.out.println("WARN:movie_like : "+e);
 	          }
 	          break;
-	      case"/movie/movie_subscribe.mo":
+	   case"/movie/movie_subscribe.mo":
 	          try {
 	                transfer = new MovieSubscribeAction().execute(req,resp);
 	             } catch (Exception e) {
@@ -52,13 +62,13 @@ public class MovieFrontController extends HttpServlet{
 			if(transfer.isRedirect()) {
 				//Redirect 방식
 				resp.sendRedirect(transfer.getPath());
-			}
 			else {
 				//Forward 방식
 				req.getRequestDispatcher(transfer.getPath()).forward(req, resp);
 			}
 		}
 	}
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
