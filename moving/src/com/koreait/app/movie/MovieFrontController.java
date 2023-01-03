@@ -32,19 +32,37 @@ public class MovieFrontController extends HttpServlet{
 			} catch (Exception e) {
 				System.out.println("WARN:search" + e);
 			}
-			
 			break;
-		
+
+		case "/movie/moviedetail.mo" :
+	         try {
+	            transfer = new MovieDetailAction().execute(req,resp);
+	         } catch (Exception e) {
+	            System.out.println("WARN:moviedetail : "+e);
+	         }
+	         break;
+	         
+	   case"/movie/movie_like.mo":
+	         try {
+	             transfer = new MovieLikeAction().execute(req,resp);
+	          } catch (Exception e) {
+	              System.out.println("WARN:movie_like : "+e);
+	          }
+	          break;
+	   case"/movie/movie_subscribe.mo":
+	          try {
+	                transfer = new MovieSubscribeAction().execute(req,resp);
+	             } catch (Exception e) {
+	                System.out.println("WARN:movieSubscribe : "+e);
+	             }
+	             break;
 		}
 		
 		if(transfer != null) {
 			if(transfer.isRedirect()) {
 				//Redirect 방식
 				resp.sendRedirect(transfer.getPath());
-				System.out.println("여기옴");
-			}
 			else {
-				System.out.println("포워드옴");
 				//Forward 방식
 				req.getRequestDispatcher(transfer.getPath()).forward(req, resp);
 			}
