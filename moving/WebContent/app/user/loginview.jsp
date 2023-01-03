@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/app/css/loginview.css">
 </head>
 <body>
-<%@include file="../common/header.jsp" %>
+<%@include file="/app/common/header.jsp" %>
 	<div class="login_page">
         <div class="lor-header">
             <a href="index.jsp" class="lor-logo">
@@ -36,6 +36,6 @@
             </form>
         </div>
     </div>
-<%@include file="../common/footer.jsp" %>    
+<%@include file="/app/common/footer.jsp" %>    
 </body>
 </html>
