@@ -36,10 +36,10 @@ create table user(
 	userbirth varchar(100) not null,
 	userphone varchar(300) not null
 );
-
-insert into m_board (boardtitle,boardcontents,userid) values('테스트 제목1','테스트 내용1','apple');
-insert into m_board (boardtitle,boardcontents,userid) values('테스트 제목2','테스트 내용2','banana');
-insert into m_board (boardtitle,boardcontents,userid) values('테스트 제목3','테스트 내용3','cherry');
+select * from user;
+insert into m_board (boardtitle,boardcontents,userid) values('테스트 제목1','테스트 내용1','user1');
+insert into m_board (boardtitle,boardcontents,userid) values('테스트 제목2','테스트 내용2','user2');
+insert into m_board (boardtitle,boardcontents,userid) values('테스트 제목3','테스트 내용3','user2');
 insert into m_board (boardtitle,boardcontents,userid)
 	(select boardtitle,boardcontents,userid from m_board);
 
