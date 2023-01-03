@@ -8,6 +8,7 @@
 <title>회원가입</title>
 <link rel="stylesheet" href="/app/css/joinview.css">
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <body>
 	<%@include file="../common/header.jsp"%><br>
 	<br>
@@ -80,10 +81,10 @@
 				<div>
 					<input type="text" name="userphone" id="userphone"
 						placeholder="핸드폰번호 입력" maxlength="13" onkeyup="addHypen(this);"/> 
-					<input type="button" value="인증번호" id="userphone_btn" onclick="${cp}/user/usercheck_num">
+					<input type="button" value="인증번호" id="userphone_btn">
 				</div>
 				<div>
-                	<input type="text" name="check_number" id="check_number"
+                	<input type="text" name="check_number" id="userNum"
                		 placeholder="인증번호를 입력해주세요">
                 	<input type="button" value="인증확인" id="correct_check">
             	</div>
@@ -99,6 +100,36 @@
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	const cp = "${cp}";
+</script>
+<script>
+$('#userphone_btn').click(function() {
+	const userphone = $('#userphone').val();
+		alert('확인');
+		$.ajax ({
+			url: '${cp}/user/send_msg.us',
+			type: 'GET',
+			data: {
+				"userphone" : userphone
+			},
+			success: function(data) {
+				const checkNum = data;
+				alert('checkNum:'+ checkNum);
+				
+				$('#usernum').click(function() {	
+					const usernum = $('#userNum').val();
+					
+					if(checkNum == userNum) {
+						alert('인증 성공하였습니다.');
+					}
+					else {
+						alert('인증 실패하였습니다. 다시 입력해주세요.');
+					}
+				});
+				
+			}
+		});
+		
+	});
 </script>
 <script src="${cp}/app/user/user.js"></script>
 </html>
