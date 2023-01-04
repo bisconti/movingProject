@@ -66,20 +66,12 @@ public class UserFrontController extends HttpServlet{
 			transfer.setPath("/");
 			transfer.setRedirect(true);
 			break;
-		case "/user/idsearch.us" :
+		
+		case "/user/subscribe.us":
 			try {
-				new UserSearchOkAction().execute(req, resp);
+				new SubscribeAction().execute(req,resp);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} 
-			break;
-		case "/user/usercheck_num" :
-			try {
-				new UserPhoneCheckAction().execute(req, resp);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("WARN:Subscribe : "+e);
 			}
 		}
 		

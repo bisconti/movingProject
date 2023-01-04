@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/app/css/movingsearch.css">
+<link rel="stylesheet" href="${cp}/app/css/movingsearch.css">
 </head>
 <body>
 	<%@include file="/app/common/header.jsp"%>
@@ -19,20 +20,22 @@
 		</div>
 			<c:forEach items="${movieList}" var="movie">
 				<div class="movie_box">
-					<div id="photo">
-						<a href=""><img id="image" src="/app/file/${movie.moviephoto}" alt=""></a>
+					<div id="photo44">
+						<a href="${cp}/movie/moviedetail.mo?movienum=${movie.movienum}"><img id="image66" src="/app/file/${movie.moviephoto}" alt=""></a>
 					</div>
 					<div id="info">
 						<h2>${movie.movietitle}</h2>
-						<h3>줄거리</h3>
-						<p id="contents">"${movie.moviecontents}"</p>
+						<details>
+						<summary>줄거리 보기</summary>
+						<p>"${movie.moviecontents}"</p>
+						</details>
 					</div>
 				</div>
 			</c:forEach>
 		</c:when>
 		<c:otherwise>
 			<div class="search_result">
-				<h2 id="title">${ms}</h2>
+				<p id="title">${ms}</p>
 				<p id="result">의 검색 결과가 존재하지 않습니다.</p>
 			</div>
 		</c:otherwise>

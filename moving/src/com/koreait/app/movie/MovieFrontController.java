@@ -28,7 +28,6 @@ public class MovieFrontController extends HttpServlet{
 		case "/movie/moviesearch.mo":
 			try {
 				transfer = new MoviesearchAction().execute(req,resp);
-				System.out.println("/movie/moviesearch.mo");
 			} catch (Exception e) {
 				System.out.println("WARN:search" + e);
 			}

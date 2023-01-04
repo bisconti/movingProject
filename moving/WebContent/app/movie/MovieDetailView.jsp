@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	
     <link rel="stylesheet" href="/app/css/MovieDetailView.css">
 </head>
 <body>
@@ -25,16 +28,20 @@
                <img src="../img/heart.png" alt="좋아요">
             </a>
           </div>
-          <div>
+          <div id="totalview">
             <p>조회수 : ${movieList.view_cnt}</p>
           </div>
       </div>
    <div id="moviecontent">
-         <div id="movietitle"><p>${movieList.movietitle}</p></div>
-        <div id="movieopen"><p>${movieList.movierelease}</p></div>
-        <div id="actor"><p>${movieList.actorname}</p></div>
+         <div id="movietitle"><p>제목 : ${movieList.movietitle}</p></div>
+        <div id="movieopen"><p>개봉일 : ${movieList.movierelease}</p></div>
+        <div id="actor"><p>주연배우: ${movieList.actorname}</p></div>
         <div id="moviesummary"><p>${movieList.moviecontents}</p></div>
-        <div id="genre"><p>${movieList.typename}</p></div>
+        <div id="genre"><p>장르: ${movieList.typename}</p></div>
+   </div>
+   <hr>
+   <div id="nextmovie_word">
+   		<p>이런 영화는 어떠세요?</p>
    </div>
    <div id="nextmovie">
       <section class="carousel">

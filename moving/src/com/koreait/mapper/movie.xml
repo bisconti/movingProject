@@ -54,4 +54,10 @@
    	<delete id="removeLike">
    		delete from movie_like where movienum=#{movienum} and userid=#{userid}
    	</delete>
+   	<select id="checkLike" parameterType="hashmap" resultType="_int">
+   		select count(*) from movie_like where movienum=#{movienum} and userid=${userid}
+   	</select>
+   	<select id="checkWish" parameterType="hashmap" resultType="_int">
+   		select count(*) from wishlist where movienum=#{movienum} and userid=${userid}
+   	</select>
 </mapper>
