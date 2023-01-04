@@ -20,7 +20,7 @@
 		</div>
 		<div class="lor-content">
 			<form name="joinForm" method="post" action="${cp}/user/userjoinok.us"
-				onsubmit="return sendit();">
+				onsubmit="return sendit(); return phonecheck();">
 				<div>
 					<p id="result" colspan="2"></p>
 				</div>
@@ -104,6 +104,7 @@
 <script>
 $('#userphone_btn').click(function() {
 	 const userphone = $('#userphone').val();
+	 if(userphone.length == 13) {
 		alert('확인');
 		$.ajax ({
 			url: '${cp}/user/send_msg.us',
@@ -112,25 +113,77 @@ $('#userphone_btn').click(function() {
 				"userphone" : userphone
 			},
 			 success: function(data) {
-				const checkNum = data;
-				alert(data);
-				alert('checkNum:'+ checkNum);
+				var checkNum = data;
+				$("input[name='userphone']").attr("readonly",true);
 				
 				$('#correct_check').click(function() {	
 					const userNum = $('#userNum').val();
 					
 					if(checkNum == userNum) {
 						alert('인증 성공하였습니다.');
+						return true;
 					}
 					else {
 						alert('인증 실패하였습니다. 다시 입력해주세요.');
+						return false;
 					}
 				});
 				
 			}
 		});
-		
-	}); 
+		}
+	 else{
+		 alert('핸드폰 번호를 정확히 입력해주세요!')
+	 }
+	});
+function phonecheck(checkNum){
+	alert(checkNum);
+	const userNum = $('#userNum').val();
+	if(checkNum == userNum) {
+		alert('회원가입되셨습니다. 환영합니다 !');
+		return true;
+	}
+	else {
+		alert('인증번호를 다시 확인해주세요!');
+		return false;
+	}
+}
+
+function isBirthday(dateStr) {
+
+	var year = Number(dateStr.substr(0,4)); // 입력한 값의 0~4자리까지 (연)
+	var month = Number(dateStr.substr(4,2)); // 입력한 값의 4번째 자리부터 2자리 숫자 (월)
+	var day = Number(dateStr.substr(6,2)); // 입력한 값 6번째 자리부터 2자리 숫자 (일)
+	var today = new Date(); // 날짜 변수 선언
+	var yearNow = today.getFullYear(); // 올해 연도 가져옴
+
+	if (dateStr.length <=8) {
+	// 연도의 경우 1900 보다 작거나 yearNow 보다 크다면 false를 반환합니다.
+		if (1900 > year || year > yearNow){
+			return false;
+		} else if (month < 1 || month > 12) {
+			return false;
+		} else if (day < 1 || day > 31) {
+			return false;
+		} else if ((month==4 || month==6 || month==9 || month==11) && day==31) {
+			return false;
+		} else if (month == 2) {
+
+			var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+			if (day>29 || (day==29 && !isleap)) {
+				return false;
+			} else {
+				return true;
+			} //end of if (day>29 || (day==29 && !isleap))
+		} else {
+			return true;
+		}//end of if
+	}
+	else {
+		//1.입력된 생년월일이 8자 초과할때 :  auth:false
+		return false;
+	}
+}
 </script>
 <script src="${cp}/app/user/user.js"></script>
 </html>

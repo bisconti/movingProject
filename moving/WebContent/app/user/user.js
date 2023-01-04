@@ -89,7 +89,7 @@ function sendit(){
     if(birthyear.value == ""){
     	alert("출생연도를 선택해주세요 !")
     	birth-year.래쳔
-    }
+    } 
     return true;
 }
 function checkId(){
@@ -97,7 +97,7 @@ function checkId(){
 	const result = document.getElementById("result");
 	const userid = document.joinForm.userid;
 	if(userid.value == ""){
-//		alert("아이디를 입력하세요!");
+		alert("아이디를 입력하세요!");
 		userid.focus();
 		return false;
 	}
@@ -195,12 +195,17 @@ isMonthOptionExisted = false;
 birthMonthEl.addEventListener('focus', function(){
     if(!isMonthOptionExisted){
         isMonthOptionExisted = true
-        for(var i = 01; i <=12; i++) {
-            const MonthOption = document.createElement('option')
-            MonthOption.setAttribute('value', i)
-            MonthOption.innerHTML = i
-            this.appendChild(MonthOption);
-        }
+        
+        const MonthOption = document.createElement('option');
+        MonthOption.setAttribute('value', 1);
+        MonthOption.innerHTML = 1;
+        MonthOption.setAttribute('value', 2);
+        MonthOption.innerHTML = 2
+        this.appendChild(MonthOption);
+        
+//        const MonthOption = document.createElement('option')
+//        this.appendChild(MonthOption);
+        
     }
 })
 
