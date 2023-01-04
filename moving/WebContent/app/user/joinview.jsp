@@ -25,7 +25,7 @@
 					<p id="result" colspan="2"></p>
 				</div>
 				<div>
-					<input name="userid" id="userid" placeholder="아이디를 입력해주세요">
+					<input name="userid" id="userid" placeholder="${checkNum}아이디를 입력해주세요">
 					<input type="button" id="user_id_btn" value="중복검사"
 						onclick="checkId()">
 				</div>
@@ -34,19 +34,19 @@
 				</div>
 				<div class="">
 					<input type="password" name="userpw" id="userpw"
-						placeholder="비밀번호를 입력해주세요">
+						placeholder="${dlswmdqjsgh}비밀번호를 입력해주세요" value="${dlswmdqjsgh}">
 				</div>
 				<div>
 					<input type="password" name="userpw_re" id="userpw_re"
-						placeholder="비밀번호를 다시 입력해주세요">
+						placeholder="${dlswmdqjsgh}비밀번호를 다시 입력해주세요">
 				</div>
 				<div class="username">
 					<input type="text" name="username" id="username"
 						placeholder="이름을 입력해주세요">
 				</div>
 				<div class="gender_area">
-					<span><label>남자 <input type="radio" name="usergender" value="M" checked></label></span>
-					<span><label>여자 <input type="radio" name="usergender" value="W"></label></span>
+					<span><label>남자${dlswmdqjsgh} <input type="radio" name="usergender" value="M" checked></label></span>
+					<span><label>여자 ${dlswmdqjsgh}<input type="radio" name="usergender" value="W"></label></span>
 				</div>
 				<div class="zipcode_area">
 					<input readonly name="zipcode" type="text" id="sample6_postcode"
@@ -85,7 +85,7 @@
 				</div>
 				<div>
                 	<input type="text" name="check_number" id="userNum"
-               		 placeholder="인증번호를 입력해주세요">
+               		 placeholder="인증번호를 입력해주세요" value="${checkNum}">
                 	<input type="button" value="인증확인" id="correct_check">
             	</div>
 				<div class="btn-submit">
@@ -103,7 +103,7 @@
 </script>
 <script>
 $('#userphone_btn').click(function() {
-	const userphone = $('#userphone').val();
+	 const userphone = $('#userphone').val();
 		alert('확인');
 		$.ajax ({
 			url: '${cp}/user/send_msg.us',
@@ -111,12 +111,13 @@ $('#userphone_btn').click(function() {
 			data: {
 				"userphone" : userphone
 			},
-			success: function(data) {
+			 success: function(data) {
 				const checkNum = data;
+				alert(data);
 				alert('checkNum:'+ checkNum);
 				
-				$('#usernum').click(function() {	
-					const usernum = $('#userNum').val();
+				$('#correct_check').click(function() {	
+					const userNum = $('#userNum').val();
 					
 					if(checkNum == userNum) {
 						alert('인증 성공하였습니다.');
@@ -129,7 +130,7 @@ $('#userphone_btn').click(function() {
 			}
 		});
 		
-	});
+	}); 
 </script>
 <script src="${cp}/app/user/user.js"></script>
 </html>
