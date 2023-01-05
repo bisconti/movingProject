@@ -25,7 +25,7 @@
 					<p id="result" colspan="2"></p>
 				</div>
 				<div>
-					<input name="userid" id="userid" placeholder="${checkNum}아이디를 입력해주세요">
+					<input name="userid" id="userid" placeholder="아이디를 입력해주세요">
 					<input type="button" id="user_id_btn" value="중복검사"
 						onclick="checkId()">
 				</div>
@@ -34,19 +34,19 @@
 				</div>
 				<div class="">
 					<input type="password" name="userpw" id="userpw"
-						placeholder="${dlswmdqjsgh}비밀번호를 입력해주세요" value="${dlswmdqjsgh}">
+						placeholder="비밀번호를 입력해주세요" >
 				</div>
 				<div>
 					<input type="password" name="userpw_re" id="userpw_re"
-						placeholder="${dlswmdqjsgh}비밀번호를 다시 입력해주세요">
+						placeholder="비밀번호를 다시 입력해주세요">
 				</div>
 				<div class="username">
 					<input type="text" name="username" id="username"
 						placeholder="이름을 입력해주세요">
 				</div>
 				<div class="gender_area">
-					<span><label>남자${dlswmdqjsgh} <input type="radio" name="usergender" value="M" checked></label></span>
-					<span><label>여자 ${dlswmdqjsgh}<input type="radio" name="usergender" value="W"></label></span>
+					<span><label>남자 <input type="radio" name="usergender" value="M" checked></label></span>
+					<span><label>여자 <input type="radio" name="usergender" value="W"></label></span>
 				</div>
 				<div class="zipcode_area">
 					<input readonly name="zipcode" type="text" id="sample6_postcode"
@@ -70,13 +70,13 @@
 				<div class="info" id="userbirth" name="userbirth">
 					<select class="box" id="birth-year" name="userbirth">
 						<option disabled selected>출생 연도</option>
-					</select> 
+					</select><span>년</span>
 					<select class="box" id="birth-month" name="userbirth">
 						<option disabled selected>월</option>
-					</select> 
+					</select><span>월</span>
 					<select class="box" id="birth-day" name="userbirth">
 						<option disabled selected>일</option>
-					</select>
+					</select><span>일</span>
 				</div>
 				<div>
 					<input type="text" name="userphone" id="userphone"
@@ -85,11 +85,11 @@
 				</div>
 				<div>
                 	<input type="text" name="check_number" id="userNum"
-               		 placeholder="인증번호를 입력해주세요" value="${checkNum}">
+               		 placeholder="인증번호를 입력해주세요">
                 	<input type="button" value="인증확인" id="correct_check">
             	</div>
 				<div class="btn-submit">
-					<input type="submit" value="회원가입"></input>
+					<input type="submit" value="회원가입" id="join_submit"></input>
 				</div>
 			</form>
 		</div>
@@ -102,17 +102,20 @@
 	const cp = "${cp}";
 </script>
 <script>
+var code2 = "";
 $('#userphone_btn').click(function() {
 	 const userphone = $('#userphone').val();
-		alert('확인');
+	  if(userphone.length == 13){ 
+		alert('인증번호가 전송되었습니다. 확인해주세요 !');
 		$.ajax ({
 			url: '${cp}/user/send_msg.us',
 			type: 'GET',
+			async: false,
 			data: {
 				"userphone" : userphone
 			},
 			 success: function(data) {
-				const checkNum = data;
+				var checkNum = data;
 				alert(data);
 				alert('checkNum:'+ checkNum);
 				
@@ -121,6 +124,8 @@ $('#userphone_btn').click(function() {
 					
 					if(checkNum == userNum) {
 						alert('인증 성공하였습니다.');
+						code2 = data;
+						console.log(code2);
 					}
 					else {
 						alert('인증 실패하였습니다. 다시 입력해주세요.');
@@ -129,8 +134,11 @@ $('#userphone_btn').click(function() {
 				
 			}
 		});
-		
-	}); 
+	  }
+	 else {
+		 alert('휴대폰번호를 정확하게 입력해주세요 !')
+	 } 
+	});
 </script>
 <script src="${cp}/app/user/user.js"></script>
 </html>

@@ -27,7 +27,7 @@ public class UserFrontController extends HttpServlet{
 		switch(command) {
 		case "/user/userjoin.us":
 			transfer = new ActionTo();
-			transfer.setPath("/app/user/tos.jsp");
+			transfer.setPath("/app/user/terms.jsp");
 			transfer.setRedirect(false);
 			break;
 		case "/user/userlogin.us":
@@ -71,9 +71,25 @@ public class UserFrontController extends HttpServlet{
 				new CheckNumberAction().execute(req, resp);
 //				new Join_SMS().execute(req, resp);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				System.out.println("WARN:CheckNumberAction : "+e);
 			}
+			break;
+		case "/user/manager.us":
+			transfer = new ActionTo();
+			transfer.setPath("/app/user/manager.jsp");
+			transfer.setRedirect(false);
+			break;
+		case "/user/searchid.us" :
+			try {
+				transfer = new SearchIdOkAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("WARN: IdSearchOkAction : "+e);
+			}
+			break;
+		case "/user/searchpw.us" :
+			transfer = new ActionTo();
+			transfer.setPath("/app/user/SearchPwCorrect.jsp");
+			transfer.setRedirect(false);
 			break;
 		}
 		

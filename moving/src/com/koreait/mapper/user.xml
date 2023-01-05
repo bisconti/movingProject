@@ -13,4 +13,7 @@
 	<select id="checkId" parameterType="string" resultType="_int">
 		select count(*) from user where userid=#{userid}
 	</select>
+	<select id="searchId" parameterType="string" resultType="string">
+		select userid from user where userphone=#{userphone}
+	</select>
 </mapper>

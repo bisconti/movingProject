@@ -78,17 +78,27 @@ function sendit(){
         return false;
     }
 
-    const addrdetail = joinForm.addrdetail;
+    const addrdetail = joinForm.useraddrdetail;
     if(addrdetail.value == ""){
         alert("나머지 주소를 입력해주세요.")
         addrdetail.focus();
         return false;
     }
     
-    const birthyear =joinForm.birth-year
+    const birthyear = document.getElementById("birth-year")
     if(birthyear.value == ""){
     	alert("출생연도를 선택해주세요 !")
-    	birth-year.래쳔
+    	birth-year.focus();
+    	return false;
+    }
+    const userphone = joinForm.userphone;
+    if(userphone.value.length != 13){
+    	alert("휴대폰번호를 입력해주세요 !");
+    	return false;
+    }
+    if(code2 == ""){
+    	alert("휴대폰번호 인증 실패입니다!")
+    	return false;
     }
     return true;
 }
@@ -97,7 +107,7 @@ function checkId(){
 	const result = document.getElementById("result");
 	const userid = document.joinForm.userid;
 	if(userid.value == ""){
-//		alert("아이디를 입력하세요!");
+		alert("아이디를 입력하세요!");
 		userid.focus();
 		return false;
 	}
@@ -195,11 +205,11 @@ isMonthOptionExisted = false;
 birthMonthEl.addEventListener('focus', function(){
     if(!isMonthOptionExisted){
         isMonthOptionExisted = true
-        for(var i = 01; i <=12; i++) {
-            const MonthOption = document.createElement('option')
-            MonthOption.setAttribute('value', i)
-            MonthOption.innerHTML = i
-            this.appendChild(MonthOption);
+        for(var i = 1; i <=12; i++) {
+        	var mm = i > 9 ? i : "0"+i ;            
+            $('#birth-month').append
+            ('<option value="' + mm + '">' + mm + '월</option>');    
+     
         }
     }
 })
@@ -210,16 +220,15 @@ birthDayEl.addEventListener('focus', function(){
     if(!isDayOptionExisted){
         isDayOptionExisted = true
         for(var i = 01; i <=31; i++) {
-            const DayOption = document.createElement('option')
-            DayOption.setAttribute('value', i)
-            DayOption.innerHTML = i
-            this.appendChild(DayOption);
+        	var dd = i > 9 ? i : "0"+i ;            
+            $('#birth-day').append('<option value="' + dd + '">' + dd+ '일</option>');  
         }
     }
 })
 // 회원가입 terms 약관체크박스 여부확인.
     const termsForm = document.termsForm;
-    const terms = termsForm.chked;
+//    const terms = termsForm.chked;
+	const terms = [];
     let flag = false;
     function termscheck() {
         for(let term of terms){

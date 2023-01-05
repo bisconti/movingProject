@@ -1,23 +1,27 @@
 package com.koreait.app.user;
 
-import java.io.PrintWriter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.koreait.action.Action;
 import com.koreait.action.ActionTo;
+import com.koreait.dao.UserDAO;
+import com.koreait.dto.UserDTO;
 
-public class CheckNumberAction implements Action{
+public class SearchPwAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		System.out.println("여긴왔니?");
+		UserDAO udao = new UserDAO();
+		UserDTO user = new UserDTO();
+		String userid = req.getParameter("userid");
 		String userphone = req.getParameter("userphone");
-		Join_SMS sms = new Join_SMS();
-		int checkNum = sms.send(userphone);
-		System.out.println(checkNum);
-		PrintWriter out = resp.getWriter();
-		out.print(checkNum);
+		
+		user.setUserid(userid);
+//		페이지 먼저 이동시키고
+//		update
+		
+		
+		
 		return null;
 	}
 }
