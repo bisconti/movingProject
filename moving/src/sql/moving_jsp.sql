@@ -135,3 +135,13 @@ drop table qna;
 drop table comment;
 drop table board;
 drop table user;
+
+select * from t_reply;
+create table t_reply(
+	replynum int primary key auto_increment,
+	replycontents varchar(1000) not null,
+    regdate datetime default now(),
+    updatechk enum('o','x') default 'x',
+	userid varchar(300),
+    boardnum bigint
+);

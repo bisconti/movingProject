@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.koreait.dto.BoardDTO;
+import com.koreait.dto.ReplyDTO;
 import com.koreait.mybatis.SqlMapConfig;
 
 public class BoardDAO {
@@ -55,6 +56,25 @@ public class BoardDAO {
 	}
 	public void updateReadcount(int boardnum) {
 		sqlsession.update("Board.updateReadcount",boardnum);
+	}
+	
+	public boolean insertReply(ReplyDTO reply) {
+		return sqlsession.insert("Board.insertReply",reply) == 1;
+	}
+	public List<ReplyDTO> getReplies(int boardnum) {
+		return sqlsession.selectList("Board.getReplies",boardnum);
+	}
+	public boolean modifyReply(int replynum, String replycontents) {
+		HashMap<String, Object> datas = new HashMap<String, Object>();
+		datas.put("replynum", replynum);
+		datas.put("replycontents", replycontents);
+		return sqlsession.update("Board.modifyReply",datas) == 1;
+	}
+	public boolean removeReply(int replynum) {
+		return sqlsession.delete("Board.removeReply",replynum) == 1;
+	}
+	public void removeReplies(int boardnum) {
+		sqlsession.delete("Board.removeReplies",boardnum);
 	}
 	
 }
