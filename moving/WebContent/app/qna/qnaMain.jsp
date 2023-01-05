@@ -5,21 +5,39 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-    <link href="../css/qnaList.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<link href="/app/css/qnaList.css" rel="stylesheet" />
+<style>
+.modalcolor {
+	color : black;
+}
+span{
+	font-size : 12px;
+	margin-left: 17px;
+}
+</style>
 </head>
 <body>
-<%@include file="../common/header.jsp" %>
+<%
+	String c = request.getHeader("Cookie");
+	String userid = "";
+	if(c != null){
+		Cookie[] cookies = request.getCookies();
+		for(Cookie cookie : cookies){
+			if(cookie.getValue().equals("qs")){
+%>
+				<script>alert("문의가 정상적으로 등록되었습니다.");</script>
+<%
+				userid = cookie.getValue();
+				cookie.setMaxAge(0);
+				response.addCookie(cookie);
+				break;
+			}
+		}
+	}
+%>
+<%@include file="/app/common/header.jsp" %>
 <div id="qnaname1">고객센터</div>
     <br />
     <div id="qnaname2">자주찾는질문</div>
@@ -64,10 +82,40 @@
       </div>
     </div>
     <div id="btnBox">
-      <input type="button" value="1:1 문의하기" />
+      <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap" value="1:1 문의하기" />
       <input type="button" value="내 문의 내역" />
+    </div><br />
+
+<div class="modal fade modalcolor" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title fs-5" id="exampleModalLabel">1:1 문의하기</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <span>무빙을 사용하시면서 불편한 사항이나 개선의견이 있다면 문의해주세요.</span>
+      <form method="post" action="${cp}/qna/qnasendok.qn">
+      <div class="modal-body">
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">제목</label>
+            <input type="text" class="form-control" id="recipient-name" name="qnatitle">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">문의 내용</label>
+            <textarea style="height: 250px;" class="form-control" id="message-text" name="qnacontents"></textarea>
+          </div>
+          <input type="hidden" name="userid" value="${loginUser}">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">닫기</button>
+        <button type="submit" class="btn btn-danger">보내기</button>
+      </div>
+      </form>
     </div>
-    <br /><br /><br /><br>
-<%@include file="../common/footer.jsp" %>    
+  </div>
+</div>
+
+<br><br><br><br>
+<%@include file="/app/common/footer.jsp" %>
 </body>
 </html>

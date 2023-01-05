@@ -36,6 +36,14 @@
   	<servlet-name>IndexFrontController</servlet-name>
   	<url-pattern>*.ho</url-pattern>
   </servlet-mapping>
+    <servlet> 
+    <servlet-name>QnaFrontController</servlet-name>
+  	<servlet-class>com.koreait.app.qna.QnaFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>QnaFrontController</servlet-name>
+  	<url-pattern>*.qn</url-pattern>
+  </servlet-mapping>
 </web-app>
 
 
