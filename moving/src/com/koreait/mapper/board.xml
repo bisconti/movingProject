@@ -45,6 +45,28 @@
 	<delete id="removeBoard" parameterType="_int">
 		delete from m_board where boardnum=#{boardnum}
 	</delete>
+
+	<insert id="insertReply" parameterType="replydto">
+		insert into t_reply (replycontents,userid,boardnum)
+		values(#{replycontents},#{userid},#{boardnum})
+	</insert>
+	
+	<select id="getReplies" parameterType="_int" resultType="replydto">
+		select * from t_reply where boardnum=#{boardnum}
+	</select>
+	
+	<update id="modifyReply" parameterType="hashmap">
+		update t_reply set replycontents=#{replycontents},updatechk='o'
+		where replynum=#{replynum}
+	</update>
+	
+	<delete id="removeReply" parameterType="_int">
+		delete from t_reply where replynum=#{replynum}
+	</delete>
+	
+	<delete id="removeReplies" parameterType="_int">
+		delete from t_reply where boardnum=#{boardnum}
+	</delete>
 </mapper>
 
 

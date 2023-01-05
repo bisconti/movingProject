@@ -12,7 +12,7 @@
 <div id="all">
 	  <br><br><br>
       <form>
-        <br><h2>"userid"님의 마이페이지</h2>
+        <br><h2>"${userid}"님의 마이페이지</h2>
         <fieldset>
           <legend>INFO</legend>
           <table>

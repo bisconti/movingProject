@@ -1,6 +1,7 @@
 package com.koreait.app.user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +22,7 @@ public class UserFrontController extends HttpServlet{
 		String command = requestURI.substring(contextPath.length());
 		System.out.println(command);
 		ActionTo transfer = null;
+		PrintWriter out = resp.getWriter();
 		
 		switch(command) {
 		case "/user/userjoin.us":
@@ -31,7 +33,7 @@ public class UserFrontController extends HttpServlet{
 		case "/user/userlogin.us":
 			transfer = new ActionTo();
 			transfer.setPath("/app/user/loginview.jsp");
-			transfer.setRedirect(false);
+			transfer.setRedirect(true);
 			break;
 		case "/user/userjoinok.us":
 			//처리
@@ -57,10 +59,28 @@ public class UserFrontController extends HttpServlet{
 			break;
 		case "/user/userlogout.us":
 			req.getSession().removeAttribute("loginUser");
+			out.write("<script>");
+			out.write("alert('다음에 또 이용해 주세요!');");
+			out.write("</script>");
 			transfer = new ActionTo();
 			transfer.setPath("/");
-			transfer.setRedirect(false);
+			transfer.setRedirect(true);
 			break;
+		case "/user/idsearch.us" :
+			try {
+				new UserSearchOkAction().execute(req, resp);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+			break;
+		case "/user/usercheck_num" :
+			try {
+				new UserPhoneCheckAction().execute(req, resp);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		//전송 일괄처리(어디인지, 어떤 방식인지는 몰라도 그냥 transfer라는 객체에 담겨있는 정보를 해석해서 그대로 페이지를 이동)
