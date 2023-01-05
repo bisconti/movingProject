@@ -162,7 +162,7 @@ html,header,head{
          	</c:when>
          	<c:otherwise>
 	            <div id="mypage">
-	            	<a href=""><img src="/app/img/basicprofile.jpg" alt="" id="myprofile"></a>
+	            	<a href="${cp}/user/mypage.us"><img src="/app/img/basicprofile.jpg" alt="" id="myprofile"></a>
 	            		<h5 id="welcome">환영합니다! <br>이준민님</h5>
 	        	</div>
 	        	<div id="logout">

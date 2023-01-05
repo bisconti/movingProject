@@ -63,4 +63,8 @@ public class MovieDAO {
 	public boolean plusView(int movienum) {
 		return (Integer)sqlsession.update("Movie.plusView_cnt",movienum) == 1;
 	}
+
+	public boolean fileUpload(MovieDTO movie) {
+		return sqlsession.update("Movie.fileUpLoad",movie) == 1;
+	}
 }	

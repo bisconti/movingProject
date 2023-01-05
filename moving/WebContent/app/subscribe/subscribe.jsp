@@ -17,7 +17,7 @@
 					<li>720p 화질까지 시청이 가능합니다.</li>
 					<li>9,000￦의 요금이 매달 납부됩니다.(VAT 포함, 구독은 언제든지 해지할 수 있습니다.)</li>
 				</ul>
-				<input type="button" value="결제하기" id="payment">
+				<input type="button" value="결제하기" id="payment" onclick="goPaymentAPI()" >
 			</div>
 			<div id="year">
 				<p>연 구독제</p>
@@ -30,5 +30,7 @@
 			</div>
 		</div>
 	<%@include file="/app/common/footer.jsp" %>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </body>
 </html>

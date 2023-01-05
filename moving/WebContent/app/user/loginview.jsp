@@ -5,8 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>무빙(moving) 움직이는 영화세상</title>
-<link rel="stylesheet" href="/app/css/loginview.css">
+<link rel="stylesheet" href="${cp}/app/css/loginview.css">
 <style>
 	.login_page {
 		background-color: black;
@@ -18,7 +17,7 @@
 	<div class="login_page">
         <div class="lor-header">
             <a href="index.jsp" class="lor-logo">
-                <h1>moving</h1>
+                
             </a>
         </div>
         <div class="lor-content">

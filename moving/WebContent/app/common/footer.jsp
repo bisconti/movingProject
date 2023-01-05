@@ -15,6 +15,8 @@
 }
 #footer .contact {
     text-align: center;
+    width: 1400px;
+    height: 231px;
 }
 #footer .copyright {
     text-align: center;

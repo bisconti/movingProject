@@ -18,8 +18,8 @@ public class MovieFrontController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//흐름 나누기
-		String requestURI = req.getRequestURI();// ???????/user/userjoin.us
-		String contextPath = req.getContextPath();// ??????(web_module명)
+		String requestURI = req.getRequestURI();
+		String contextPath = req.getContextPath();
 		String command = requestURI.substring(contextPath.length());
 		System.out.println(command);
 		ActionTo transfer = null;
@@ -55,6 +55,12 @@ public class MovieFrontController extends HttpServlet{
 	                System.out.println("WARN:movieSubscribe : "+e);
 	             }
 	             break;
+	             
+	   case"/movie/mavieupload.mo":
+	          transfer = new ActionTo();
+	          transfer.setPath("/app/managerview/fileupload.jsp");
+	          transfer.setRedirect(false);
+	          break;
 		}
 		
 		if(transfer != null) {

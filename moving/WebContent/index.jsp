@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="cp" value="${pageContext.request.contextPath}" scope="session"/>
+<c:set var="loginUser" value="${loginUser}" scope="session"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +18,8 @@
 			<section class="carousel">
 				<div id="title1"><h2>개봉일 순</h2></div>
 				<div class="reel">
-					<article>
-						<a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
+					<article onclick="datecheck()">
+						<a id="target_movie" href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
 					</article>
 
 					<article>
@@ -112,7 +113,7 @@
 				<div id="page-wrapper">
 				<!-- 시청한 영화 -->
 					<section class="carousel">
-						<div id="title3"><h2>조회수 순</h2></div>
+						<div id="title3"><h2>시청한 영화</h2></div>
 						<div class="reel">
 							<article>
 								<a href="${cp}/movie/moviedetail.mo?movienum=${movie31.movienum}" class="image featured"><img src="../app/file/${movie31.moviephoto}" alt="" /></a>
@@ -213,6 +214,33 @@
 		<script src="/app/assets/js/breakpoints.min.js"></script>
 		<script src="/app/assets/js/util.js"></script>
 		<script src="/app/assets/js/main.js"></script>
+<script>
+	const cp = "${cp}";
+</script>
+<script>
+function datecheck(){
+	const xhr = new XMLHttpRequest();
+
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4){
+			if(xhr.status == 200){
+				let txt = xhr.responseText;
+				txt = txt.trim();
+				if(txt == "O"){
+					
+				}
+				else{
+					alert("구독 갱신 후 다시 이용 바람");
+					location.href = "${cp}/";
+				}
+			}
+		}
+	}
+	
+	xhr.open("GET",cp+"/user/subscribe.us?userid=${loginUser}",true);
+	xhr.send();
+}
+</script>
 <%@include file="/app/common/footer.jsp" %>			
 </body>
 </html>

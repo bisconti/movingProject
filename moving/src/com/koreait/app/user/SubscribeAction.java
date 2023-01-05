@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.koreait.action.Action;
 import com.koreait.action.ActionTo;
@@ -14,7 +15,10 @@ public class SubscribeAction implements Action{
 
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-	String userid = req.getParameter("loginUser");
+	HttpSession session = req.getSession();
+		
+	String userid = (String)session.getAttribute("loginUser");
+	
 	UserDAO udao = new UserDAO();
 	PrintWriter out = resp.getWriter();
 	Date today = new Date();
