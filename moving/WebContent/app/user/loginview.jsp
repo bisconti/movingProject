@@ -6,11 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${cp}/app/css/loginview.css">
-<style>
-	.login_page {
-		background-color: black;
-	}
-</style>
 </head>
 <body>
 <%@include file="/app/common/header.jsp" %>

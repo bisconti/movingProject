@@ -163,7 +163,7 @@ html,header,head{
          	<c:otherwise>
 	            <div id="mypage">
 	            	<a href="${cp}/user/mypage.us"><img src="/app/img/basicprofile.jpg" alt="" id="myprofile"></a>
-	            		<h5 id="welcome">환영합니다! <br>이준민님</h5>
+	            		<h5 id="welcome">환영합니다! <br>${loginUser}님</h5>
 	        	</div>
 	        	<div id="logout">
 		            <a href="${cp}/user/userlogout.us" id="logout_a"><span>로그아웃</span></a>

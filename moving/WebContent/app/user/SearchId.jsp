@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" href="/app/css/SearchId.css">
+<link rel="stylesheet" href="${cp}/app/css/SearhId.css">
 <body>
-<%@include file="../common/header.jsp" %>
+<%@include file="/app/common/header.jsp" %>
    <div class="idSearch">
 		<form action="SearchIdCorrect.jsp"><!-- ${cp}/user/idsearch.us//구현해야함. -->
 			<div class="idSeach_header">
@@ -39,7 +39,7 @@
 			</div>
 		</form>
 	</div>
-<%@include file="../common/footer.jsp" %> 
+<%@include file="/app/common/footer.jsp" %> 
 </body>
 <script src="${cp}/app/user/user.js"></script>
 <script>

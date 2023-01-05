@@ -41,6 +41,7 @@
     text-align: right;
     font-size: 100%;
 }
+
 .copyright{
     clear: both;
     width: 100%;
