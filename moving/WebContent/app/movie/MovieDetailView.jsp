@@ -6,32 +6,55 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-	
     <link rel="stylesheet" href="/app/css/MovieDetailView.css">
 </head>
 <body>
    <%@include file="/app/common/header.jsp" %>
       <div id="movie">
-         <iframe width="100%" height="100%" src="../app/film/${movieList.moviefilm}"></iframe>
+         <iframe onclick="plusWatch()" width="100%" height="100%" src="../app/film/${movieList.moviefilm}"></iframe>
       </div>
       <div id="i">
-         <div id="but">
-            <a id="a" href="${cp}/movie/movie_subscribe.mo?movienum=${movieList.movienum}">찜하기</a>
-            <a href="javascript:;" class="like">
-               <img src="https://cdn-icons-png.flaticon.com/128/889/889221.png" alt="좋아요">
-            </a>
-         </div>
-         <div class="right_area">
-            <a id="a" href="${cp}/movie/movie_like.mo?movienum=${movieList.movienum}">좋아요</a>
-            <a href="javascript:;" class="icon heart">
-               <img src="../img/heart.png" alt="좋아요">
-            </a>
-          </div>
-          <div id="totalview">
-            <p>조회수 : ${movieList.view_cnt}</p>
-          </div>
+            <c:choose>
+   <c:when test="${wish == 0}">
+      <div id="but">
+         <a href="#;" id="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;찜</a> <a href="javascript:;"
+            class="like" onclick="wishcheck()"><img src="/app/img/noheart.png" alt="찜하기전" id="wish">
+         </a>
       </div>
+      </c:when>
+      <c:otherwise>
+      <div id="but">
+         <a href="#;" id="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;찜</a> <a href="javascript:;"
+            class="like" onclick="wishcheck()"><img src="/app/img/heart.png" alt="찜한후" id="wish">
+         </a>
+      </div>
+      </c:otherwise>
+      </c:choose>
+      <c:choose>
+      <c:when test="${like == 0}">
+      <div class="right_area">
+         <a id="a"
+            href="${cp}/movie/movie_like.mo?movienum=${movieList.movienum}">좋아요</a>
+         <a href="javascript:;" class="icon heart" onclick="likecheck()"> <img
+            src="/app/img/구독하기.png" alt="좋아요" id="heart">
+         </a>
+      </div>
+      </c:when>
+      <c:otherwise>
+      <div class="right_area">
+         <a id="a"
+            href="${cp}/movie/movie_like.mo?movienum=${movieList.movienum}">좋아요</a>
+         <a href="javascript:;" class="icon heart" onclick="likecheck()"> <img
+            src="/app/img/구독완료.png" alt="좋아요" id="heart">
+         </a>
+      </div>
+      </c:otherwise>
+      </c:choose>
+      <div id="totalview">
+      	<p>조회수: ${movieList.view_cnt}</p>
+      	<a id="a" class="fuck" href="${cp}/movie/wishlist.mo?userid=${loginUser}">나의 찜목록 보기♥</a>
+      </div>
+     </div>
    <div id="moviecontent">
          <div id="movietitle"><p>제목 : ${movieList.movietitle}</p></div>
         <div id="movieopen"><p>개봉일 : ${movieList.movierelease}</p></div>
@@ -110,6 +133,9 @@
 <script src="/app/assets/js/util.js"></script>
 <script src="/app/assets/js/main.js"></script>
 <script>
+	const cp = "${cp}";
+</script>
+<script>
    // <![CDATA[  <-- For SVG support
    if ('WebSocket' in window) {
       (function () {
@@ -155,7 +181,7 @@ $(function(){
 
         if($likeBtn.hasClass('active')){          
            $(this).find('img').attr({
-              'src': 'https://cdn-icons-png.flaticon.com/512/803/803087.png',
+              'src': '../img/heart.png',
                alt:'찜하기 완료'
                 });
           
@@ -163,7 +189,7 @@ $(function(){
          }else{
             $(this).find('i').removeClass('fas').addClass('far')
            $(this).find('img').attr({
-              'src': '../img/heart.png',
+              'src': '../img/noheart.png',
               alt:"찜하기"
            })
          }
@@ -178,19 +204,68 @@ $(function(){
 
         if($likeBtn.hasClass('active')){          
            $(this).find('img').attr({
-              'src': 'https://cdn-icons-png.flaticon.com/128/818/818489.png',
+              'src': 'https://cdn-icons-png.flaticon.com/512/7606/7606143.png',
                alt:'좋아요 완료'
                 });
           
          }else{
             $(this).find('i').removeClass('fas').addClass('far')
            $(this).find('img').attr({
-              'src': 'https://cdn-icons-png.flaticon.com/128/889/889221.png',
-              alt:"좋아요"
+              'src': 'https://cdn-icons-png.flaticon.com/512/3384/3384158.png',
+              alt:"좋아요 하기"
            })
          }
      })
 })
 
+</script>
+<script>
+function wishcheck(){
+	   const xhr = new XMLHttpRequest();
+	   const like = document.getElementsByClassName("like");
+	   
+	   xhr.onreadystatechange = function(){
+	      if(xhr.readyState == 4){
+	         if(xhr.status == 200){
+	            let txt = xhr.responseText;
+	            txt = txt.trim();
+	            if(txt == "O"){
+	               document.getElementById("wish").src="/app/img/heart.png";
+	            }
+	            else{
+	               document.getElementById("wish").src="/app/img/noheart.png";
+
+	            }
+	         }
+	      }
+	   }
+	   
+	   xhr.open("GET",cp+"/movie/wishcheck.mo?movienum=${movieList.movienum}",true);
+	   xhr.send();
+	}
+	 
+	function likecheck(){
+	      const xhr = new XMLHttpRequest();
+	      const like = document.getElementsByClassName("icon heart");
+	      
+	      xhr.onreadystatechange = function(){
+	         if(xhr.readyState == 4){
+	            if(xhr.status == 200){
+	               let txt = xhr.responseText;
+	               txt = txt.trim();
+	               if(txt == "O"){
+	                  document.getElementById("heart").src="/app/img/구독완료.png";
+	               }
+	               else{
+	                  document.getElementById("heart").src="/app/img/구독하기.png";
+
+	               }
+	            }
+	         }
+	      }
+	      
+	      xhr.open("GET",cp+"/movie/likecheck.mo?movienum=${movieList.movienum}",true);
+	      xhr.send();
+	   }
 </script>
 </html>

@@ -115,45 +115,61 @@
 					<section class="carousel">
 						<div id="title3"><h2>시청한 영화</h2></div>
 						<div class="reel">
+						<c:if test="${movie31.moviephoto != null }">
 							<article onclick="datecheck()">
 								<a href="${cp}/movie/moviedetail.mo?movienum=${movie31.movienum}" class="image featured"><img src="../app/file/${movie31.moviephoto}" alt="" /></a>
 							</article>
-	
+						</c:if>
+						<c:if test="${movie32.moviephoto != null }">
 							<article onclick="datecheck()">
 								<a href="${cp}/movie/moviedetail.mo?movienum=${movie32.movienum}" class="image featured"><img src="../app/file/${movie32.moviephoto}" alt="" /></a>
 							</article>
-	
+						</c:if>
+						<c:if test="${movie33.moviephoto != null }">
 							<article onclick="datecheck()">
 								<a href="${cp}/movie/moviedetail.mo?movienum=${movie33.movienum}" class="image featured"><img src="../app/file/${movie33.moviephoto}" alt="" /></a>
 							</article>
-	
+						</c:if>
+						<c:if test="${movie34.moviephoto != null }">
 							<article onclick="datecheck()"> 
 								<a href="${cp}/movie/moviedetail.mo?movienum=${movie34.movienum}" class="image featured"><img src="../app/file/${movie34.moviephoto}" alt="" /></a>
 							</article>
-	
+						</c:if>	
+						<c:if test="${movie35.moviephoto != null }">
 							<article onclick="datecheck()">
 								<a href="${cp}/movie/moviedetail.mo?movienum=${movie35.movienum}" class="image featured"><img src="../app/file/${movie35.moviephoto}" alt="" /></a>
 							</article>
+						</c:if>
 	
+						<c:if test="${movie36.moviephoto != null }">
 							<article onclick="datecheck()">
 								<a href="${cp}/movie/moviedetail.mo?movienum=${movie36.movienum}" class="image featured"><img src="../app/file/${movie36.moviephoto}" alt="" /></a>
 							</article>
-	
+						</c:if>
+						
+						<c:if test="${movie37.moviephoto != null }">
 							<article onclick="datecheck()">
 								<a href="${cp}/movie/moviedetail.mo?movienum=${movie37.movienum}" class="image featured"><img src="../app/file/${movie37.moviephoto}" alt="" /></a>
 							</article>
+						</c:if>
 	
+						<c:if test="${movie38.moviephoto != null }">
 							<article onclick="datecheck()">
 								<a href="${cp}/movie/moviedetail.mo?movienum=${movie38.movienum}" class="image featured"><img src="../app/file/${movie38.moviephoto}" alt="" /></a>
 							</article>
-	
+						</c:if>
+						
+						<c:if test="${movie39.moviephoto != null }">
 							<article onclick="datecheck()">
 								<a href="${cp}/movie/moviedetail.mo?movienum=${movie39.movienum}" class="image featured"><img src="../app/file/${movie39.moviephoto}" alt="" /></a>
 							</article>
-	
+						</c:if>
+						
+						<c:if test="${movie40.moviephoto != null }">
 							<article onclick="datecheck()">
 								<a href="${cp}/movie/moviedetail.mo?movienum=${movie40.movienum}" class="image featured"><img src="../app/file/${movie40.moviephoto}" alt="" /></a>
 							</article>
+						</c:if>
 						</div>
 					</section>
 				</div>

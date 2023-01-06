@@ -25,6 +25,10 @@ div {
     margin-bottom: 17px;
 }
 
+section{
+	width: 1200px;
+}
+
 div{
     width: 300px;
 }

@@ -146,6 +146,9 @@ a{
    text-align: left;
    color: #fff;
 }
+.fuck{
+	z-index: 4000;
+}
 #but{
    /* border: solid 1px rgb(255, 255, 255) ; */
    width: 7%;
@@ -161,10 +164,9 @@ a{
 }
 .right_area{
    /* border: solid 1px rgb(255, 255, 255) ; */
-   width: 60%;
+   width: 30%;
    height: 75px;
    float: left;
-   text-align: center;
 }
 #nextmovie {
     margin: 0 auto;
@@ -179,6 +181,9 @@ a{
 #nextmovie_word > p{
 	font-weight: bold;
 	color: white;
+}
+#totlaview{
+	float: right;
 }
 #totalview > p{
 	font-weight: bold;
