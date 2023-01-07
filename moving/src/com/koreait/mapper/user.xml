@@ -16,4 +16,7 @@
 	<select id="searchId" parameterType="string" resultType="string">
 		select userid from user where userphone=#{userphone}
 	</select>
+	<update id="updatePw" parameterType="string">
+		update user set userpw=#{userpw} where userid=#{userid}
+	</update>
 </mapper>

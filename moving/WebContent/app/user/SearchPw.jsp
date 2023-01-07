@@ -11,7 +11,7 @@
 <body>
 <%@include file="../common/header.jsp" %>
 	<div class="idSearch">
-		<form name="joinForm" method="post" action="${cp}/user/searchpw.us" onsubmit="return pwSearch();">
+		<form name="joinForm" method="get" action="${cp}/user/searchpw.us" onsubmit="return pwSearch();">
 			<div class="idSeach_header">
 				<h1>비밀번호 찾기</h1>
 			</div>

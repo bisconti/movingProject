@@ -27,5 +27,8 @@ public class UserDAO {
 	public String searchId(String userphone) {
 		return sqlsession.selectOne("User.searchId", userphone);
 	}
+	public void updatePw(String userid) {
+		 sqlsession.update("User.userPw", userid); 
+	}
 	
 }

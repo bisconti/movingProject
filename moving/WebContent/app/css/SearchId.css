@@ -21,13 +21,6 @@ body {
     margin-top: 150px;
 }
 
-div {
-    margin-bottom: 17px;
-}
-
-div{
-    width: 300px;
-}
 input,button,textarea {
     outline: 0;
     margin: 0;
@@ -45,7 +38,7 @@ input {
     height: 46px;
     padding-left: 15px;
     border: none;
-    color:white;
+    color:white; 
 }
 input::placeholder {
     color: #e2e2e2;

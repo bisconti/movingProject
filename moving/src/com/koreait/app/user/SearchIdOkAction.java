@@ -21,15 +21,15 @@ public class SearchIdOkAction implements Action {
 		user.setUserphone(userphone);
 
 		System.out.println(user);
-		resp.setCharacterEncoding("UTF-8");
-		resp.setContentType("text/html; charset=utf-8"); 
+//		resp.setCharacterEncoding("UTF-8");
+//		resp.setContentType("text/html; charset=utf-8");
+		
 
 		String userid = udao.searchId(userphone);
 		System.out.println(udao.searchId(userphone));
 		req.setAttribute("userid", userid);
 		req.setAttribute("username", username);
 		System.out.println("userid : " + userid);
-
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(false);
 		transfer.setPath("/app/user/SearchIdCorrect.jsp");

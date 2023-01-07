@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +49,7 @@
     }
 </style>
 <body>
-<%-- <%@include file="../common/header.jsp" %> --%>
+<%@include file="../common/header.jsp" %>
 	<!-- userphone으로 username과 userid 받아오기 -->
     <div class="idsearch_container">
         <div>
@@ -59,8 +60,8 @@
             </fieldset>
         </div>
         <div class="login">
-            <span><a href="loginview.jsp" id="login">로그인&nbsp;&nbsp;&nbsp;</a>|
-            <a href="SearchPw.jsp" id="pwsearch">&nbsp;&nbsp;&nbsp;비밀번호찾기</a></span>
+            <span><a href="loginview.jsp" id="login">로그인</a>
+            <a href="SearchPw.jsp" id="pwsearch">비밀번호찾기</a></span>
         </div>
     </div>
 <%@include file="../common/footer.jsp" %>
