@@ -13,10 +13,4 @@
 	<select id="checkId" parameterType="string" resultType="_int">
 		select count(*) from user where userid=#{userid}
 	</select>
-	<select id="searchId" parameterType="string" resultType="string">
-		select userid from user where userphone=#{userphone}
-	</select>
-	<update id="updatePw" parameterType="string">
-		update user set userpw=#{userpw} where userid=#{userid}
-	</update>
 </mapper>

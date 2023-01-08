@@ -78,28 +78,18 @@ function sendit(){
         return false;
     }
 
-    const addrdetail = joinForm.useraddrdetail;
+    const addrdetail = joinForm.addrdetail;
     if(addrdetail.value == ""){
         alert("나머지 주소를 입력해주세요.")
         addrdetail.focus();
         return false;
     }
     
-    const birthyear = document.getElementById("birth-year")
+    const birthyear =joinForm.birth-year
     if(birthyear.value == ""){
     	alert("출생연도를 선택해주세요 !")
-    	birth-year.focus();
-    	return false;
-    }
-    const userphone = joinForm.userphone;
-    if(userphone.value.length != 13){
-    	alert("휴대폰번호를 입력해주세요 !");
-    	return false;
-    }
-    if(code2 == ""){
-    	alert("휴대폰번호 인증 실패입니다!")
-    	return false;
-    }
+    	birth-year.래쳔
+    } 
     return true;
 }
 function checkId(){
@@ -205,12 +195,17 @@ isMonthOptionExisted = false;
 birthMonthEl.addEventListener('focus', function(){
     if(!isMonthOptionExisted){
         isMonthOptionExisted = true
-        for(var i = 1; i <=12; i++) {
-        	var mm = i > 9 ? i : "0"+i ;            
-            $('#birth-month').append
-            ('<option value="' + mm + '">' + mm + '월</option>');    
-     
-        }
+        
+        const MonthOption = document.createElement('option');
+        MonthOption.setAttribute('value', 1);
+        MonthOption.innerHTML = 1;
+        MonthOption.setAttribute('value', 2);
+        MonthOption.innerHTML = 2
+        this.appendChild(MonthOption);
+        
+//        const MonthOption = document.createElement('option')
+//        this.appendChild(MonthOption);
+        
     }
 })
 
@@ -220,15 +215,16 @@ birthDayEl.addEventListener('focus', function(){
     if(!isDayOptionExisted){
         isDayOptionExisted = true
         for(var i = 01; i <=31; i++) {
-        	var dd = i > 9 ? i : "0"+i ;            
-            $('#birth-day').append('<option value="' + dd + '">' + dd+ '일</option>');  
+            const DayOption = document.createElement('option')
+            DayOption.setAttribute('value', i)
+            DayOption.innerHTML = i
+            this.appendChild(DayOption);
         }
     }
 })
 // 회원가입 terms 약관체크박스 여부확인.
     const termsForm = document.termsForm;
-//    const terms = termsForm.chked;
-	const terms = [];
+    const terms = termsForm.chked;
     let flag = false;
     function termscheck() {
         for(let term of terms){

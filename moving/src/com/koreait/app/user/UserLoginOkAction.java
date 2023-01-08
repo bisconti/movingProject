@@ -18,20 +18,11 @@ public class UserLoginOkAction implements Action {
 		
 		HttpSession session = req.getSession();
 		
-//		ActionTo transfer = new ActionTo();
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html; charset=utf-8");
 		PrintWriter out = resp.getWriter();
 		
 		UserDAO udao = new UserDAO();
-		if(userid.equals("manager")) {
-	         out.print("<script>");
-	         out.print("alert('어서오세요 준민 대표님^^7');");
-	         out.print("location.href='"+ req.getContextPath()+"/user/manager.us';");
-	         out.print("</script>");
-	      }
-	      else{
-
 		if(udao.login(userid,userpw)) {
 			session.setAttribute("loginUser", userid);
 			//<script>
@@ -49,7 +40,6 @@ public class UserLoginOkAction implements Action {
 			out.print("location.href='"+ req.getContextPath()+"/user/userlogin.us';");
 			out.print("</script>");
 		}
-	      }
 		return null;
 	}
 }

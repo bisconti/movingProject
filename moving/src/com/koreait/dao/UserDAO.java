@@ -21,14 +21,8 @@ public class UserDAO {
 		datas.put("userpw", userpw);
 		return (Integer)sqlsession.selectOne("User.login",datas) == 1;
 	}
-	public boolean checkId(String userid){
+	public boolean checkId(String userid) {
 		return (Integer)sqlsession.selectOne("User.checkId",userid) != 1;
-	}
-	public String searchId(String userphone) {
-		return sqlsession.selectOne("User.searchId", userphone);
-	}
-	public void updatePw(String userid) {
-		 sqlsession.update("User.userPw", userid); 
 	}
 	
 }

@@ -19,7 +19,7 @@
 		(select movienum from movie order by view_cnt desc limit ${i},1)
 	</select>
 	<select id="mostLike" parameterType="_int" resultType="moviedto">
-		select * from moviedata md join movie_like ml on md.movienum = ml.movienum 
+		select * from moviedata md join movie_like ml on md.movienum = ml.movienum
 		join movie m on m.movienum = ml.movienum where
 		(select movienum from movie_like group by movienum order by movienum limit 0,1)
 		group by m.movienum order by m.movienum limit ${i},1
