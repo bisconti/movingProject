@@ -56,7 +56,13 @@
 		text-decoration: none;
 	}
 	.update_box{
+		margin-top:30px;
+		bottom : 30px;
+	}
+	.update_boxes{
+		width: 1000px;
 		border-top:1px solid grey;
+		margin : 0 auto;
 		margin-top:30px;
 		bottom : 30px;
 	}
@@ -87,6 +93,16 @@
 			if(cookie.getValue().equals("wt")){
 %>
 				<script>alert("등록 성공!");</script>
+<%
+				userid = cookie.getValue();
+				cookie.setMaxAge(0);
+				response.addCookie(cookie);
+				break;
+			}
+			
+			if(cookie.getValue().equals("ut")){
+%>
+				<script>alert("수정 성공!");</script>
 <%
 				userid = cookie.getValue();
 				cookie.setMaxAge(0);
@@ -142,55 +158,68 @@
     </form>
 
 	<!--  -->
-	<div class="reply_line"></div>		
-			<form name="replyForm" method="post" action="${cp}/board/replywrite.bo">
-				<input type="hidden" name="boardnum" value="${board.boardnum}">
-				<input type="hidden" name="page" value="${param.page}">
-				<input type="hidden" name="q" value="${param.q}">
-				<table class="write_box">
+	<div class="reply_line"></div>	
+		<form name="replyForm" method="post" action="${cp}/board/replywrite.bo">
+			<input type="hidden" name="boardnum" value="${board.boardnum}">
+			<input type="hidden" name="page" value="${param.page}">
+			<input type="hidden" name="q" value="${param.q}">
+			<c:if test="${loginUser != null }">
+			<table class="write_box">
+				<tr>
+					<td>댓글</td>
+					<td>
+						<textarea name="replycontents"></textarea>
+						<a href="javascript:document.replyForm.submit()">등록</a>
+					</td>
+				</tr>
+			</table>
+			</c:if>
+			<c:if test="${loginUser == null }">
+			<table class="write_box">
+				<tr>
+					<td>댓글</td>
+					<td>
+						<textarea name="replycontents" placeholder="로그인 후 댓글을 사용하실 수 있습니다." readonly></textarea>
+					</td>
+				</tr>
+			</table>	
+			</c:if>					
+		</form>
+		<div class="update_boxes"></div>
+		<form name="updateForm" method="post" action="${cp}/board/replymodify.bo">
+			<input type="hidden" name="boardnum" value="${board.boardnum}">
+			<input type="hidden" name="page" value="${param.page}">
+			<input type="hidden" name="q" value="${param.q}">
+			<table class="update_box">
+				<c:set var="i" value="0"/>
+				<c:forEach items="${replies}" var="reply">
 					<tr>
-						<td>댓글</td>
+						<td>${reply.userid}</td>
 						<td>
-							<textarea name="replycontents"></textarea>
-							<a href="javascript:document.replyForm.submit()">등록</a>
+							<textarea readonly name="reply${i}" id="reply${i}" class="replycontents">${reply.replycontents }</textarea>
+						</td>
+						<td valign="middle" style="text-align: center">
+							${reply.regdate}
+							<c:if test="${reply.updatechk == 'o' }">
+								<br>(수정됨)
+							</c:if>
+							<c:if test="${reply.userid == loginUser }">
+								<br>
+								<div class="btns">
+									<a href="javascript:updateReply(${i})" id="start${i}">수정</a>
+									<a href="javascript:updateOk(${i},${reply.replynum})" style="display:none;" id="end${i}">수정완료</a>
+									<a href="javascript:deleteReply(${reply.replynum})">삭제</a>
+								</div>
+							</c:if>
 						</td>
 					</tr>
-				</table>
-			</form>
-			<form name="updateForm" method="post" action="${cp}/board/replymodify.bo">
-				<input type="hidden" name="boardnum" value="${board.boardnum}">
-				<input type="hidden" name="page" value="${param.page}">
-				<input type="hidden" name="q" value="${param.q}">
-				<table class="update_box">
-					<c:set var="i" value="0"/>
-					<c:forEach items="${replies}" var="reply">
-						<tr>
-							<td>${reply.userid}</td>
-							<td>
-								<textarea readonly name="reply${i}" id="reply${i}" class="replycontents">${reply.replycontents }</textarea>
-							</td>
-							<td valign="middle" style="text-align: center">
-								${reply.regdate}
-								<c:if test="${reply.updatechk == 'o' }">
-									<br>(수정됨)
-								</c:if>
-								<c:if test="${reply.userid == loginUser }">
-									<br>
-									<div class="btns">
-										<a href="javascript:updateReply(${i})" id="start${i}">수정</a>
-										<a href="javascript:updateOk(${i},${reply.replynum})" style="display:none;" id="end${i}">수정완료</a>
-										<a href="javascript:deleteReply(${reply.replynum})">삭제</a>
-									</div>
-								</c:if>
-							</td>
-						</tr>
-						<c:set var="i" value="${i+1}"/>
-					</c:forEach>
-				</table>
-				<input type="hidden" name="replynum">
-				<input type="hidden" name="i">
-			</form>
-			<br><br><br><br><br><br>
+					<c:set var="i" value="${i+1}"/>
+				</c:forEach>
+			</table>
+			<input type="hidden" name="replynum">
+			<input type="hidden" name="i">
+		</form>
+		<br><br><br><br><br><br>
 
 <%@include file="/app/common/footer.jsp" %>    
 </body>

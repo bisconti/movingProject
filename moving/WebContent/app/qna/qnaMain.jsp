@@ -82,10 +82,11 @@ span{
       </div>
     </div>
     <div id="btnBox">
-      <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap" value="1:1 문의하기" />
+      <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap" value="1:1 문의하기" onclick="return checkid(${loginUser})"/>
       <input type="button" value="내 문의 내역" />
     </div><br />
 
+<c:if test="${loginUser != null}">
 <div class="modal fade modalcolor" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
@@ -114,8 +115,18 @@ span{
     </div>
   </div>
 </div>
-
+</c:if>
 <br><br><br><br>
 <%@include file="/app/common/footer.jsp" %>
 </body>
+<script>
+function checkid(user){
+	if(user == null){
+		alert("로그인 후 문의해주세요");
+		return false;
+	}
+	
+	return true;
+}
+</script>
 </html>
