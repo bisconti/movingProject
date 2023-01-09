@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/app/css/subscribe.css">
+<link rel="stylesheet" href="${cp}/app/css/subscribe.css">
 </head>
 <body id="body">
 	<%@include file="/app/common/header.jsp" %>

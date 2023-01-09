@@ -4,6 +4,7 @@
 <style>
 html,header,head{
     width: 100%;
+    margin: 0;
 }
     
 #header{
@@ -44,6 +45,7 @@ html,header,head{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 #search > span > input:nth-child(1){
     width: 30%;
@@ -134,14 +136,17 @@ html,header,head{
 }
 #welcome{
     position: absolute;
-    top: 27%;
-    right: 10%;
-    font-size: 70%;
+    top: 28%;
+    right: 8%;
+    font-size: 90%;
     font-weight: bold;
+}
+body{
+margin: 0;
 }
 
 </style>
-</head>
+
    <header>
       <div id="header">
          <div id="logo">

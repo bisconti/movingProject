@@ -17,6 +17,9 @@
     text-align: center;
     width: 1400px;
     height: 231px;
+    position: relative;
+   margin-left: 250px;
+    
 }
 #footer .copyright {
     text-align: center;
@@ -42,6 +45,10 @@
     font-size: 100%;
 }
 
+body{
+   margin: 0;
+}
+
 .copyright{
     clear: both;
     width: 100%;
@@ -53,7 +60,7 @@ div.menus{
 .menus > li{
     text-align:center;
     float: left;
-    padding-left: 2%;
+    padding-left: 3%;
     list-style: none;
     font-size: 130%;
 }

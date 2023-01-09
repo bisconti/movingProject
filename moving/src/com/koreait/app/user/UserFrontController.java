@@ -22,7 +22,6 @@ public class UserFrontController extends HttpServlet{
 		String command = requestURI.substring(contextPath.length());
 		System.out.println(command);
 		ActionTo transfer = null;
-		PrintWriter out = resp.getWriter();
 		
 		switch(command) {
 		case "/user/userjoin.us":
@@ -33,7 +32,7 @@ public class UserFrontController extends HttpServlet{
 		case "/user/userlogin.us":
 			transfer = new ActionTo();
 			transfer.setPath("/app/user/loginview.jsp");
-			transfer.setRedirect(true);
+			transfer.setRedirect(false);
 			break;
 		case "/user/userjoinok.us":
 			//처리
@@ -59,6 +58,7 @@ public class UserFrontController extends HttpServlet{
 			break;
 		case "/user/userlogout.us":
 			req.getSession().removeAttribute("loginUser");
+			PrintWriter out = resp.getWriter();
 			out.write("<script>");
 			out.write("alert('다음에 또 이용해 주세요!');");
 			out.write("</script>");

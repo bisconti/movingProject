@@ -17,12 +17,12 @@
 		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	}
 
-html, body, div, span, applet, object,
+ span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
 code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b,
-u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+u, i, center, dl, dt, dd, ol, li, fieldset,
 form, label, legend, table, caption, tbody,
 tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption,
@@ -39,12 +39,18 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 
-body {
-	line-height: 1;
-}
 
 ol, ul {
 	list-style: none;
+}
+
+#movie, #i, #but, .right_area, #totlaview, #moviecontent, #nextmovie_word, #nextmovie,
+#reel{
+		margin: 0;
+	font-size: 15pt;
+	font-weight: 300;
+	font-family: 'Source Sans Pro', sans serif;
+	
 }
 
 blockquote, q {
@@ -280,10 +286,7 @@ a{
 	body {
 		background-color: black;
 		color: #5b5b5b;
-		font-size: 15pt;
 		line-height: 1.85em;
-		font-family: 'Source Sans Pro', sans-serif;
-		font-weight: 300;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -319,7 +322,6 @@ a{
 /* Container */
 
 	.container {
-		margin: 0 auto;
 		max-width: 100%;
 		width: 1400px;
 	}
