@@ -83,7 +83,8 @@ span{
     </div>
     <div id="btnBox">
       <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap" value="1:1 문의하기" onclick="return checkid(${loginUser})"/>
-      <input type="button" value="내 문의 내역" />
+      <input type="button" value="내 문의 내역" onclick="location.href=''"/>
+      <input type="button" value="아이디 찾기" onclick="location.href=''"/>
     </div><br />
 
 <c:if test="${loginUser != null}">
