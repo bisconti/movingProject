@@ -19,6 +19,7 @@
     height: 231px;
     position: relative;
    	margin-left: 250px;
+
     
 }
 #footer .copyright {

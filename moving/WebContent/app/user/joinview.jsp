@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<link rel="stylesheet" href="/app/css/joinview.css">
+<link rel="stylesheet" href="${cp}/app/css/joinview.css">
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <body>
@@ -25,6 +25,17 @@
             <input type="hidden" name="saveDirectory" value="img">
             <div>
                <p id="result" colspan="2"></p> 
+   <div class="join_page" id="sky">
+      <div class="lor-header" id="sky">
+         <a href="main.html" class="lor-logo">
+            <h1>moving</h1>
+         </a>
+      </div>
+      <div class="lor-content" id="sky">
+         <form name="joinForm" method="post" action="${cp}/user/userjoinok.us"
+            onsubmit="return sendit();">
+            <div id="sky">
+               <p id="result" colspan="2"></p>
             </div>
             <div id="sky">
                <input name="userid" id="userid" placeholder="아이디를 입력해주세요">
@@ -35,6 +46,7 @@
                <p id="pwtxt" colspan="2"></p>
             </div>
             <div id="sky">
+            <div class="" id="sky">
                <input type="password" name="userpw" id="userpw"
                   placeholder="비밀번호를 입력해주세요">
             </div>
@@ -92,6 +104,7 @@
                </div>
             <div class="btn-submit">
                <input type="submit" value="회원가입" id="join_submit"></input>
+               <input type="button" value="인증번호" id="userphone_btn" onclick="${cp}/user/usercheck_num">
             </div>
          </form>
       </div>
@@ -140,7 +153,7 @@ $('#userphone_btn').click(function() {
           alert('휴대폰번호를 정확하게 입력해주세요 !')
       } 
 });
-      
+    
 </script>
 <script src="${cp}/app/user/user.js"></script>
 </html>

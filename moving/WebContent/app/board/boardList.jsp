@@ -40,6 +40,11 @@
 <div id="wrapped">
 <div id="circle1"></div>
     <h2 id="board">커뮤니티</h2>
+    <c:if test="${keyword != null}">
+    <div style="width: 1000px; margin : 0 auto; ">
+    	<h3 style="text-align : center;">"${keyword }" 검색 결과입니다.</h3>
+    </div>	
+    </c:if>
     <div id="circle2"></div>
     <div id="cntBox">
       <div class="float-end mb-2">

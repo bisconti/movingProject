@@ -7,6 +7,8 @@
 		<typeAlias type="com.koreait.dto.UserDTO" alias="userdto"/>
 		<typeAlias type="com.koreait.dto.BoardDTO" alias="boarddto"/>
 		<typeAlias type="com.koreait.dto.MovieDTO" alias="moviedto"/>
+		<typeAlias type="com.koreait.dto.ReplyDTO" alias="replydto"/>
+		<typeAlias type="com.koreait.dto.QnaDTO" alias="qnadto"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -23,6 +25,7 @@
 		<mapper resource="com/koreait/mapper/user.xml"/>
 		<mapper resource="com/koreait/mapper/board.xml"/>
 		<mapper resource="com/koreait/mapper/movie.xml"/>
+		<mapper resource="com/koreait/mapper/qna.xml"/>
 	</mappers>
 </configuration>
 

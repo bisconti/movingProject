@@ -80,7 +80,7 @@ public class UserFrontController extends HttpServlet{
 	          transfer.setPath("/app/manager/manager.jsp");
 	          transfer.setRedirect(false);
 	          break;
-	          
+            
 	    case "/user/terms.us":
 	    	transfer = new ActionTo();
 	    	transfer.setPath("/app/user/terms.jsp");

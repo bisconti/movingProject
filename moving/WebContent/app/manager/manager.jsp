@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-htm {
+html {
    width: 100%;
    height: 100%;
 }
@@ -23,6 +23,9 @@ htm {
         margin: 343px auto;
         min-height: 50%;
         margin-left: 600px;
+    }
+    div{
+        width: 40%;
     }
     #div1{
         text-align: center;
@@ -233,8 +236,25 @@ margin: 0;
     </div>
     <div id="div1">
         <a href="${cp}/movie/fileupload.jsp">영화 업로드 </a>
+        font-size: 50px;
+    }
+    a{
+        color:white ;
+    }
+</style>
+</head>
+<body>
+<%@include file="/app/common/header.jsp" %>
+<div id="div">
+<h1>관리자님 오신걸 환영합니다</h1>
+    <div id="div1">
+        <a href="">고객센터 문의 보기</a>
+    </div>
+    <div id="div1">
+        <a href="${cp}/app/manager/fileupload.jsp">영화 업로드 </a>
     </div>
 </div>
 </body>
 <%@include file="/app/common/footer.jsp" %> 
 </html>
+

@@ -82,6 +82,27 @@ public class BoardFrontController extends HttpServlet{
 		    req.getSession().setAttribute("pageSize", pageSize);
 		    resp.sendRedirect(req.getContextPath() + "/board/boardlist.bo?page="+page);
 			break;
+		case "/board/replywrite.bo":
+			try {
+				new ReplyWriteAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("WARN:ReplyWrite : "+e);
+			}
+			break;
+		case "/board/replymodify.bo":
+			try {
+				new ReplyModifyAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("WARN:ReplyModify : "+e);
+			}
+			break;
+		case "/board/replyremove.bo":
+			try {
+				new ReplyRemoveAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("WARN:ReplyRemove : "+e);
+			}
+			break;	
 		}
 		
 		if(transfer != null) {
