@@ -1,5 +1,6 @@
 package com.koreait.dao;
 
+import java.util.Date;
 import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
@@ -24,5 +25,7 @@ public class UserDAO {
 	public boolean checkId(String userid) {
 		return (Integer)sqlsession.selectOne("User.checkId",userid) != 1;
 	}
-	
+	public Date checkSubscribe(String userid) {
+		return sqlsession.selectOne("User.checkSubscribe",userid);
+	}
 }

@@ -6,32 +6,32 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" href="/app/css/SearchId.css">
+<link rel="stylesheet" href="${cp}/app/css/Searchpw.css">
 <body>
 <%@include file="../common/header.jsp" %>
 	<div class="idSearch">
 		<form action="SearchPwCorrect.jsp">
-			<div class="idSeach_header">
+			<div class="idSeach_header" id="div2">
 				<h1>비밀번호 찾기</h1>
 			</div>
-			<div>
+			<div id="div2">
 				<h3>본인인증으로 찾기</h3>
 			</div>
-			<div class="userid">
+			<div class="userid" id="div3">
 				<input type="text" name="userid" id="userid"
 					placeholder="아이디를 입력해주세요">
 			</div>
-			<div>
+			<div id="div2">
 				<input type="text" name="userphone" id="userphone"
 					placeholder="핸드폰번호 입력" maxlength="11" /> <input type="button"
 					value="인증번호" id="userphone_btn" onclick="send_SMS();">
 			</div>
-			<div>
+			<div id="div2">
 				<input type="text" name="" id="check_number"
 					placeholder="인증번호를 입력해주세요"> <input type="button"
 					value="인증확인" id="correct_check">
 			</div>
-			<div>
+			<div id="div2">
 				<input type="submit" value="확인" id="submit">
 			</div>
 		</form>

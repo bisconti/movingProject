@@ -19,7 +19,7 @@
   <servlet-mapping>
   	<servlet-name>BoardFrontController</servlet-name>
   	<url-pattern>*.bo</url-pattern>
-  </servlet-mapping>	
+  </servlet-mapping>
   <servlet>
   	<servlet-name>MovieFrontController</servlet-name>
   	<servlet-class>com.koreait.app.movie.MovieFrontController</servlet-class>
@@ -35,6 +35,14 @@
   <servlet-mapping>
   	<servlet-name>IndexFrontController</servlet-name>
   	<url-pattern>*.ho</url-pattern>
+  </servlet-mapping>
+  <servlet> 
+    <servlet-name>QnaFrontController</servlet-name>
+  	<servlet-class>com.koreait.app.qna.QnaFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>QnaFrontController</servlet-name>
+  	<url-pattern>*.qn</url-pattern>
   </servlet-mapping>
 </web-app>
 

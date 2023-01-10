@@ -22,5 +22,4 @@ public class UserSearchOkAction implements Action {
 		
 		return null;
 	}
-
 }

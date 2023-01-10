@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Qna">
+	<insert id="insertQna" parameterType="qnadto">
+		insert into qna (userid,qnatitle,qnacontents,time) 
+		values(#{userid},#{qnatitle},#{qnacontents},#{time}) 
+	</insert>
+</mapper>
