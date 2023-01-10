@@ -183,12 +183,10 @@ html {
 body{
 margin: 0;
 }
-
 </style>
 </head>
 <body>
-<header>
-      <div id="header">
+ <div id="header">
          <div id="logo">
             <a href="${cp}/"><img src="/app/img/moving_logo.png" alt="" id="logos"></a>
         </div>
@@ -216,7 +214,17 @@ margin: 0;
          	</c:otherwise>
          </c:choose>
       </div>
-   </header>
+<div id="div">
+<h1>관리자님 오신걸 환영합니다</h1>
+    <div id="sky">
+        <a href="">고객센터 문의 보기</a>
+    </div>
+    <div id="sky">
+        <a href="${cp}/app/manager/fileupload.jsp">영화 업로드 </a>
+    </div>
+</div>
+</body>
+<%@include file="/app/common/footer.jsp" %>
 <script>
    function search() {
       const ms = document.getElementById("ms");
@@ -228,33 +236,5 @@ margin: 0;
       }
       location.href = "${cp}/movie/moviesearch.mo?ms="+ms.value;
    }
-</script>
-<div id="div">
-<h1>&nbsp;&nbsp;&nbsp;환영합니다 ${loginUser}님, 관리자 페이지입니다</h1>
-    <div id="div1">
-        <a href="">고객센터 문의 보기</a>
-    </div>
-    <div id="div1">
-        <a href="${cp}/movie/fileupload.jsp">영화 업로드 </a>
-        font-size: 50px;
-    }
-    a{
-        color:white ;
-    }
-</style>
-</head>
-<body>
-<%@include file="/app/common/header.jsp" %>
-<div id="div">
-<h1>관리자님 오신걸 환영합니다</h1>
-    <div id="div1">
-        <a href="">고객센터 문의 보기</a>
-    </div>
-    <div id="div1">
-        <a href="${cp}/app/manager/fileupload.jsp">영화 업로드 </a>
-    </div>
-</div>
-</body>
-<%@include file="/app/common/footer.jsp" %> 
+</script> 
 </html>
-

@@ -53,13 +53,13 @@ userid varchar(300),
 foreign key(userid) references user(userid)
 );
 
-create table comment(
-commentnum int primary key auto_increment,
-boardnum int,
-userid varchar(300),
-commentcontents varchar(1000),
-time datetime default now(),
-foreign key(boardnum) references m_board(boardnum)
+create table t_reply(
+   replynum int primary key auto_increment,
+   replycontents varchar(1000) not null,
+    regdate datetime default now(),
+    updatechk enum('o','x') default 'x',
+   userid varchar(300),
+    boardnum bigint
 );
 
 create table qna(
