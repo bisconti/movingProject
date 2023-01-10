@@ -27,7 +27,7 @@
                    <a id="SearchId" href="/app/user/SearchId.jsp">아이디/비밀번호 찾기</a>
                 </div>
                 <div class="joinview" id="sky">
-                    <a href="terms.jsp" class="join" rel="nofollow">회원가입</a>
+                    <a href="${cp}/user/terms.us" class="join" rel="nofollow">회원가입</a>
                 </div>
                 <div class="btn-submit" id="sky">
                     <input type="submit" value="로그인"></input>

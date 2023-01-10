@@ -302,7 +302,7 @@ input, select, textarea {
 				height: 6em;				border-radius: 100%;
 				background-color: rgba(72, 57, 73, 0.5);
 				position: absolute;
-				top: 50%;
+				top: 70%;
 				margin-top: -3em;
 				-moz-transition: background-color 0.35s ease-in-out;
 				-webkit-transition: background-color 0.35s ease-in-out;
@@ -316,7 +316,7 @@ input, select, textarea {
 				width: 3em;
 				height: 3em;
 				position: absolute;
-				top: 50%;
+				top: 70%;
 				margin: -1.5em 0 0 0;
 				background: url("images/arrow.svg") no-repeat center center;
 			}

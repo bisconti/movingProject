@@ -37,6 +37,7 @@
 	}
 %>
 <%@include file="/app/common/header.jsp" %>
+<div id="wrapped">
 <div id="circle1"></div>
     <h2 id="board">커뮤니티</h2>
     <c:if test="${keyword != null}">
@@ -130,7 +131,8 @@
         </li>
         </c:if>
       </ul>
-    </nav>	   
+    </nav>	  
+    </div> 
 <%@include file="/app/common/footer.jsp" %>    
 </body>
 <script>

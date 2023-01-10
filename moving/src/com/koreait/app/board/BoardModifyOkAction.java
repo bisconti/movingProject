@@ -40,7 +40,6 @@ public class BoardModifyOkAction implements Action{
 		}
 		return transfer;
 	}
-
 }
 
 

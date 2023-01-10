@@ -11,12 +11,16 @@ body {
    align-items: center;
    justify-content: center;
    flex-direction: column;
+   margin-top: 100px;
+   margin-bottom: 100px;
 }
 
 #sky {
    margin-bottom: 17px;
 }
-
+#join_submit{
+	float: right;
+}
 .lor-content {
    width: 300px;
 }
@@ -80,6 +84,10 @@ input::placeholder {
    font-size: 14px;
 }
 
+#birth-day, #birth-month, #birth-year{
+	margin-bottom: 17px;
+}
+
 div>p {
    color: white;
 }
@@ -96,7 +104,12 @@ div>p {
    width: 300px;
    height: 50px;
 }
-
+#userNum{
+	width: 65%;
+}
+#userid {
+   width: 65%;
+}
 #userid {
    width: 65%;
 }
@@ -105,6 +118,7 @@ div>p {
    width: 28%;
    text-align: left;
    background-color: red;
+   cursor: pointer;
 }
 
 .zipcode_area #sample6_postcode {
@@ -115,6 +129,7 @@ div>p {
    width: 38%;
    text-align: left;
    background-color: red;
+   cursor: pointer;
 }
 
 div>#userphone {
@@ -125,14 +140,19 @@ div> #userphone_btn {
    width: 28%;
    text-align: left;
    background-color: red;
+   cursor: pointer;
 }
 div > #check_number{
-    width: 65%;
+    width: 60%;
 }
 div> #correct_check {
    width: 28%;
    text-align: left;
    background-color: red;
+   cursor: pointer;
+}
+#yeah{
+	cursor: pointer;
 }
 span {
    color : white;
