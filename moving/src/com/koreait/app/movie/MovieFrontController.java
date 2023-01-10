@@ -18,8 +18,8 @@ public class MovieFrontController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//흐름 나누기
-		String requestURI = req.getRequestURI();// ???????/user/userjoin.us
-		String contextPath = req.getContextPath();// ??????(web_module명)
+		String requestURI = req.getRequestURI();
+		String contextPath = req.getContextPath();
 		String command = requestURI.substring(contextPath.length());
 		System.out.println(command);
 		ActionTo transfer = null;
@@ -28,7 +28,6 @@ public class MovieFrontController extends HttpServlet{
 		case "/movie/moviesearch.mo":
 			try {
 				transfer = new MoviesearchAction().execute(req,resp);
-				System.out.println("/movie/moviesearch.mo");
 			} catch (Exception e) {
 				System.out.println("WARN:search" + e);
 			}
@@ -42,20 +41,48 @@ public class MovieFrontController extends HttpServlet{
 	         }
 	         break;
 	         
-	   case"/movie/movie_like.mo":
+		case"/movie/movie_like.mo":
 	         try {
 	             transfer = new MovieLikeAction().execute(req,resp);
-	          } catch (Exception e) {
+	         } catch (Exception e) {
 	              System.out.println("WARN:movie_like : "+e);
+	         }
+	         break;
+		case"/movie/movie_subscribe.mo":
+	         try {
+	             transfer = new MovieSubscribeAction().execute(req,resp);
+	         } catch (Exception e) {
+	              System.out.println("WARN:movieSubscribe : "+e);
+	         }
+	         break;
+	             
+		case"/movie/mavieupload.mo":
+	          transfer = new ActionTo();
+	          transfer.setPath("/app/managerview/fileupload.jsp");
+	          transfer.setRedirect(false);
+	          break;
+	          
+		case "/movie/wishcheck.mo":
+		     try {
+		        new WishCheckOkAction().execute(req,resp);
+		     } catch (Exception e) {
+		         }
+		     break;
+		         
+		case "/movie/likecheck.mo" :
+		     try {
+		        new LikeCheckOkAction().execute(req,resp);
+		     } catch (Exception e) {
+		         }
+		     break;    
+		     
+	    case "/movie/wishlist.mo":
+	          try {
+	             transfer = new MoviewishlistAction().execute(req,resp);
+	          } catch (Exception e) {
+	             System.out.println("WARN:wishlist" + e);
 	          }
 	          break;
-	   case"/movie/movie_subscribe.mo":
-	          try {
-	                transfer = new MovieSubscribeAction().execute(req,resp);
-	             } catch (Exception e) {
-	                System.out.println("WARN:movieSubscribe : "+e);
-	             }
-	             break;
 		}
 		
 		if(transfer != null) {

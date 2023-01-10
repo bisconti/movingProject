@@ -16,6 +16,12 @@
 <body>
 <%@include file="/app/common/header.jsp" %>
 <br><br><br><br><br><br>
+<c:if test="${loginUser == null }">
+	<script>
+		alert("로그인 후 이용하세요!");
+		location.replace("${cp}/user/userlogin.us");
+	</script>
+</c:if>
     <div class="wrap">
         <h2>Write</h2>
         <form class="formD" id="boardForm" method="post" name="boardForm" action="${cp}/board/boardwriteok.bo">
@@ -26,7 +32,7 @@
 
             <div class="form-group">
                 <label for="userid" class="n">작성자</label>
-                <input type="text" name="userid" class="form-control bc" value="${board.userid}" id="userid" readonly>
+                <input type="text" name="userid" class="form-control bc" value="${loginUser }" id="userid" readonly>
             </div>
     
             <div class="form-group">

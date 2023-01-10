@@ -2,19 +2,21 @@
 
 body {
     background-color: black;
+
 }
 
 .login_page {
     /* margin: 0 auto; */
-height: 48vh;
-margin-top:100px;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
+   height: 48vh;
+   margin-top:100px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+    margin-bottom : 177px;
 }
 
-div {
+#sky {
     margin-bottom: 17px;
 }
 
@@ -49,6 +51,7 @@ input::placeholder {
     width: auto; height: auto;
     width: 178px;
     height: 50px;
+    margin-bottom: 17px;
 }
 
 .lor-header > a > h1 {
@@ -70,8 +73,8 @@ input::placeholder {
     font-size: 14px;
 }
 #SearchId{
-	color: white;
-	text-decoration: none;
+   color: white;
+   text-decoration: none;
 }
 .btn-submit>input {
     width: 300px;

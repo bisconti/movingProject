@@ -2,7 +2,7 @@ package com.koreait.app.movie;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import com.koreait.action.Action;
 import com.koreait.action.ActionTo;
@@ -14,6 +14,9 @@ public class MostFastMovieAction implements Action{
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		MovieDAO mdao = new MovieDAO();
+		HttpSession session = req.getSession();
+		String userid = (String)session.getAttribute("loginUser");
+		
 		MovieDTO movie1 = new MovieDTO();
 		MovieDTO movie2 = new MovieDTO();
 		MovieDTO movie3 = new MovieDTO();
@@ -90,17 +93,30 @@ public class MostFastMovieAction implements Action{
 		 movie28 = mdao.MostLike(7);
 		 movie29 = mdao.MostLike(8);
 		 movie30 = mdao.MostLike(9);
-		 
-		 movie31 = mdao.Watched(0);
-		 movie32 = mdao.Watched(1);
-		 movie33 = mdao.Watched(2);
-		 movie34 = mdao.Watched(3);
-		 movie35 = mdao.Watched(4);
-		 movie36 = mdao.Watched(5);
-		 movie37 = mdao.Watched(6);
-		 movie38 = mdao.Watched(7);
-		 movie39 = mdao.Watched(8);
-		 movie40 = mdao.Watched(9);
+
+		 if (userid != null) {
+			 movie31 = mdao.Watched(0,userid);
+			 movie32 = mdao.Watched(1,userid);
+			 movie33 = mdao.Watched(2,userid);
+			 movie34 = mdao.Watched(3,userid);
+			 movie35 = mdao.Watched(4,userid);
+			 movie36 = mdao.Watched(5,userid);
+			 movie37 = mdao.Watched(6,userid);
+			 movie38 = mdao.Watched(7,userid);
+			 movie39 = mdao.Watched(8,userid);
+			 movie40 = mdao.Watched(9,userid);
+			 
+		}
+		 req.setAttribute("movie31", movie31);
+		 req.setAttribute("movie32", movie32);
+		 req.setAttribute("movie33", movie33);
+		 req.setAttribute("movie34", movie34);
+		 req.setAttribute("movie35", movie35);
+		 req.setAttribute("movie36", movie36);
+		 req.setAttribute("movie37", movie37);
+		 req.setAttribute("movie38", movie38);
+		 req.setAttribute("movie39", movie39);
+		 req.setAttribute("movie40", movie40);
 		
 		req.setAttribute("movie1", movie1);
 		req.setAttribute("movie2", movie2);
@@ -135,16 +151,6 @@ public class MostFastMovieAction implements Action{
 		req.setAttribute("movie29", movie29);
 		req.setAttribute("movie30", movie30);
 		
-		req.setAttribute("movie31", movie31);
-		req.setAttribute("movie32", movie32);
-		req.setAttribute("movie33", movie33);
-		req.setAttribute("movie34", movie34);
-		req.setAttribute("movie35", movie35);
-		req.setAttribute("movie36", movie36);
-		req.setAttribute("movie37", movie37);
-		req.setAttribute("movie38", movie38);
-		req.setAttribute("movie39", movie39);
-		req.setAttribute("movie40", movie40);
 
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(false);

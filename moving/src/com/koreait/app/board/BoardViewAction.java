@@ -23,6 +23,8 @@ public class BoardViewAction implements Action{
 			board.setReadcount(board.getReadcount()+1);
 		}
 		req.setAttribute("board", board);
+		req.setAttribute("replies", bdao.getReplies(boardnum));
+		System.out.println(bdao.getReplies(boardnum));
 		ActionTo transfer = new ActionTo();
 		transfer.setRedirect(false);
 		transfer.setPath("/app/board/boardDetail.jsp");

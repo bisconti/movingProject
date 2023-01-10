@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.koreait.action.Action;
 import com.koreait.action.ActionTo;
@@ -14,8 +15,8 @@ public class MovieDetailAction implements Action{
    
    @Override
    public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-      //데이터수집 -> 처리 -> 결과전송
-      MovieDAO mdao = new MovieDAO();
+	  HttpSession session = req.getSession();
+	  MovieDAO mdao = new MovieDAO();
       MovieDTO movieList = new MovieDTO();
       
       MovieDTO movie1 = new MovieDTO();
@@ -29,7 +30,15 @@ public class MovieDetailAction implements Action{
       MovieDTO movie9 = new MovieDTO();
       MovieDTO movie10 = new MovieDTO();
       
+      String userid = (String)session.getAttribute("loginUser");
       int movienum = Integer.parseInt(req.getParameter("movienum"));
+      
+      //좋아요 찜 관련
+      int wish = mdao.wish(movienum,userid);
+      int like = mdao.like(userid, movienum);
+      req.setAttribute("wish", wish);
+      req.setAttribute("like", like);
+      
       
       List<MovieDTO> movies =  mdao.getSimilar(movienum);
       //하단 유사 장르 영화 10개 갖고 오는 파트
@@ -59,7 +68,11 @@ public class MovieDetailAction implements Action{
       movieList = mdao.getDetail(movienum);
       //조회수 +1
       mdao.plusView(movienum);
-      
+      //watched 테이블에 기존 데이터 삭제
+      mdao.removeWatch(movienum,userid);
+      //watched 테이블에 데이터 추가
+      mdao.plusWatch(movienum,userid);
+      //하단 같은 장르 영화 10개
       String moviefilm = mdao.getmovie(movienum);
       req.setAttribute("moviefilm", moviefilm);
       req.setAttribute("movieList", movieList);

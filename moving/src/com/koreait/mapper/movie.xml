@@ -8,10 +8,10 @@
 		on m.movienum = md.movienum where  m.movienum =
 		(select movienum from movie order by movierelease desc limit ${i},1)
 	</select>
-	<select id="watched" parameterType="_int" resultType="moviedto">
+	<select id="watched" parameterType="hashmap" resultType="moviedto">
 		select * from moviedata md join watched w
-		on md.movienum = w.movienum where md.movienum =
-		(select movienum from watched order by time desc limit ${i},1)
+		on md.movienum = w.movienum where userid=#{userid} 
+		group by md.movienum order by time desc limit ${i},1;
 	</select>
 	<select id="mostView" parameterType="_int" resultType="moviedto">
 		select * from moviedata md join movie m
@@ -20,18 +20,18 @@
 	</select>
 	<select id="mostLike" parameterType="_int" resultType="moviedto">
 		select * from moviedata md join movie_like ml on md.movienum = ml.movienum
-		join movie m on m.movienum = ml.movienum where
-		(select movienum from movie_like group by movienum order by movienum limit 0,1)
-		group by m.movienum order by m.movienum limit ${i},1
+		join movie m on m.movienum = ml.movienum where md.movienum = 
+		(select movienum from movie_like group by movienum order by count(movienum) desc limit ${i},1)
+		group by md.movienum;
 	</select>
 	<select id="movieDetail" parameterType="_int" resultType="moviedto">
 		select * from movie m join moviedata md on m.movienum = md.movienum where m.movienum=#{movienum}
 	</select>
-	<insert id="wishMovie" parameterType="hashmap">
-		insert into movie_like values(#{userid},#{movienum})
-	</insert>
+   	<insert id="wishMovie" parameterType="hashmap">
+     	 insert into wishlist values(#{movienum},#{userid})
+   	</insert>
 	<insert id="likeMovie" parameterType="hashmap">
-		insert into movie_like values(#{userid},#{movienum})
+		insert into movie_like values(#{movienum},#{userid})
 	</insert>
 	<select id="similarType" parameterType="_int" resultType="moviedto">
 		select * from movie m join moviedata md on m.movienum = md.movienum
@@ -51,7 +51,28 @@
    	<delete id="removeWish" parameterType="hashmap">
    		delete from wishlist where movienum=#{movienum} and userid=#{userid}
    	</delete>
-   	<delete id="removeLike">
+   	<delete id="removeLike"  parameterType="hashmap">
    		delete from movie_like where movienum=#{movienum} and userid=#{userid}
    	</delete>
+   	<delete id="removeWatched" parameterType="hashmap">
+   		delete from watched where movienum=#{movienum} and userid=#{userid}
+   	</delete>
+    <select id="checklike" parameterType="hashmap" resultType="_int">
+         select count(*) from movie_like where movienum=#{movienum} and userid=#{userid}
+   	</select>
+   	<select id="checkWish" parameterType="hashmap" resultType="_int">
+   		select count(*) from wishlist where movienum=#{movienum} and userid=#{userid}
+   	</select>
+    <insert id="fileUpLoad" parameterType="moviedto">
+        insert into movie (typename,actorname,movietitle,movierelease,runningtime,moviecontents,
+        movieended,national,agelimit) values(#{typename},#{actorname},#{movietitle},#{movierelease},#{runningtime}
+      ,#{moviecontents},#{movieended}, #{national}, #{agelimit})
+      </insert>
+    <insert id="plusWatched" parameterType="hashmap">
+    	insert into watched (movienum,userid) values(#{movienum},#{userid})
+    </insert>
+    <select id="wishlist" parameterType="string" resultType="moviedto">
+		      select * from movie m join wishlist w on m.movienum = w.movienum join moviedata md
+      on md.movienum = m.movienum where userid = #{userid};
+    </select>
 </mapper>
