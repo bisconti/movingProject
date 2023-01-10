@@ -30,5 +30,4 @@ public class UserPhoneCheckAction implements Action {
 		}
 		return null;
 	}
-
 }

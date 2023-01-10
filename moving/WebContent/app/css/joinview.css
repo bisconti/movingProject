@@ -1,139 +1,139 @@
 @charset "UTF-8";
 
 body {
-	background-color: black;
+   background-color: black;
 }
 
 .join_page {
-	margin: 0 auto;
-	height: 60%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
+   margin: 0 auto;
+   height: 60%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
 }
 
-div {
-	margin-bottom: 17px;
+#sky {
+   margin-bottom: 17px;
 }
 
 .lor-content {
-	width: 300px;
+   width: 300px;
 }
 
 input, button, textarea {
-	outline: 0;
-	margin: 0;
-	padding: 0;
-	font-family: HelveticaNeue-Light, AppleSDGothicNeo-Light, 'Noto Sans',
-		'Malgun Gothic', '맑은 고딕', sans-serif;
-	font-weight: 400;
-	border: 0;
-	outline: 0;
-	background: transparent;
+   outline: 0;
+   margin: 0;
+   padding: 0;
+   font-family: HelveticaNeue-Light, AppleSDGothicNeo-Light, 'Noto Sans',
+      'Malgun Gothic', '맑은 고딕', sans-serif;
+   font-weight: 400;
+   border: 0;
+   outline: 0;
+   background: transparent;
 }
 
 input {
-	background-color: rgb(54, 54, 54);
-	width: 285px;
-	height: 46px;
-	padding-left: 15px;
-	border: none;
-	color: white;
+   background-color: rgb(54, 54, 54);
+   width: 285px;
+   height: 46px;
+   padding-left: 15px;
+   border: none;
+   color: white;
 }
 input[type=radio] {
-	width : 10px;
-	height : 10px;
-	margin-left : 10px;
+   width : 10px;
+   height : 10px;
+   margin-left : 10px;
 }
 label {
-	margin-left : 10px;
+   margin-left : 10px;
 }
 
 input::placeholder {
-	color: #e2e2e2;
+   color: #e2e2e2;
 }
 
 .lor-header {
-	background: url(/app/img/moving_logo.png) no-repeat;
-	background-size: cover;
-	background-position: center;
-	width: auto;
-	height: auto;
-	margin-top: 50px;
-	width: 178px;
-	height: 50px;
+   background: url(/app/img/moving_logo.png) no-repeat;
+   background-size: cover;
+   background-position: center;
+   width: auto;
+   height: auto;
+   margin-top: 50px;
+   width: 178px;
+   height: 50px;
 }
 
 .lor-header>a>h1 {
-	display: none;
-	opacity: 0;
+   display: none;
+   opacity: 0;
 }
 
 .joinview {
-	text-align: right;
+   text-align: right;
 }
 
 .joinview .join {
-	text-decoration: none;
-	color: white;
-	font-size: 14px;
+   text-decoration: none;
+   color: white;
+   font-size: 14px;
 }
 
 div>p {
-	color: white;
+   color: white;
 }
 
 .btn-submit>input {
-	width: 300px;
-	height: 50px;
-	background-color: red;
-	color: white;
-	font-weight: bold;
+   width: 300px;
+   height: 50px;
+   background-color: red;
+   color: white;
+   font-weight: bold;
 }
 
 .zipcode_area {
-	width: 300px;
-	height: 50px;
+   width: 300px;
+   height: 50px;
 }
 
 #userid {
-	width: 65%;
+   width: 65%;
 }
 
 #user_id_btn {
-	width: 28%;
-	text-align: left;
-	background-color: red;
+   width: 28%;
+   text-align: left;
+   background-color: red;
 }
 
 .zipcode_area #sample6_postcode {
-	width: 55%;
+   width: 55%;
 }
 
 #sample6_postcode_btn {
-	width: 38%;
-	text-align: left;
-	background-color: red;
+   width: 38%;
+   text-align: left;
+   background-color: red;
 }
 
 div>#userphone {
-	width: 65%;
+   width: 65%;
 }
 
 div> #userphone_btn {
-	width: 28%;
-	text-align: left;
-	background-color: red;
+   width: 28%;
+   text-align: left;
+   background-color: red;
 }
 div > #check_number{
     width: 65%;
 }
 div> #correct_check {
-	width: 28%;
-	text-align: left;
-	background-color: red;
+   width: 28%;
+   text-align: left;
+   background-color: red;
 }
 span {
-	color : white;
+   color : white;
 }
