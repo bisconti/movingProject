@@ -50,9 +50,6 @@ public class FileUploadOkAction implements Action{
             //</script>
             out.print("</script>");
       }
-      
-      
       return null;
    }
-
 }

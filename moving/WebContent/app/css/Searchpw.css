@@ -6,6 +6,7 @@ body {
 
 .idSearch {
     margin: 0 auto;
+    margin-top: 60px;
     /* text-align: center; */
     color: white;
    	min-height: 100%;
@@ -14,7 +15,7 @@ body {
     justify-content: center;
     flex-direction: column;
     text-decoration : none;
-    margin-bottom: 216px;
+    margin-bottom: 156px;
 }
 
 .idSeach_header{

@@ -79,9 +79,4 @@ public class UserDTO {
 				+ usergender + ", zipcode=" + zipcode + ", useraddr=" + useraddr + ", useraddrdetail=" + useraddrdetail
 				+ ", useraddretc=" + useraddretc + ", userbirth=" + userbirth + ", userphone=" + userphone + "]";
 	}
-	
-	
-    
-	
-	
 }

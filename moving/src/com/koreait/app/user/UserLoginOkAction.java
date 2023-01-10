@@ -51,7 +51,6 @@ public class UserLoginOkAction implements Action {
             out.print("</script>");
          }
       }
-      
       return null;
    }
 }

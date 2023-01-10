@@ -1,9 +1,6 @@
 package com.koreait.app.movie;
 
 import java.io.PrintWriter;
-
-
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -43,7 +40,5 @@ public class WishCheckOkAction implements Action{
       System.out.println("지랄마...");
       
       return null;
-
    }
-
 }

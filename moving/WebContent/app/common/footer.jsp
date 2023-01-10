@@ -18,7 +18,7 @@
     width: 1400px;
     height: 231px;
     position: relative;
-   margin-left: 250px;
+   	margin-left: 250px;
     
 }
 #footer .copyright {
