@@ -80,6 +80,18 @@ public class UserFrontController extends HttpServlet{
 	          transfer.setPath("/app/manager/manager.jsp");
 	          transfer.setRedirect(false);
 	          break;
+            
+	    case "/user/terms.us":
+	    	transfer = new ActionTo();
+	    	transfer.setPath("/app/user/terms.jsp");
+	    	transfer.setRedirect(false);
+	    	break;
+	    	
+	    case "/user/joinview.us":
+	    	transfer = new ActionTo();
+	    	transfer.setPath("/app/user/joinview.jsp");
+	    	transfer.setRedirect(false);
+	    	break;
 		}
 		
 		//전송 일괄처리(어디인지, 어떤 방식인지는 몰라도 그냥 transfer라는 객체에 담겨있는 정보를 해석해서 그대로 페이지를 이동)

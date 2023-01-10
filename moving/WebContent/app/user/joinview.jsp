@@ -8,9 +8,23 @@
 <title>회원가입</title>
 <link rel="stylesheet" href="${cp}/app/css/joinview.css">
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <body>
    <%@include file="../common/header.jsp"%><br>
    <br>
+   <div class="join_page">
+      <div class="lor-header">
+         <a href="main.html" class="lor-logo">
+         </a>
+      </div>
+      <div class="lor-content">
+         <form name="joinForm" method="post" action="${cp}/user/userjoinok.us"
+            onsubmit="return sendit();">
+            <input type="hidden" name="systemName" value="basicprofile.jpg">
+            <input type="hidden" name="orignName" value="basicprofile.jpg">
+            <input type="hidden" name="saveDirectory" value="img">
+            <div>
+               <p id="result" colspan="2"></p> 
    <div class="join_page" id="sky">
       <div class="lor-header" id="sky">
          <a href="main.html" class="lor-logo">
@@ -31,6 +45,7 @@
             <div id="sky">
                <p id="pwtxt" colspan="2"></p>
             </div>
+            <div id="sky">
             <div class="" id="sky">
                <input type="password" name="userpw" id="userpw"
                   placeholder="비밀번호를 입력해주세요">
@@ -44,7 +59,7 @@
                   placeholder="이름을 입력해주세요">
             </div>
             <div class="gender_area" id="sky">
-               <span><label>남자 <input type="radio" name="usergender" value="M" checked></label></span>
+               <span><label>남자<input type="radio" name="usergender" value="M" checked></label></span>
                <span><label>여자 <input type="radio" name="usergender" value="W"></label></span>
             </div>
             <div class="zipcode_area" id="sky">
@@ -66,29 +81,30 @@
             </div>
             <!-- 생년월일 
                    참고 예정 사이트 https://choiiis.github.io/web/toy-project-sign-up-and-in-page-2/-->
-            <div class="info" id="sky" name="userbirth">
+            <div class="info" id="userbirth" name="userbirth">
                <select class="box" id="birth-year" name="userbirth">
                   <option disabled selected>출생 연도</option>
-               </select> 
-               <select class="box" id="sky" name="userbirth">
+               </select><span>연</span>
+               <select class="box" id="birth-month" name="userbirth">
                   <option disabled selected>월</option>
-               </select> 
-               <select class="box" id="sky" name="userbirth">
+               </select><span>월</span>
+               <select class="box" id="birth-day" name="userbirth">
                   <option disabled selected>일</option>
-               </select>
+               </select><span>일</span>
             </div>
             <div id="sky">
                <input type="text" name="userphone" id="userphone"
                   placeholder="핸드폰번호 입력" maxlength="13" onkeyup="addHypen(this);"/> 
-               <input type="button" value="인증번호" id="userphone_btn" onclick="${cp}/user/usercheck_num">
+               <input type="button" value="인증번호" id="userphone_btn">
             </div>
             <div id="sky">
-                   <input type="text" name="check_number" id="check_number"
-                      placeholder="인증번호를 입력해주세요">
+                   <input type="text" name="check_number" id="userNum"
+                      placeholder="인증번호를 입력해주세요" >
                    <input type="button" value="인증확인" id="correct_check">
                </div>
-            <div class="btn-submit" id="sky"> 
-               <input type="submit" value="회원가입"></input>
+            <div class="btn-submit">
+               <input type="submit" value="회원가입" id="join_submit"></input>
+               <input type="button" value="인증번호" id="userphone_btn" onclick="${cp}/user/usercheck_num">
             </div>
          </form>
       </div>
@@ -99,6 +115,45 @@
    src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
    const cp = "${cp}";
+</script>
+<script>
+var code2= "";
+$('#userphone_btn').click(function() {
+    const userphone = $('#userphone').val();
+    if(userphone.length == 13){ 
+         alert('인증번호가 전송되었습니다. 확인해주세요 !');
+      $.ajax ({
+         url: '${cp}/user/send_msg.us',
+         type: 'GET',
+         async: false,
+         data: {
+            "userphone" : userphone
+         },
+          success: function(data) {
+            var checkNum = data;
+            alert(data);
+            
+            $('#correct_check').click(function() {   
+               const userNum = $('#userNum').val();
+               
+               if(checkNum == userNum) {
+                  alert('인증 성공하였습니다.');
+                  code2 = data;
+                  console.log(code2);
+               }
+               else {
+                  alert('인증 실패하였습니다. 다시 입력해주세요.');
+               }
+            });
+            
+         }
+      });
+      }
+      else {
+          alert('휴대폰번호를 정확하게 입력해주세요 !')
+      } 
+});
+    
 </script>
 <script src="${cp}/app/user/user.js"></script>
 </html>

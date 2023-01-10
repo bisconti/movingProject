@@ -8,12 +8,12 @@ body {
 .login_page {
     /* margin: 0 auto; */
    height: 48vh;
-   margin-top:100px;
+   margin-top:200px;
    display: flex;
    align-items: center;
    justify-content: center;
    flex-direction: column;
-    margin-bottom : 177px;
+    margin-bottom : 69px;
 }
 
 #sky {

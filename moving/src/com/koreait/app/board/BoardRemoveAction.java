@@ -1,7 +1,5 @@
 package com.koreait.app.board;
 
-import java.io.PrintWriter;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

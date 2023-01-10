@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/app/css/terms2.css">
 <body>
 	<div id="wrap">
-		<form name="termsForm" action="/app/user/joinview.jsp" onsubmit="return termscheck();">
+		<form name="termsForm" action="${cp}/user/joinview.us" onsubmit="return termscheck();">
 			<h2 class="h2">홈페이지 이용약관</h2>
 			<div class="agree">
 				<div tabindex="0">

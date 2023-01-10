@@ -15,6 +15,10 @@ th {
   border-color: #444;
 }
 
+#wrapped{
+	
+}
+
 .page-item.active .page-link {
   z-index: 1;
   color: #ccc;

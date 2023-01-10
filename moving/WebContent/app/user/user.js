@@ -15,14 +15,14 @@ function sendit(){
     
     const result = document.getElementById("result");
     if(result.innerHTML == "&nbsp;"){
-    	alert("아이디 중복검사를 진행해주세요!");
-    	userid.focus();
-    	return false;
+       alert("아이디 중복검사를 진행해주세요!");
+       userid.focus();
+       return false;
     }
     if(result.innerHTML == "중복된 아이디가 있습니다!"){
-    	alert("중복체크 통과 후 가입이 가능합니다!");
-    	userid.focus();
-    	return false;
+       alert("중복체크 통과 후 가입이 가능합니다!");
+       userid.focus();
+       return false;
     }
     
     const userpw = joinForm.userpw;
@@ -34,28 +34,28 @@ function sendit(){
     }
     const reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[~?!@#$%^&*_-]).{8,}$/;
     if(!reg.test(userpw.value)){
-    	alert("비밀번4호는 8자 이상, 숫자, 대문자, 소문자, 특수문자를 모두 하나 이상 포함해야 합니다!");
-    	return false;
+       alert("비밀번4호는 8자 이상, 숫자, 대문자, 소문자, 특수문자를 모두 하나 이상 포함해야 합니다!");
+       return false;
     }
     if(/(\w)\1\1\1/.test(userpw.value)){
-    	alert("같은 문자를 4번 연속해서 사용할 수 없습니다!")
-    	userpw.focus();
-    	return false;
+       alert("같은 문자를 4번 연속해서 사용할 수 없습니다!")
+       userpw.focus();
+       return false;
     }
     if(userpw.value.search(/\s/) != -1){
-    	alert("비밀번호는 공백을 포함할 수 없습니다!");
-    	userpw.focus();
-    	return false;
+       alert("비밀번호는 공백을 포함할 수 없습니다!");
+       userpw.focus();
+       return false;
     }
     if(userpw_re.value == ""){
-    	alert("비밀번호 확인을 해주세요!");
-    	userpw_re.focus();
-    	return false;
+       alert("비밀번호 확인을 해주세요!");
+       userpw_re.focus();
+       return false;
     }
     if(userpw.value != userpw_re.value){
-    	alert("비밀번호 확인을 다시 해주세요!");
-    	userpw.focus();
-    	return false;
+       alert("비밀번호 확인을 다시 해주세요!");
+       userpw.focus();
+       return false;
     }
     
     const username = joinForm.username;
@@ -78,50 +78,60 @@ function sendit(){
         return false;
     }
 
-    const addrdetail = joinForm.addrdetail;
+    const addrdetail = joinForm.useraddrdetail;
     if(addrdetail.value == ""){
         alert("나머지 주소를 입력해주세요.")
         addrdetail.focus();
         return false;
     }
     
-    const birthyear =joinForm.birth-year
+    const birthyear = document.getElementById("birth-year")
     if(birthyear.value == ""){
-    	alert("출생연도를 선택해주세요 !")
-    	birth-year.래쳔
+       alert("출생연도를 선택해주세요 !")
+       birth-year.focus();
+       return false;
+    }
+    const userphone = joinForm.userphone;
+    if(userphone.value.length != 13){
+       alert("휴대폰번호를 입력해주세요 !");
+       return false;
+    }
+    if(code2 == ""){
+       alert("휴대폰번호 인증 실패입니다!")
+       return false;
     }
     return true;
 }
 function checkId(){
-	const xhr = new XMLHttpRequest();
-	const result = document.getElementById("result");
-	const userid = document.joinForm.userid;
-	if(userid.value == ""){
-//		alert("아이디를 입력하세요!");
-		userid.focus();
-		return false;
-	}
-	
-	xhr.onreadystatechange = function(){
-		if(xhr.readyState == 4){
-			if(xhr.status == 200){
-				let txt = xhr.responseText;
-				txt = txt.trim();
-				if(txt == "O"){
-					result.innerHTML = "사용할 수 있는 아이디입니다!";
-					
-				}
-				else{
-					result.innerHTML = "중복된 아이디가 있습니다!";
-					userid.value = "";
-					userid.focus();
-				}
-			}
-		}
-	}
-	
-	xhr.open("GET",cp+"/user/checkidok.us?userid="+userid.value,true);
-	xhr.send();
+   const xhr = new XMLHttpRequest();
+   const result = document.getElementById("result");
+   const userid = document.joinForm.userid;
+   if(userid.value == ""){
+      alert("아이디를 입력하세요!");
+      userid.focus();
+      return false;
+   }
+   
+   xhr.onreadystatechange = function(){
+      if(xhr.readyState == 4){
+         if(xhr.status == 200){
+            let txt = xhr.responseText;
+            txt = txt.trim();
+            if(txt == "O"){
+               result.innerHTML = "사용할 수 있는 아이디입니다!";
+               
+            }
+            else{
+               result.innerHTML = "중복된 아이디가 있습니다!";
+               userid.value = "";
+               userid.focus();
+            }
+         }
+      }
+   }
+   
+   xhr.open("GET",cp+"/user/checkidok.us?userid="+userid.value,true);
+   xhr.send();
 }
 function sample6_execDaumPostcode() {
     new daum.Postcode({
@@ -195,11 +205,14 @@ isMonthOptionExisted = false;
 birthMonthEl.addEventListener('focus', function(){
     if(!isMonthOptionExisted){
         isMonthOptionExisted = true
-        for(var i = 01; i <=12; i++) {
-            const MonthOption = document.createElement('option')
-            MonthOption.setAttribute('value', i)
-            MonthOption.innerHTML = i
-            this.appendChild(MonthOption);
+        
+        for(var i = 1; i <=12; i++) {
+           var mm = i > 9 ? i : "0"+i ;            
+            $('#birth-month').append
+            ('<option value="' + mm + '">' + mm + '월</option>');    
+        
+//        const MonthOption = document.createElement('option')
+//        this.appendChild(MonthOption);
         }
     }
 })
@@ -210,16 +223,14 @@ birthDayEl.addEventListener('focus', function(){
     if(!isDayOptionExisted){
         isDayOptionExisted = true
         for(var i = 01; i <=31; i++) {
-            const DayOption = document.createElement('option')
-            DayOption.setAttribute('value', i)
-            DayOption.innerHTML = i
-            this.appendChild(DayOption);
+           var dd = i > 9 ? i : "0"+i ;            
+            $('#birth-day').append('<option value="' + dd + '">' + dd+ '일</option>');  
         }
     }
 })
 // 회원가입 terms 약관체크박스 여부확인.
     const termsForm = document.termsForm;
-    const terms = termsForm.chked;
+   const terms = [];
     let flag = false;
     function termscheck() {
         for(let term of terms){
@@ -259,8 +270,6 @@ birthDayEl.addEventListener('focus', function(){
         }
         obj.value = phone;
     }
-
-
 
 
 
