@@ -49,9 +49,15 @@ public class UserDAO {
 	}
 	
 	public UserDTO getLoginUser(String userid) {
-		return sqlsession.selectOne("getLoginUser", userid);
+		return sqlsession.selectOne("User.getLoginUser",userid);
 	}
 	public int getUserAge(String userbirth) {
-		return sqlsession.selectOne("getUserAge", userbirth);
+		return sqlsession.selectOne("User.getUserAge",userbirth);
+	}
+	public boolean addPhoto(String userid, String userphoto) {
+		HashMap<String, String> datas = new HashMap<String, String>();
+		datas.put("userid", userid);
+		datas.put("userphoto", userphoto);
+		return sqlsession.update("User.addPhoto",datas) == 1;
 	}
 }

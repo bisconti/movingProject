@@ -32,4 +32,7 @@
       SELECT FLOOR( (CAST(REPLACE(CURRENT_DATE,'-','') AS UNSIGNED) - 
        CAST(REPLACE(#{userbirth},'-','') AS UNSIGNED)) / 10000 );
    </select>
+   <update id="addPhoto" parameterType="hashmap">
+   		update user set userphoto = #{userphoto} where userid = #{userid}
+   </update>
 </mapper>
