@@ -166,28 +166,36 @@ ul.icons li a:hover {
 </style>
 </head>
 <body id="body">
-	<%@include file="/app/common/header.jsp" %>
-	<div id="wrap">
-			<div id="monthly">
-				<p>월 구독제</p>
-				<ul>
-					<li>약 120편의 영화를 제한없이 감상하실 수 있습니다.</li>
-					<li>720p 화질까지 시청이 가능합니다.</li>
-					<li>9,000￦의 요금이 매달 납부됩니다.(VAT 포함, 구독은 언제든지 해지할 수 있습니다.)</li>
-				</ul>
-				<input type="button" value="결제하기" id="payment" onclick="goPaymentAPI()" >
-			</div>
-			<div id="year">
-				<p>연 구독제</p>
-				<ul>
-					<li>약 120편의 영화를 제한없이 감상하실 수 있습니다.</li>
-					<li>1080p 화질까지 시청이 가능합니다.</li>
-					<li>99,000￦의 요금이 매년 납부됩니다.(VAT 포함, 구독은 언제든지 해지할 수 있습니다.)</li>
-				</ul>
-				<input type="button" value="결제하기" id="payment">
-			</div>
-		</div>
-	<div id="footer">
+   <%@include file="/app/common/header.jsp" %>
+   <div id="wrap">
+         <div id="monthly">
+            <p>월 구독제</p>
+            <ul>
+               <li>약 120편의 영화를 제한없이 감상하실 수 있습니다.</li>
+               <li>720p 화질까지 시청이 가능합니다.</li>
+               <li>9,000￦의 요금이 매달 납부됩니다.(VAT 포함, 구독은 언제든지 해지할 수 있습니다.)</li>
+            </ul>
+            <form name="subscribeMonth" action="${cp}/user/subscribeOk.us" method="post">
+               <input type="button" value="결제하기" id="payment" onclick="paymentOk('${loginUser}', '9000')" >
+               <input type="hidden" value="9,000￦" name="subprice"/>
+               <input type="hidden" value="m" name="y"/>
+            </form>
+         </div>
+         <div id="year">
+            <p>연 구독제</p>
+            <ul>
+               <li>약 120편의 영화를 제한없이 감상하실 수 있습니다.</li>
+               <li>1080p 화질까지 시청이 가능합니다.</li>
+               <li>99,000￦의 요금이 매년 납부됩니다.(VAT 포함, 구독은 언제든지 해지할 수 있습니다.)</li>
+            </ul>
+            <form name="subscribeYear" action="${cp}/user/subscribeOk.us" method="post">
+               <input type="button" value="결제하기" id="payment" onclick="paymentOk('${loginUser}', '99000')">
+               <input type="hidden" value="99,000￦" name="subprice"/>
+               <input type="hidden" value="y" name="y"/>
+            </form>
+         </div>
+      </div>
+   <div id="footer">
        <div class="container">
            <section class="contact">
                <div id="icons">
@@ -220,6 +228,59 @@ ul.icons li a:hover {
        </div>
    </div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+<script>
+var IMP = window.IMP;
+IMP.init("imp67338724");
+  
+var today = new Date();
+var hours = today.getHours(); 
+var minutes = today.getMinutes();
+var seconds = today.getSeconds();
+var milliseconds = today.getMilliseconds();
+var makeMerchantUid = hours +  minutes + seconds + milliseconds;
+
+function paymentOk(user, price) {
+   if(user == null || user == undefined || user == ''){
+      alert("로그인 후 결제해주세요.");
+      return false;
+   }
+
+    IMP.request_pay(
+      {
+          pg : 'kakaopay',
+          merchant_uid: "IMP"+makeMerchantUid,
+          name : '정기결제권',
+          amount : price,
+          buyer_email : 'asdoe22@gamil.com',
+          buyer_name : 'history',
+          buyer_tel : '010-1234-5678',
+          buyer_addr : '서울특별시 강남구 삼성동', 
+          buyer_postcode : '123-456',
+       }, function (rsp) {
+           if (rsp.success) {
+               console.log(rsp);
+               console.log(today);
+               var msg = '결제가 완료되었습니다.\n';
+                msg += '고유ID : ' + rsp.imp_uid+"\n";
+                msg += '상점 거래ID : ' + rsp.merchant_uid+"\n";
+                msg += '결제 금액 : ' + rsp.paid_amount+'원\n';
+                msg += '카드 승인번호 : ' + rsp.apply_num;
+                
+                if(price == '99000'){
+                   subscribeYear.submit();                   
+                }else{
+                   subscribeMonth.submit();   
+                }
+           } else {
+               console.log(rsp);
+               var msg = '결제에 실패하였습니다.\n';
+               msg += '에러내용 : ' + rsp.error_msg;
+           }
+          alert(msg);
+       }
+    );
+}
+</script>
 </body>
 </html>

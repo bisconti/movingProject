@@ -8,6 +8,11 @@
 </head>
 <link rel="stylesheet" href="/app/css/terms1.css">
 <link rel="stylesheet" href="/app/css/terms2.css">
+<style>
+#pup{
+	cursor: pointer;
+}
+</style>
 <body>
 	<div id="wrap">
 		<form name="termsForm" action="${cp}/user/joinview.us" onsubmit="return termscheck();">
@@ -275,7 +280,7 @@
 				</p>
 			</div>
 			<br>
-			<br> <input type="submit" value="다음" class="next">
+			<br> <input type="submit" value="다음" class="next" id="pup">
 		</form>
 	</div>
 	<br>

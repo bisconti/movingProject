@@ -189,7 +189,7 @@ ul.icons li a:hover {
                                    <li id="foot_menu"><a href="#">© Moving. All rights reserved.</a></li>
                                </ul>
                            </div>
-               </div>
+               		  </div>
            </section>
-       </div>
+      </div>
    </div>

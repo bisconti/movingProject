@@ -14,7 +14,13 @@ body {
    margin-top: 100px;
    margin-bottom: 100px;
 }
-
+#point{
+	border: 1px solid black;
+}
+#point1{
+	border: 1px solid black;
+	margin-bottom: 17px;
+}
 #sky {
    margin-bottom: 17px;
 }

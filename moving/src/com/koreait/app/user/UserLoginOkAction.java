@@ -9,23 +9,33 @@ import javax.servlet.http.HttpSession;
 import com.koreait.action.Action;
 import com.koreait.action.ActionTo;
 import com.koreait.dao.UserDAO;
+import com.koreait.dto.UserDTO;
 
 public class UserLoginOkAction implements Action {
    @Override
    public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
       String userid = req.getParameter("userid");
       String userpw = req.getParameter("userpw");
+      UserDAO udao = new UserDAO();
+      UserDTO user = new UserDTO();
       
       HttpSession session = req.getSession();
-      
+      user.setUserid(userid);
+      user.setUserpw(userpw);
+      String userphoto = user.getUserphoto();
       resp.setCharacterEncoding("UTF-8");
       resp.setContentType("text/html; charset=utf-8");
       PrintWriter out = resp.getWriter();
+      user = udao.getLoginUser(userid);
+      System.out.println("user : " + user);
+      System.out.println("userbirth : " + user.getUserbirth());
+      String userbirth = user.getUserbirth();
+      int age = udao.getUserAge(userbirth);
+      System.out.println(age);
       
       ActionTo transfer = new ActionTo();
       transfer.setRedirect(false);
       String manager = "manager";
-      UserDAO udao = new UserDAO();
       if(manager.equals(userid)) {
           out.print("<script>");
           out.print("alert('어서오세요 준민 대표님^^7');");
@@ -34,7 +44,10 @@ public class UserLoginOkAction implements Action {
        }
       else{
          if(udao.login(userid,userpw)) {
+           session.setAttribute("User", user);
             session.setAttribute("loginUser", userid);
+            session.setAttribute("age", age);
+            session.setAttribute("userphoto", userphoto);
             //<script>
             out.print("<script>");
             //alert('apple님 어서오세요~!');
@@ -54,7 +67,6 @@ public class UserLoginOkAction implements Action {
       return null;
    }
 }
-
 
 
 

@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="cp" value="${pageContext.request.contextPath}" scope="session"/>
 <c:set var="loginUser" value="${loginUser}" scope="session"/>
+<c:set var="user" value="${User}" scope="session"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -427,7 +428,7 @@ function datecheck(){
 		}
 	}
 	
-	xhr.open("GET",cp+"/user/subscribe.us?userid=${loginUser}",true);
+	xhr.open("GET",cp+"/user/dateCheck.us?userid=${loginUser}",true);
 	xhr.send();
 }
 </script>
