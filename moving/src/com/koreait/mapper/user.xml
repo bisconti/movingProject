@@ -35,4 +35,29 @@
    <update id="addPhoto" parameterType="hashmap">
    		update user set userphoto = #{userphoto} where userid = #{userid}
    </update>
+      <update id="changepw" parameterType="hashmap">
+      update user set userpw=#{userpw} where userid=#{userid}
+   </update>
+      <update id="changephone" parameterType="hashmap">
+      update user set userphone=#{userphone} where userid=#{userid}
+   </update>
+       <select id="checkPhone" parameterType="string" resultType="_int">
+      select count(*) from user where userphone=#{userphone}
+   </select>
+   <select id="qnalist" parameterType="hashmap"  resultType="qnadto">
+      select * from qna order by qnanum desc limit #{startRow},#{pageSize}
+   </select>
+   <select id="getqnaCnt" resultType="_int">
+      select count(*) from qna 
+   </select>
+   <select id="getDetail" parameterType="_int" resultType="qnadto">
+      select * from qna where qnanum=#{qnanum}   
+   </select>
+   <update id="answerOk" parameterType="hashmap">
+      update qna set qnacontents=#{answer}, qnacheck= #{check} where qnanum=#{qnanum} 
+   </update>
+   <update id="changeaddr" parameterType="userdto">
+      update user set zipcode=#{zipcode} ,useraddr=#{useraddr} ,useraddrdetail=#{useraddrdetail},
+      useraddretc=#{useraddretc} where userid=#{userid}
+   </update>
 </mapper>

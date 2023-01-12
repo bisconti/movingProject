@@ -20,18 +20,10 @@ public class UserLoginOkAction implements Action {
       UserDTO user = new UserDTO();
       
       HttpSession session = req.getSession();
-      user.setUserid(userid);
-      user.setUserpw(userpw);
-      String userphoto = user.getUserphoto();
       resp.setCharacterEncoding("UTF-8");
       resp.setContentType("text/html; charset=utf-8");
       PrintWriter out = resp.getWriter();
-      user = udao.getLoginUser(userid);
-      System.out.println("user : " + user);
-      System.out.println("userbirth : " + user.getUserbirth());
-      String userbirth = user.getUserbirth();
-      int age = udao.getUserAge(userbirth);
-      System.out.println(age);
+  
       
       ActionTo transfer = new ActionTo();
       transfer.setRedirect(false);
@@ -44,10 +36,16 @@ public class UserLoginOkAction implements Action {
        }
       else{
          if(udao.login(userid,userpw)) {
+           user = udao.getLoginUser(userid);
+           System.out.println("user : " + user);
            session.setAttribute("User", user);
-            session.setAttribute("loginUser", userid);
+           session.setAttribute("loginUser", userid);
+           
+            String userbirth = user.getUserbirth();
+            int age = udao.getUserAge(userbirth);
+            System.out.println(age);
+            
             session.setAttribute("age", age);
-            session.setAttribute("userphoto", userphoto);
             //<script>
             out.print("<script>");
             //alert('apple님 어서오세요~!');
@@ -59,15 +57,11 @@ public class UserLoginOkAction implements Action {
          }
          else {
             out.print("<script>");
-            out.print("alert('로그인 실패!');");
-            out.print("location.href='"+ req.getContextPath()+"/user/userlogin.us';");
-            out.print("</script>");
+             out.print("alert('로그인 실패!');");
+             out.print("location.href='"+ req.getContextPath()+"/user/userlogin.us';");
+             out.print("</script>");
          }
       }
       return null;
    }
 }
-
-
-
-

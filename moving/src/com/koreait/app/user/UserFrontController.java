@@ -75,7 +75,7 @@ public class UserFrontController extends HttpServlet{
          break;
       case "/user/manager.us":
          transfer = new ActionTo();
-         transfer.setPath("/app/user/manager.jsp");
+         transfer.setPath("/app/manager/manager.jsp");
          transfer.setRedirect(false);
          break;
       case "/user/searchid.us" :
@@ -145,6 +145,38 @@ public class UserFrontController extends HttpServlet{
 		} catch (Exception e) {
 			System.out.println("WARN:AddPhoto : "+e);
 		}
+    	 break;
+      case "/user/changepw.us" :
+          try {
+             new ChangePwAction().execute(req, resp);
+        } catch (Exception e) {
+           System.out.println("WARN: ChangePw : " +e);
+        }
+        break;
+        
+      case "/user/changephone.us":
+          try {
+             new ChangephoneAction().execute(req, resp);
+        } catch (Exception e) {
+           System.out.println("WARN: Changephone : " +e);
+        }
+        break;
+        
+      case "/user/checkphoneok.us":
+          try {
+             new CheckPhoneOkAction().execute(req,resp);
+          } catch (Exception e) {
+             System.out.println("WARN:CheckIdOk : "+e);
+          }
+          break;
+         
+      case"/user/changeaddr.us":
+          try {
+              new ChangeaddrAction().execute(req, resp);
+         } catch (Exception e) {
+            System.out.println("WARN: Changephone : " +e);
+         }
+          break;
       }
       
       //전송 일괄처리(어디인지, 어떤 방식인지는 몰라도 그냥 transfer라는 객체에 담겨있는 정보를 해석해서 그대로 페이지를 이동)

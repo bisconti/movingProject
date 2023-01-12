@@ -36,7 +36,7 @@
     </div>
 <%@include file="../common/footer.jsp" %>   
 </body>
-+<script>
+<script>
    function pwcheck() {
       
       const joinForm = document.joinForm;

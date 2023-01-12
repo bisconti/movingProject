@@ -10,6 +10,7 @@
       <typeAlias type="com.koreait.dto.ReplyDTO" alias="replydto"/>
       <typeAlias type="com.koreait.dto.QnaDTO" alias="qnadto"/>
       <typeAlias type="com.koreait.dto.PayDTO" alias="paydto"/>
+      <typeAlias type="com.koreait.dto.MoviedataDTO" alias="moviedatadto"/>
    </typeAliases>
    <environments default="development">
       <environment id="development">
