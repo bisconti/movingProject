@@ -40,7 +40,8 @@ public class UserLoginOkAction implements Action {
            System.out.println("user : " + user);
            session.setAttribute("User", user);
            session.setAttribute("loginUser", userid);
-           
+           session.setAttribute("userphoto", user.getUserphoto());
+           System.out.println(user.getUserphoto());
             String userbirth = user.getUserbirth();
             int age = udao.getUserAge(userbirth);
             System.out.println(age);

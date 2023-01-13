@@ -14,20 +14,20 @@
 <div id="all">
 	<div id="left_area">
 	<br><br><br><br><br><br><br><br>
-	<form>
+	<form name="photoForm" id="photoForm" action="${cp}/user/adduserphoto.us" method="post" enctype="multipart/form-data">
 	<fieldset style="margin-top : -11px;">
 		<legend>PROFILE IMAGE</legend>
 		<table>
 		<tr>
 			<td>
 			<div id="mypage_img">
-				<img alt="" src="${cp }/app/img/basicprofile.jpg" id="profile_img">
+				<img alt="" src="${cp}/app/userprofile/${userphoto}" id="userphoto">
 			</div>
-			<label for="file">
-				<div class="btn_upload">업로드</div>
-			</label>
-			<input type="file" name="file" id="uploadfile">
-			<input type="submit" value="수정하기" id="modify">
+				<div class="filebox">
+				  <label for="ex_file">업로드</label>
+				  <input type="file" id="ex_file" name="userphoto" accept=".jpg, .png, .jpeg, .gif">
+				</div>
+			<input type="submit" value="수정하기" id="modify" onclick="sendit()">
 			</td>
 		</tr>	
 		</table>	
@@ -79,7 +79,7 @@
               <th><label for="userid">구독</label></th>
               <td>
                 <input type="text" name="userid" id="userid" value="월간이용권" readonly disabled/>
-                <input type="button" value="구독취소" />
+                <a href="${cp}/user/subscribe.us"><input type="button" value="구독연장" /></a>
               </td>
             </tr>
           </table>
@@ -286,4 +286,10 @@ $('#userphone_btn').click(function() {
 });
 </script>
 <script src="${cp}/app/user/user.js"></script>
+<script>
+function sendit(){
+    const photoForm = document.photoForm;
+    movieForm.submit();
+ }
+</script>
 </html>

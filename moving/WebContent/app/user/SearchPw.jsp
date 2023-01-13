@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" href="/app/css/SearchId.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="/app/css/SearchId.css">
 <body>
 <%@include file="../common/header.jsp" %>
    <div class="idSearch">
@@ -69,6 +69,7 @@ $('#userphone_btn').click(function() {
                
                if(checkNum == userNum) {
                   alert('인증 성공하였습니다.');
+                  $("#userphone").attr("readonly",true);
                   code2 = data;
                   console.log(code2);
                }

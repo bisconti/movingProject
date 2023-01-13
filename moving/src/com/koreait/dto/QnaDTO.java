@@ -6,8 +6,15 @@ public class QnaDTO {
    private String qnatitle;
    private String qnacontents;
    private String time;
+   private String qnacheck;
    
-   public int getQnanum() {
+   public String getQnacheck() {
+	return qnacheck;
+}
+public void setQnacheck(String qnacheck) {
+	this.qnacheck = qnacheck;
+}
+public int getQnanum() {
       return qnanum;
    }
    public void setQnanum(int qnanum) {

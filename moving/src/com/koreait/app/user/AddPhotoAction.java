@@ -23,46 +23,51 @@ public class AddPhotoAction implements Action{
 		HttpSession session = req.getSession();
 		
 		String userid = (String)session.getAttribute("loginUser"); 
-		String userphoto = req.getParameter("userphoto");
+		//String userphoto = (String)req.getParameter("userphoto");
 		
-		
-		String savephoto = ("C:/Users/LEEJUNMIN/Documents/GitHub/realMove/movingProject/moving/WebContent/app/userprofile");
-
+		String savephoto = (req.getServletContext().getRealPath("/app/userprofile"));
+		//System.out.println(userphoto);
 	      // 저장될 파일의 크기(5MB)
 	      int size = 1024 * 1024 * 20;
 
 	      // cos 라이브러리 이용
 	      MultipartRequest photo = new MultipartRequest(req, savephoto, size, "UTF-8", new DefaultFileRenamePolicy());
-
-
+	      
 	      // input[type=file] 태그의 name값을 써주면 시스템상 이름을 받아올 수 있음
 	      String systemname1 = photo.getFilesystemName("userphoto");
 	      // input[type=file] 태그의 name값을 써주면 사용자가 업로드할 당시의 이름을 받아올 수 있음
-	      String orgname1 = photo.getOriginalFileName("userphoto");
+	      String userphoto = photo.getOriginalFileName("userphoto");
+	      System.out.println(userphoto);
+	      ActionTo transfer = new ActionTo();
 	      
 	      UserDTO user = new UserDTO();
-	      user.setUserphoto("userphoto");
-
+	      user.setUserphoto(photo.getFilesystemName("userphoto"));
+	      
+	      
+	      
+	      
 	      if (udao.addPhoto(userid,userphoto)) {
-
+	    	
+	    	 session.removeAttribute("userphoto");
+	    	 String updatephoto = udao.newProfile(userid);
+	    	 session.setAttribute("userphoto", updatephoto);
+	    	 System.out.println(updatephoto);
+	    	  
 	         FileDTO file = new FileDTO();
-	         file.setOrgname(orgname1);
-
 	         resp.setCharacterEncoding("UTF-8");
 	         resp.setContentType("text/html; charset=utf-8");
-	         out.print("<script>");
-	 		 out.print("alert('프로필 사진이 성공적으로 변경되었습니다.')");
-	 		 out.print("location.href='"+ req.getContextPath()+"/';");
-	 		 out.print("<script>");
-	         // 1. 원래 파일이 업로드가 안됐음
-	         // 2. 파일이 존재했고, 위의 DB처리까지 완벽하게 성공했음
+	         
+	         transfer.setRedirect(true);
+	         transfer.setPath(req.getContextPath()+"/home.ho");
+	         
 	      }
 	      else {
 	         out.write("<script>");
 	         out.print("alert('프로필 사진 변경에 실패하였습니다.');");
 	         out.print("location.href='"+ req.getContextPath()+"/user/mypage.us';");
 	         out.write("</script>");
+	         return null;
 	      }
-	      return null;
+	      return transfer;
 	}
 }

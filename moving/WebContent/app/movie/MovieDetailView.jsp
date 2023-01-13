@@ -51,16 +51,16 @@
       </c:otherwise>
       </c:choose>
       <div id="totalview">
-         <p>조회수: ${movieList.view_cnt}</p>
-         <a id="a" class="fuck" href="${cp}/movie/wishlist.mo?userid=${loginUser}">나의 찜목록 보기♥</a>
+         <div id="hey"><p>조회수: ${movieList.view_cnt}</p></div>
+         <div id="heyhey"><a class="fuck" href="${cp}/movie/wishlist.mo?userid=${loginUser}">나의 찜목록 보기♥</a></div><br>
+		 <div id="genre"><p>장르: ${movieList.typename}</p></div>	
+		 <div id="actor"><p>주연배우: ${movieList.actorname}</p></div>
       </div>
      </div>
    <div id="moviecontent">
-         <div id="movietitle"><p>제목 : ${movieList.movietitle}</p></div>
+        <div id="movietitle"><p>제목 : ${movieList.movietitle}</p></div>
         <div id="movieopen"><p>개봉일 : ${movieList.movierelease}</p></div>
-        <div id="actor"><p>주연배우: ${movieList.actorname}</p></div>
         <div id="moviesummary"><p>${movieList.moviecontents}</p></div>
-        <div id="genre"><p>장르: ${movieList.typename}</p></div>
    </div>
    <hr>
    <div id="nextmovie_word">

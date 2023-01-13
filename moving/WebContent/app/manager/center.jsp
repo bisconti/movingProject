@@ -50,11 +50,9 @@
         <tr>
           <th scope="row">${qnalist.qnanum}</th>
           <td style="width : 33%"><a id="tt" href="${cp}/movie/inquirydetail.mo?qnanum=${qnalist.qnanum}&page=${page}&q=${keyword}">${qnalist.qnatitle}</a> 
-         <fmt:parseNumber value="${now.time / (1000*60*60*24)}" integerOnly="true" var="today" />
-         <fmt:parseNumber value="${qnalist.regdate.time / (1000*60*60*24)}" integerOnly="true" var="qnadate" />
           </td>
           <td>${qnalist.userid}</td>
-          <td><fmt:formatDate value="${qnalist.regdate}" pattern="yyyy.MM.dd HH:mm:ss"/></td>
+          <td>${qnalist.time}</td>
         </tr>
         </c:forEach>
       </tbody>

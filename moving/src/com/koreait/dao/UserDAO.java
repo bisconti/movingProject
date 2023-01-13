@@ -111,5 +111,8 @@ public class UserDAO {
 	public boolean changeaddr(UserDTO user) {
 		 return sqlsession.update("User.changeaddr",user) == 1;
 	}
+	public String newProfile(String userid) {
+		return sqlsession.selectOne("User.newProfile",userid);
+	}
 
 }

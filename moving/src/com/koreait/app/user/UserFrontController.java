@@ -57,15 +57,17 @@ public class UserFrontController extends HttpServlet{
          }
          break;
       case "/user/userlogout.us":
-         req.getSession().removeAttribute("loginUser");
-         PrintWriter out = resp.getWriter();
-         out.write("<script>");
-         out.write("alert('다음에 또 이용해 주세요!');");
-         out.write("</script>");
-         transfer = new ActionTo();
-         transfer.setPath("/");
-         transfer.setRedirect(true);
-         break;
+          resp.setCharacterEncoding("UTF-8");
+          resp.setContentType("text/html; charset=utf-8");
+          req.getSession().removeAttribute("loginUser");
+          req.getSession().removeAttribute("User");
+          PrintWriter out = resp.getWriter();
+          out.write("<script>");
+          out.write("alert('로그아웃 되었습니다.');");
+          out.write("location.href='"+ req.getContextPath()+"/';");
+          out.write("</script>");
+          break;
+          
       case "/user/send_msg.us" :
          try {
             new CheckNumberAction().execute(req, resp);
@@ -170,13 +172,40 @@ public class UserFrontController extends HttpServlet{
           }
           break;
          
-      case"/user/changeaddr.us":
+      case "/user/changeaddr.us":
           try {
               new ChangeaddrAction().execute(req, resp);
          } catch (Exception e) {
             System.out.println("WARN: Changephone : " +e);
          }
           break;
+          
+      case "/qna/qnamain.us":
+          transfer = new ActionTo();
+           transfer.setPath("/app/qna/qnaMain.jsp");
+           transfer.setRedirect(false);
+           break;       
+           
+      case"/user/userpage.us":
+          transfer = new ActionTo();
+          transfer.setPath("/app/user/userpage.jsp");
+          transfer.setRedirect(false);
+         break;  
+         
+      case "/board/boardList.us" :
+          transfer = new ActionTo();
+           transfer.setPath("/app/board/boardList.jsp");
+           transfer.setRedirect(false);
+          break;
+          
+       case "/qna/qnaList.us" :
+          transfer = new ActionTo();
+           transfer.setPath("/app/qna/qnaList.jsp");
+           transfer.setRedirect(false);
+          break;
+          
+      case "/user/modifyProfile.us":
+    	  
       }
       
       //전송 일괄처리(어디인지, 어떤 방식인지는 몰라도 그냥 transfer라는 객체에 담겨있는 정보를 해석해서 그대로 페이지를 이동)

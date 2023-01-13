@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.koreait.action.Action;
 import com.koreait.action.ActionTo;
-/*import com.koreait.dao.FileDAO;*/
 import com.koreait.dao.UserDAO;
-/*import com.koreait.dto.FileDTO;*/
+import com.koreait.dto.FileDTO;
 import com.koreait.dto.UserDTO;
 
 public class UserJoinOkAction implements Action{
@@ -19,9 +18,7 @@ public class UserJoinOkAction implements Action{
       //데이터수집 -> 처리 -> 결과전송
       UserDAO udao = new UserDAO();
       UserDTO user = new UserDTO();
-		/*
-		 * FileDAO fdao = new FileDAO(); FileDTO file = new FileDTO();
-		 */
+      FileDTO file = new FileDTO();
       
       String userid = req.getParameter("userid");
       String username = req.getParameter("username");
@@ -37,11 +34,6 @@ public class UserJoinOkAction implements Action{
       user.setUseraddretc(req.getParameter("useraddretc"));
       user.setUserbirth(String.join("-", req.getParameterValues("userbirth")));
       user.setUserphone(userphone);
-		/*
-		 * file.setOrignName(req.getParameter("orginName"));
-		 * file.setSaveDirectory(req.getParameter("saveDirectory"));
-		 * file.setSystemName(req.getParameter("systemName")); file.setUserid(userid);
-		 */
       
       
       
@@ -52,7 +44,6 @@ public class UserJoinOkAction implements Action{
       transfer.setRedirect(true);
       
       if(udao.join(user)) {
-         /*if(fdao.insertFile(file)) {*/
          out.write("<script>");
          out.write("alert('회원가입이 완료되었습니다 !');");
          out.write("</script>");
@@ -60,7 +51,6 @@ public class UserJoinOkAction implements Action{
          Cookie cookie = new Cookie("joinid", userid);
          resp.addCookie(cookie);
          transfer.setPath(req.getContextPath()+"/user/userlogin.us");
-			/* } */
       }
       else {
          //localhost:9090/????
@@ -69,6 +59,14 @@ public class UserJoinOkAction implements Action{
       return transfer;
    }
 }
+
+
+
+
+
+
+
+
 
 
 

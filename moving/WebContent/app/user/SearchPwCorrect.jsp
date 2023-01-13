@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" href="../css/SearchPwCorrect.css">
+<link rel="stylesheet" href="${cp}/app/css/SearchPwCorrect.css">
 <body>
 <%@include file="../common/header.jsp" %>
    <div id="all">

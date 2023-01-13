@@ -12,7 +12,7 @@
 <body>
 <%@include file="../common/header.jsp" %>
    <div class="idSearch">
-      <form name="joinForm" action="${cp}/user/searchid.us" method="get" 
+      <form name="joinForm" action="${cp}/user/searchid.us" method="post" 
          accept-charset="utf-8" onsubmit="return idSearch();" >
          <div class="idSeach_header">
             <h1>아이디 찾기</h1>
@@ -20,11 +20,11 @@
          <div>
             <h3>본인인증으로 찾기</h3>
          </div>
-         <div class="username" id="sky">
+         <div class="username">
             <input type="text" name="username" id="username" 
                placeholder="이름을 입력해주세요">
          </div>
-         <div id="sky">
+         <div>
             <input type="text" name="userphone" id="userphone" onkeyup="addHypen(this);"
                placeholder="핸드폰번호 입력" maxlength="13" /> 
             <input type="button" value="인증번호" id="userphone_btn">
@@ -73,6 +73,7 @@ $('#userphone_btn').click(function() {
                
                if(checkNum == userNum) {
                   alert('인증 성공하였습니다.');
+                  $("#userphone").attr("readonly",true);
                   code2 = data;
                   console.log(code2);
                }

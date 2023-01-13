@@ -31,7 +31,7 @@
             </tr>
             <tr class="tr">
                 <td class="td">작성일</td>
-                <td class="td_text"><fmt:formatDate value="${qna.regdate}" pattern="yyyy.MM.dd HH:mm:ss"/></td> 
+                <td class="td_text">${qna.time}</td> 
             </tr>
             <tr class="tr">
                 <td class="td">제목</td>
@@ -76,7 +76,6 @@
 </script>
 </body>
 </html>
-
 
 
 

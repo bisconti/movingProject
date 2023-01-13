@@ -166,18 +166,18 @@ ul.icons li a:hover {
            <section class="contact">
                <div id="icons">
                    <ul class="icons">
-                       <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                       <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                       <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                       <li><a href="#" class="icon brands fa-youtube"><span class="label">Instagram</span></a></li>
+                       <li><a href="https://twitter.com/?lang=ko" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                       <li><a href="https://ko-kr.facebook.com/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                       <li><a href="https://www.instagram.com/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                       <li><a href="https://www.youtube.com/" class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
                    </ul>
                </div>
                <div class="copyright">
                            <div class="menus">
                                <ul class="menus">
-                                   <li id="foot_menu"><a href="#">고객센터</a></li>
+                                   <li id="foot_menu"><a href="${cp}/qna/qnamain.us">고객센터</a></li>
                                    
-                                   <li id="foot_menu"><a href="#">이용약관</a></li>
+                                   <li id="foot_menu"><a href="">이용약관</a></li>
                                    
                                    <li id="foot_menu"><a href="#">개인정보 처리방침</a></li>
                                    

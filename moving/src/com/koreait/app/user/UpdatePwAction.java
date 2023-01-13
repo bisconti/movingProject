@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.koreait.action.Action;
 import com.koreait.action.ActionTo;
 import com.koreait.dao.UserDAO;
-import com.koreait.dto.UserDTO;
 
 public class UpdatePwAction implements Action{
    @Override
@@ -16,9 +15,7 @@ public class UpdatePwAction implements Action{
       resp.setCharacterEncoding("UTF-8");
       resp.setContentType("text/html; charset=utf-8");
       UserDAO udao = new UserDAO();
-      UserDTO user = new UserDTO();
       String userid = req.getParameter("userid");
-      String userphone = req.getParameter("userphone");
       String userpw = req.getParameter("userpw_re");
       System.out.println(userid);
       System.out.println(userpw);
@@ -28,24 +25,20 @@ public class UpdatePwAction implements Action{
       
       System.out.println("체크");
       ActionTo transfer = new ActionTo();
+      transfer.setRedirect(true);
       if(udao.updatePw(userid, userpw)) {
       System.out.println("체크22");
-      out.write("<script>");
-      out.write("alert('비밀번호 변경 완료');");
-//      out.write("location.href='"+ req.getContextPath()+"/user/login.us';");
-      out.write("</script>");
-      transfer.setRedirect(true);
-      transfer.setPath(req.getContextPath()+"/user/userlogin.us");
-         
+      out.print("<script>");
+      out.print("alert('비밀번호 변경 완료');");
+      out.print("location.href='"+ req.getContextPath()+"/user/userlogin.us';");
+      out.print("</script>");
       } 
       else {
-//         System.out.println("체크");
-         out.write("<script>");
-         out.write("alert('비밀번호 변경 실패');");
-//         out.write("location.href='"+ req.getContextPath()+"/user/login.us';");
-         out.write("</script>");
-         transfer.setPath(req.getContextPath()+"/user/userlogin.us");
+         out.print("<script>");
+         out.print("alert('비밀번호 변경 실패');");
+         out.print("location.href='"+ req.getContextPath()+"/user/userlogin.us';");
+         out.print("</script>");
       }
-      return transfer;
+      return null;
    }
 }

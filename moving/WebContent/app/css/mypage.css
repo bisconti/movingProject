@@ -57,7 +57,6 @@ td > input[type="text"] + input[type="button"]{
   margin-left: 10px;
   padding: 8px 10px;
   background-color: red;
-  color: #fff;
   font-size: 14px;
   font-weight: bold;
   border: none;
@@ -98,9 +97,9 @@ input[type="submit"] {
 	float: right;
 	position: absolute;
 	left: 36.5%;
-	top: 48%;
+	top: 43%;
 }
-#profile_img{
+#userphoto{
 	width: 296.5px;
 	background-size: contain;
 }
@@ -133,6 +132,47 @@ input[type="button"] ,input[type="file"]{
   border: none;
   border-radius: 5px;
   width: 80px;
+}
+.filebox{
+	width: 80px;
+	height: 34px;
+	position: absolute;
+	left: 32%;
+	top: 43%;
+}
+.filebox label {
+  display: inline-block;
+  padding: .344em .938em;
+  color: #fff;
+  font-size: inherit;
+  font-weight: bold;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: red;
+  cursor: pointer;
+  border: 1px solid red;
+  border-radius: 5px;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.filebox label:hover {
+  background-color: black;
+}
+
+.filebox label:active {
+  background-color: black;
+}
+
+.filebox input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 .btn_right > input[type="button"] {
   float: right;
