@@ -9,7 +9,7 @@ legend {
   padding-top: 45px;
 }
 body {
-  background-color: #212121;
+  background-color: black;
 }
 input {
   box-sizing: border-box;
@@ -43,13 +43,28 @@ input[type="password"] {
   border: 1px solid #ccc;
   width: 250px;
 }
+#userphone , #userNum {
+     padding: 10px 15px 10px 10px;
+  border: 1px solid #ccc;
+  width: 250px;
+}
 input:focus {
   outline: none;
   border: 1px solid red;
 }
 
-td > input[type="text"] + input[type="button"] {
+td > input[type="text"] + input[type="button"]{
   margin-left: 10px;
+  padding: 8px 10px;
+  background-color: red;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  width: 80px;
+}
+input[type="submit"] {
+   margin-left: 10px;
   padding: 8px 10px;
   background-color: red;
   color: #fff;
@@ -62,23 +77,39 @@ td > input[type="text"] + input[type="button"] {
 .gender_area > td {
   font-size: 16px;
 }
-input[type="submit"] {
-  margin: 0 auto;
-  padding: 10px 10px;
-  margin-left: 40px;
-  background-color: rgb(0, 200, 80);
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  width: 400px;
+#left_area{
+	width:40%;
+	height: 80%;
+}
+#right_area{
+	width: 40%;
+}
+#mypage_img{
+	width:296.5px;
+}
+#uploadfile{
+	float: right;
+	position: absolute;
+	left: 31.5%;
+	top: 48%;
+}
+#modify{
+	float: right;
+	position: absolute;
+	left: 36.5%;
+	top: 43%;
+}
+#userphoto{
+	width: 296.5px;
+	background-size: contain;
 }
 #all {
-  width: 530px;
-  height: 100%;
+  width: 1500px;
+  height: 80%;
   color: white;
   margin: 0 auto;
+  display : flex;
+  justify-content: space-around;
 }
 .btn {
   margin-left: 10px;
@@ -91,7 +122,7 @@ input[type="submit"] {
   border-radius: 5px;
   width: 80px;
 }
-input[type="button"] {
+input[type="button"] ,input[type="file"]{
   margin-left: 10px;
   padding: 8px 10px;
   background-color: red;
@@ -101,6 +132,47 @@ input[type="button"] {
   border: none;
   border-radius: 5px;
   width: 80px;
+}
+.filebox{
+	width: 80px;
+	height: 34px;
+	position: absolute;
+	left: 32%;
+	top: 43%;
+}
+.filebox label {
+  display: inline-block;
+  padding: .344em .938em;
+  color: #fff;
+  font-size: inherit;
+  font-weight: bold;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: red;
+  cursor: pointer;
+  border: 1px solid red;
+  border-radius: 5px;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.filebox label:hover {
+  background-color: black;
+}
+
+.filebox label:active {
+  background-color: black;
+}
+
+.filebox input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 .btn_right > input[type="button"] {
   float: right;
@@ -115,4 +187,8 @@ fieldset{
 }
 input[type="text"]{
     color : white;
+}
+#userpone{
+   margin-right: 10px;
+   width: 80px;
 }

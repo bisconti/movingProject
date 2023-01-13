@@ -1,5 +1,6 @@
 package com.koreait.app.movie;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,13 +11,16 @@ import com.koreait.action.Action;
 import com.koreait.action.ActionTo;
 import com.koreait.dao.MovieDAO;
 import com.koreait.dto.MovieDTO;
+import com.koreait.dto.UserDTO;
 
 public class MovieDetailAction implements Action{
    
    @Override
    public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-	  HttpSession session = req.getSession();
-	  MovieDAO mdao = new MovieDAO();
+     resp.setCharacterEncoding("UTF-8");
+     resp.setContentType("text/html; charset=utf-8");
+     HttpSession session = req.getSession();
+     MovieDAO mdao = new MovieDAO();
       MovieDTO movieList = new MovieDTO();
       
       MovieDTO movie1 = new MovieDTO();
@@ -32,7 +36,15 @@ public class MovieDetailAction implements Action{
       
       String userid = (String)session.getAttribute("loginUser");
       int movienum = Integer.parseInt(req.getParameter("movienum"));
+      UserDTO user =(UserDTO)session.getAttribute("User");
+      int movieage = Integer.parseInt(req.getParameter("movieage"));
+      int userage = (int) session.getAttribute("age");
+      System.out.println("나이 : " + userage);
       
+      System.out.println(user);
+      String username = user.getUsername();
+      System.out.println(username);
+      System.out.println(userid);
       //좋아요 찜 관련
       int wish = mdao.wish(movienum,userid);
       int like = mdao.like(userid, movienum);
@@ -66,20 +78,29 @@ public class MovieDetailAction implements Action{
     
       //영화 상세 메소드(제목, 줄거리, 조회수 등등..)
       movieList = mdao.getDetail(movienum);
-      //조회수 +1
-      mdao.plusView(movienum);
-      //watched 테이블에 기존 데이터 삭제
-      mdao.removeWatch(movienum,userid);
-      //watched 테이블에 데이터 추가
-      mdao.plusWatch(movienum,userid);
       //하단 같은 장르 영화 10개
       String moviefilm = mdao.getmovie(movienum);
       req.setAttribute("moviefilm", moviefilm);
       req.setAttribute("movieList", movieList);
-      
-      ActionTo transfer = new ActionTo();
-      transfer.setRedirect(false);
-      transfer.setPath("/app/movie/MovieDetailView.jsp");
-      return transfer;
+      PrintWriter out = resp.getWriter();
+      if(userage < movieage) {
+         out.print("<script>");
+          out.print("alert('연령미달으로 시청할 수 없는 컨텐츠입니다.');");
+          out.print("location.href='"+ req.getContextPath()+"/';");
+          out.print("</script>");
+          return null;
+       }
+       else {
+       //watched 테이블에 기존 데이터 삭제
+       mdao.removeWatch(movienum,userid);
+       //watched 테이블에 데이터 추가
+       mdao.plusWatch(movienum,userid);
+       //조회수 +1
+       mdao.plusView(movienum);
+       ActionTo transfer = new ActionTo();
+       transfer.setRedirect(false);
+       transfer.setPath("/app/movie/MovieDetailView.jsp");
+       return transfer;
+       }
    }
 }

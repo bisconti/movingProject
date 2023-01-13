@@ -11,7 +11,7 @@ import com.koreait.action.Action;
 import com.koreait.action.ActionTo;
 import com.koreait.dao.UserDAO;
 
-public class SubscribeAction implements Action{
+public class DateCheckAction implements Action{
 
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {

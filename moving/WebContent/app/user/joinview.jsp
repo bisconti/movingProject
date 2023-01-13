@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<link rel="stylesheet" href="${cp}/app/css/joinview.css">
+<link rel="stylesheet" href="/app/css/joinview.css">
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <body>
@@ -14,18 +14,12 @@
    <br>
    <div class="join_page">
       <div class="lor-header">
-      
-       
          <a href="main.html" class="lor-logo">
-            <h1>moving</h1>
          </a>
       </div>
       <div class="lor-content">
          <form name="joinForm" method="post" action="${cp}/user/userjoinok.us"
             onsubmit="return sendit();">
-            <input type="hidden" name="systemName" value="basicprofile.jpg">
-            <input type="hidden" name="orignName" value="basicprofile.jpg">
-            <input type="hidden" name="saveDirectory" value="img">
             <div>
                <p id="result" colspan="2"></p> 
             </div>
@@ -75,7 +69,7 @@
             <div class="info" id="userbirth" name="userbirth">
                <select class="box" id="birth-year" name="userbirth">
                   <option disabled selected>출생 연도</option>
-               </select><span>년</span>
+               </select><span>연</span>
                <select class="box" id="birth-month" name="userbirth">
                   <option disabled selected>월</option>
                </select><span>월</span>

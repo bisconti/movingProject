@@ -18,7 +18,16 @@ body {
     margin-bottom: 118px;
 
 }
-
+#point{
+	border: 1px solid black;
+}
+#point1{
+	border: 1px solid black;
+	margin-bottom: 17px;
+}
+#sky {
+   margin-bottom: 17px;
+}
 .idSeach_header{
     text-align: center;
     margin-top: 150px;

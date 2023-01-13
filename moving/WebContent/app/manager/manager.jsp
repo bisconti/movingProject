@@ -183,10 +183,12 @@ html {
 body{
 margin: 0;
 }
+
 </style>
 </head>
 <body>
- <div id="header">
+<header>
+      <div id="header">
          <div id="logo">
             <a href="${cp}/"><img src="/app/img/moving_logo.png" alt="" id="logos"></a>
         </div>
@@ -214,17 +216,18 @@ margin: 0;
          	</c:otherwise>
          </c:choose>
       </div>
-<div id="div">
-<h1>관리자님 오신걸 환영합니다</h1>
-    <div id="sky">
-        <a href="">고객센터 문의 보기</a>
-    </div>
-    <div id="sky">
-        <a href="${cp}/app/manager/fileupload.jsp">영화 업로드 </a>
-    </div>
-</div>
-</body>
-<%@include file="/app/common/footer.jsp" %>
+   </header>
+		<div id="div">
+		<h1>관리자님 오신걸 환영합니다</h1>
+		    <div id="div1">
+		        <a href="${cp}/movie/center.mo">고객센터 문의 보기</a>
+		    </div>
+		    <div id="div1">
+		        <a href= "${cp}/movie/fileupload.mo">영화 업로드 </a>
+		    </div>
+		</div>
+		</body>
+		<%@include file="/app/common/footer.jsp" %> 
 <script>
    function search() {
       const ms = document.getElementById("ms");
@@ -236,5 +239,6 @@ margin: 0;
       }
       location.href = "${cp}/movie/moviesearch.mo?ms="+ms.value;
    }
-</script> 
+</script>
 </html>
+

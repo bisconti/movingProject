@@ -36,7 +36,7 @@ body{
 </head>
 <body>
 <%@include file="/app/common/header.jsp" %>
-<form name="movieForm" method="post" action="${cp}/movie/mavieupload.mo" onsubmit="return sendit();">
+<form name="movieForm" id="movieForm" method="post" action="${cp}/movie/movieupload.mo" onsubmit="return sendit();" enctype="multipart/form-data">
    <table id="table">
       <tr align="left">
          <th id="th" >
@@ -130,7 +130,7 @@ body{
    <table class="btn_area">
       <tr>
          <td>
-            <a id="a" href="">업로드 완료</a>&nbsp;&nbsp;
+            <a id="a" href="javascript:sendit()">업로드 완료</a>&nbsp;&nbsp;
             <a id="a" href="">취소</a>
          </td>
       </tr>
@@ -138,4 +138,17 @@ body{
 </form>        
 <%@include file="/app/common/footer.jsp" %> 
 </body>
+<script>
+function sendit(){
+    const movieForm = document.movieForm;
+    const movietitle = movieForm.movietitle;
+    if(movietitle.value == ""){
+       alert("제목을 입력하세요");
+       movietitle.focus();
+       return false;
+    }
+    
+    movieForm.submit();
+ }
+</script>
 </html>

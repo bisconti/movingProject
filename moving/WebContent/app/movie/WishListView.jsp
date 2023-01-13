@@ -179,7 +179,7 @@ ul.icons li a:hover {
          <c:forEach items="${movieList}" var="movie">
             <div class="movie_box">
                <div id="photo44">
-                  <a href="${cp}/movie/moviedetail.mo?movienum=${movie.movienum}"><img id="image66" src="/app/file/${movie.moviephoto}" alt=""></a>
+                  <a href="${cp}/movie/moviedetail.mo?movienum=${movie.movienum}&movieage=${movie.agelimit}"><img id="image66" src="/app/file/${movie.moviephoto}" alt=""></a>
                </div>
                <div id="info">
                   <h2>${movie.movietitle}</h2>

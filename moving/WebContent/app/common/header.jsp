@@ -167,7 +167,7 @@ margin: 0;
          	</c:when>
          	<c:otherwise>
 	            <div id="mypage">
-	            	<a href="${cp}/user/mypage.us"><img src="/app/img/basicprofile.jpg" alt="" id="myprofile"></a>
+	            	<a href="${cp}/user/userpage.us"><img src="/app/userprofile/${userphoto}" alt="" id="myprofile"></a>
 	            		<h5 id="welcome">환영합니다! <br>${loginUser}님</h5>
 	        	</div>
 	        	<div id="logout">
