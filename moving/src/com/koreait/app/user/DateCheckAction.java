@@ -26,7 +26,7 @@ public class DateCheckAction implements Action{
 	if (result < 0) {
 		out.write("O");
 	}
-	else if(result > 0){
+	else if(result > 0 || userid==null){
 		out.write("X");
 	}
 	out.close();

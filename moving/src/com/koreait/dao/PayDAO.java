@@ -28,4 +28,8 @@ public class PayDAO {
    public int checkPay(String userid) {
 	   return (int)sqlsession.selectOne("Pay.checkPay",userid);
    }
+   
+   public PayDTO getPayList(String userid) {
+	      return sqlsession.selectOne("Pay.payList",userid);
+	   }
 }

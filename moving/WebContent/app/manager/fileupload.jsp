@@ -25,21 +25,27 @@ body{
     height: 100px ;
 }
 .btn_area a{
-   padding:10px;
-   background-color:red;
-   color:#fff;
-   text-align: center;
-   margin: 10px;
-   border-radius: 25%;
+  margin-left: 10px;
+  padding: 8px 10px;
+  background-color: red;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  width: 80px;
+  text-decoration: none;
+  color: white;
 }
 </style>
 </head>
 <body>
 <%@include file="/app/common/header.jsp" %>
 <form name="movieForm" id="movieForm" method="post" action="${cp}/movie/movieupload.mo" onsubmit="return sendit();" enctype="multipart/form-data">
+   <fieldset style="border: 1px solid red; width: 70%; height:70%; margin: 0 auto; margin-top: 100px; font-weight: bold;">
+   <legend style="color: white;">영화 업로드</legend>
    <table id="table">
       <tr align="left">
-         <th id="th" >
+         <th id="th">
                영화 제목
           </th>
          <td>
@@ -80,18 +86,18 @@ body{
       </tr>
       <tr align="left">
          <th>
-            판건 만료일
+            판권 만료일
          </th>
          <td>
-            <input type="text" size="50" maxlength="100" name="movieended" height="30px" value="" placeholder="판건 만료일">
+            <input type="text" size="50" maxlength="100" name="movieended" height="30px" value="" placeholder="판권 만료일">
          </td>
       </tr>
       <tr align="left">
          <th>
-            국내,해외
+            국내/해외
          </th>
          <td>
-            <input type="text" size="50" maxlength="100" name="national" height="30px" value="" placeholder="국내,해외">
+            <input type="text" size="50" maxlength="100" name="national" height="30px" value="" placeholder="국내/해외">
          </td>
       </tr>
       <tr align="left">
@@ -135,9 +141,15 @@ body{
          </td>
       </tr>
    </table>
+   </fieldset>
 </form>        
 <%@include file="/app/common/footer.jsp" %> 
 </body>
+<style>
+#welcome{
+top: -7px;
+}
+</style>
 <script>
 function sendit(){
     const movieForm = document.movieForm;

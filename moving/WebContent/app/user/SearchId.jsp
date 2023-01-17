@@ -7,43 +7,49 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" href="/app/css/SearchId.css">
+<link rel="stylesheet" href="/app/css/SearchId.css?after">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <body>
 <%@include file="../common/header.jsp" %>
    <div class="idSearch">
-      <form name="joinForm" action="${cp}/user/searchid.us" method="post" 
-         accept-charset="utf-8" onsubmit="return idSearch();" >
-         <div class="idSeach_header">
-            <h1>아이디 찾기</h1>
-         </div>
-         <div>
-            <h3>본인인증으로 찾기</h3>
-         </div>
-         <div class="username">
-            <input type="text" name="username" id="username" 
-               placeholder="이름을 입력해주세요">
-         </div>
-         <div>
-            <input type="text" name="userphone" id="userphone" onkeyup="addHypen(this);"
-               placeholder="핸드폰번호 입력" maxlength="13" /> 
-            <input type="button" value="인증번호" id="userphone_btn">
-         </div>
-         <div>
-            <input type="text" id="userNum" name="check_number"
-               placeholder="인증번호를 입력해주세요"> 
-            <input type="button" value="인증확인" id="correct_check">
-         </div>
-         <div class="pw_Search">
-            <a href="SearchPw.jsp" class="pw_Search1">비밀번호찾기</a>
-         </div>
-         <div>
-            <input type="submit" value="확인" id="submit">
-         </div>
-      </form>
-   </div>
+        <form name="joinForm" action="${cp}/user/searchidok.us" method="post" 
+           accept-charset="utf-8" onsubmit="return idSearch();" >
+           <div class="idSeach_header idsearchbox">
+              <h1>아이디 찾기</h1>
+           </div>
+           <div>
+              <h3>본인인증으로 찾기</h3>
+           </div>
+           <div class="username idsearchbox">
+              <input type="text" name="username" id="username" 
+                 placeholder="이름을 입력해주세요">
+           </div>
+           <div class="idsearchbox">
+              <input type="text" name="userphone" id="userphone" onkeyup="addHypen(this);"
+                 placeholder="핸드폰번호 입력" maxlength="13" /> 
+              <input type="button" value="인증번호" id="userphone_btn">
+           </div>
+           <div class="idsearchbox">
+              <input type="text" id="userNum" name="check_number"
+                 placeholder="인증번호를 입력해주세요"> 
+              <input type="button" value="인증확인" id="correct_check">
+           </div>
+           <div class="pw_Search idsearchbox">
+              <a href="${cp}/user/searchpw.us" class="pw_Search1">비밀번호찾기</a>
+           </div>
+           <div class="idsearchbox">
+              <input type="submit" value="확인" id="submit">
+           </div>
+        </form>
+     </div>
 <%@include file="../common/footer.jsp" %> 
 </body>
+<style>
+#footer{
+   position: absolute;
+   bottom: 0px;
+}
+</style>
 <script>
    const cp = "${cp}";
 </script>

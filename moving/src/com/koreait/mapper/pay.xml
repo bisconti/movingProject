@@ -16,4 +16,7 @@
    <select id="checkPay" parameterType="string" resultType="_int">
    	  select count(*) from pay where userid =#{userid}
    </select>
+      <select id="payList" parameterType="string" resultType="paydto">
+      select * from pay where userid=#{userid}
+   </select>
 </mapper>

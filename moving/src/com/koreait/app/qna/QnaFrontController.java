@@ -28,6 +28,8 @@ public class QnaFrontController extends HttpServlet{
 			transfer.setRedirect(false);
 			transfer.setPath("/app/qna/qnaMain.jsp");
 			break;
+			
+			
 		case "/qna/qnasendok.qn":
 			try {
 				transfer = new QnaSendOkAction().execute(req,resp);
@@ -35,7 +37,23 @@ public class QnaFrontController extends HttpServlet{
 				System.out.println("WARN:QnaSendOk : "+e);
 			}
 			break;
+			
+		case "/qna/myqna.qn":
+			try {
+				transfer = new MyQnaAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("WARN:MyQnaAction : "+e);
+			}
+			break;
+		
+		case "/qna/qnadetail.qn":
+			try {
+				transfer = new QnaDetailAction().execute(req,resp);
+			} catch (Exception e) {
+				System.out.println("WARN:QnaDetail : "+e);
+			}
 		}
+		
 		
 		if(transfer != null) {
 			if(transfer.isRedirect()) {

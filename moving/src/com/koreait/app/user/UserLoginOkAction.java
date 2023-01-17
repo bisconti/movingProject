@@ -24,11 +24,12 @@ public class UserLoginOkAction implements Action {
       resp.setContentType("text/html; charset=utf-8");
       PrintWriter out = resp.getWriter();
   
-      
-      ActionTo transfer = new ActionTo();
-      transfer.setRedirect(false);
       String manager = "manager";
       if(manager.equals(userid)) {
+          user = udao.getLoginUser(userid);
+          session.setAttribute("User", user);
+          session.setAttribute("loginUser", userid);
+          session.setAttribute("userphoto", user.getUserphoto());
           out.print("<script>");
           out.print("alert('어서오세요 준민 대표님^^7');");
           out.print("location.href='"+ req.getContextPath()+"/user/manager.us';");
@@ -37,14 +38,11 @@ public class UserLoginOkAction implements Action {
       else{
          if(udao.login(userid,userpw)) {
            user = udao.getLoginUser(userid);
-           System.out.println("user : " + user);
            session.setAttribute("User", user);
            session.setAttribute("loginUser", userid);
            session.setAttribute("userphoto", user.getUserphoto());
-           System.out.println(user.getUserphoto());
             String userbirth = user.getUserbirth();
             int age = udao.getUserAge(userbirth);
-            System.out.println(age);
             
             session.setAttribute("age", age);
             //<script>

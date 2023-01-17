@@ -19,9 +19,9 @@
         <table border="1" width="90%" id="tables">
             <tr class="tr">
                 <td class="td">번호</td>
-                <td class="td_text">${qna.qnanum }</td> 
+                <td class="td_text">${qna.qnanum}</td> 
                 <td class="td">작성자</td>
-                <td class="td_text">${qna.userid }</td>
+                <td class="td_text">${qna.userid}</td>
             </tr>
             <tr class="tr">
                 <td class="td">작성일</td>
@@ -41,11 +41,9 @@
         <tr>
           <td colspan="4" align="center" id="rights">
          <c:if test="${!empty param.page}">
-            <a class="btnb bg" href="${cp}/movie/answer.mo?&qnanum=${qna.qnanum}">답변하기</a>&nbsp;&nbsp;
             <a class="btnb bg" href="${cp}/movie/center.mo?page=${param.page}&q=${param.q}">목록</a>
          </c:if>
          <c:if test="${empty param.page}">
-            <a class="btnb bg" href="${cp}/movie/answer.mo?&qnanum=${qna.qnanum}">답변하기</a>&nbsp;&nbsp;
             <a class="btnb bg" href="${cp }/movie/center.mo?page=1">목록</a>
          </c:if>
           </td>

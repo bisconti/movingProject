@@ -11,7 +11,7 @@
 <body>
    <%@include file="/app/common/header.jsp" %>
       <div id="movie">
-         <iframe onclick="plusWatch()" width="100%" height="100%" src="../app/film/${movieList.moviefilm}"></iframe>
+         <iframe onclick="plusWatch()" width="100%" height="100%" src="../app/file/${movieList.moviefilm}"></iframe>
       </div>
       <div id="i">
             <c:choose>

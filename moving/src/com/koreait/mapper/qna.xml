@@ -3,8 +3,29 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Qna">
-	<insert id="insertQna" parameterType="qnadto">
-		insert into qna (userid,qnatitle,qnacontents,time) 
-		values(#{userid},#{qnatitle},#{qnacontents},#{time}) 
-	</insert>
+   <insert id="insertQna" parameterType="qnadto">
+      insert into qna (userid,qnatitle,qnacontents,time) 
+      values(#{userid},#{qnatitle},#{qnacontents},#{time}) 
+   </insert>
+   
+   <select id="getQna" parameterType="string" resultType="qnadto">
+      select * from qna where userid=#{userid}
+   </select>
+   
+   <select id="qnalist" parameterType="hashmap"  resultType="qnadto">
+      select * from qna where userid=#{userid} order by qnanum desc limit #{startRow},#{pageSize}
+   </select>
+   <select id="getQnaCnt" resultType="_int">
+      select count(*) from qna 
+   </select>
+   <select id="getDetail" parameterType="_int" resultType="qnadto">
+      select * from qna where qnanum=#{qnanum}   
+   </select>
+      <select id="getQnaList" parameterType="hashmap" resultType="qnadto">
+      select * from qna order by qnanum desc limit #{startRow},#{pageSize}
+   </select>
+   <select id="getQnaListWithKey" parameterType="hashmap" resultType="qnadto">
+      select * from qna where qnatitle like('%${keyword}%')
+      or qnacontents like ('%${keyword}%') order by qnanum desc limit #{startRow},#{pageSize}
+   </select>
 </mapper>

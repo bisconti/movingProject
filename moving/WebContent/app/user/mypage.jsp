@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,99 +45,74 @@
           <table>
             <tr>
               <th colspan="2">
-                <label for="userid">현재 이용중인 이용권은 "스탠다드 (HD)" 입니다.</label>
+                <label for="date">다음 결제일은 
+                <fmt:formatDate value="${pay.date}" pattern="yyyy.MM.dd"/>일 입니다.</label>
               </th>
             </tr>
             <tr>
-              <th colspan="2">
-                <label>다음 결제일은 2022-12-30 일 입니다.</label>
-              </th>
-            </tr>
-            <tr>
-              <th><label for="username">이름</label></th>
+               <th><label for="username">이름</label></th>
               <td>
-                <input type="text" name="username" id="username" value="name" readonly disabled/>
+                <input type="text" name="username" id="username" value="${user.username }" readonly disabled/>
               </td>
             </tr>
             <tr>
               <th><label for="userid">아이디</label></th>
               <td>
-                <input type="text" name="userid" id="userid" value="${loginUser}" readonly disabled/>
+                <input type="text" name="userid" id="userid" value="${user.userid }" readonly disabled/>
               </td>
             </tr>
             <tr>
-              <th><label for="username">구매금액</label></th>
+              <th><label for="pay">구매금액</label></th>
               <td>
-                <input type="text" name="username" id="username" value="9000원" readonly disabled/>
-              </td>
-            </tr>
-            <tr>
-              <th><label for="username">다운로드</label></th>
-              <td>
-                <input type="text" name="username" id="username" value="30회" readonly disabled/>
-              </td>
-            </tr>
-            <tr>
-              <th><label for="userid">구독</label></th>
-              <td>
-                <input type="text" name="userid" id="userid" value="월간이용권" readonly disabled/>
+                <input type="text" name="pay" id="pay" value="${pay.price }" readonly disabled/>
                 <a href="${cp}/user/subscribe.us"><input type="button" value="구독연장" /></a>
               </td>
             </tr>
           </table>
-        </fieldset>
-        </form><br>
-        <form method="post" action="${cp}/user/changepw.us">
+        </fieldset><br>
         <fieldset style="border: 1px solid red; width: 500px">
           <legend>PASSOWRD</legend>
           <table>
             <tr>
                 <th><label for="userpw">현재 비밀번호</label></th>
                 <td>
-                  <input type="password" name="userpw" id="userpw"/>
+                  <input type="password" name="userpw" id="userpw" />
                 </td>
               </tr>
             <tr>
               <th><label for="userpw">비밀번호</label></th>
               <td>
-                <input type="password" name="changeuserpw" id="userpw" />
+                <input type="password" name="userpw" id="userpw" />
               </td>
             </tr>
             <tr>
               <th><label for="userpw_re">비밀번호 확인</label></th>
               <td>
                 <input type="password" name="userpw_re" id="userpw_re" onkeyup="pwcheck()"/>
-                                <input type="submit" value="변경"/>
+                <input type="button" value="변경"/>
               </td>
             </tr>
           </table>
-        </fieldset>
-        </form ><br>
-        <form method="post" action="${cp}/user/changephone.us">
+        </fieldset><br>
         <fieldset>
           <legend>PHONE</legend>
           <table>
             <tr>
               <th><label for="userid">휴대폰번호</label></th>
               <td>
-                    <input type="text" name="userphone" id="userphone"
-                     placeholder="핸드폰번호 입력" maxlength="13" onkeyup="addHypen(this);"/>
-               <input type="button" value="인증번호" id="userphone_btn">
+                <input type="text" name="userid" id="userid" value="01011112222"/>
+                <input type="button" value="인증번호" />
               </td>
             </tr>
             <tr>
               <th><label for="userid">인증번호입력</label></th>
               <td>
-                  <input type="text" name="check_number" id="userNum"
-                  placeholder="인증번호를 입력해주세요" >
-                  <input type="button" value="인증확인" id="correct_check">
+                <input type="text" name="userid" id="userid" />
+                <input type="button" value="인증확인" />
               </td>
             </tr>
           </table>
-                 <input type="submit" value="변경" id="userpone" style="float:right;"/> 
-        </fieldset>
-        </form><br>
-        <form method="post" action="${cp}/user/changeaddr.us">
+        </fieldset><br>
         <fieldset>
           <legend>ARRDRESS</legend>
           <table>
@@ -147,7 +124,7 @@
                   id="sample6_postcode"
                   placeholder="우편번호"
                   name="zipcode"
-                  value=""
+                  value="333021"
                   onclick="sample6_execDaumPostcode()"
                 />
                 <input
@@ -164,8 +141,8 @@
                   type="text"
                   id="sample6_address"
                   placeholder="주소"
-                  name="useraddr"
-                  value=""
+                  name="addr"
+                  value="경기도 평택시"
                   readonly
                 />
               </td>
@@ -177,8 +154,8 @@
                   type="text"
                   id="sample6_detailAddress"
                   placeholder="상세주소"
-                  value=""
-                  name="useraddrdetail"
+                  value="고속도로 422"
+                  name="addrdetail"
                 />
               </td>
             </tr>
@@ -189,15 +166,11 @@
                   type="text"
                   id="sample6_extraAddress"
                   placeholder="참고항목"
-                  name="useraddretc"
-                  value=""
+                  name="addretc"
+                  value="10335"
                   readonly
                   disabled
                   style="color: white"
-                />
-                <input
-                  type="submit"
-                  value="변경"
                 />
               </td>
             </tr>
@@ -208,6 +181,11 @@
     </div>
 <%@include file="../common/footer.jsp" %>    
 </body>
+<style>
+#welcome{
+	top: -7px;
+}
+</style>
 <script type="text/javascript">
     window.history.forward();
    function noBack(){

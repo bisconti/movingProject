@@ -2,23 +2,22 @@ package com.koreait.app.user;
 
 import java.io.PrintWriter;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.koreait.action.Action;
 import com.koreait.action.ActionTo;
 import com.koreait.dao.UserDAO;
-import com.koreait.dto.FileDTO;
 import com.koreait.dto.UserDTO;
 
 public class UserJoinOkAction implements Action{
    @Override
    public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
       //데이터수집 -> 처리 -> 결과전송
+     resp.setCharacterEncoding("UTF-8");
+     resp.setContentType("text/html; charset=utf-8");
       UserDAO udao = new UserDAO();
       UserDTO user = new UserDTO();
-      FileDTO file = new FileDTO();
       
       String userid = req.getParameter("userid");
       String username = req.getParameter("username");
@@ -38,36 +37,24 @@ public class UserJoinOkAction implements Action{
       
       
       System.out.println("INFO:user객체 - "+user);
-      PrintWriter out = resp.getWriter();
       
       ActionTo transfer = new ActionTo();
       transfer.setRedirect(true);
-      
+      PrintWriter out = resp.getWriter();
       if(udao.join(user)) {
-         out.write("<script>");
-         out.write("alert('회원가입이 완료되었습니다 !');");
-         out.write("</script>");
+         out.print("<script>");
+         out.print("alert('회원가입이 완료되었습니다 !');");
+         out.print("location.href='"+ req.getContextPath()+"/user/userlogin.us';");
+         out.print("</script>");
          
-         Cookie cookie = new Cookie("joinid", userid);
-         resp.addCookie(cookie);
-         transfer.setPath(req.getContextPath()+"/user/userlogin.us");
+//         }
       }
       else {
-         //localhost:9090/????
-         transfer.setPath(req.getContextPath());
+         out.print("<script>location.href='"+ req.getContextPath()+"/';</script>");
       }
-      return transfer;
+      return null;
    }
 }
-
-
-
-
-
-
-
-
-
 
 
 

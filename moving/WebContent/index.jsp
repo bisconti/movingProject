@@ -177,7 +177,7 @@ margin: 0;
             </c:when>
             <c:otherwise>
                <div id="mypage">
-                  <a href="${cp}/user/userpage.us"><img src="/app/userprofile/${userphoto}" alt="" id="myprofile"></a>
+                  <a href="${cp}/user/userpage.us?userid=${loginUser}"><img src="/app/userprofile/${userphoto}" alt="" id="myprofile"></a>
                      <h5 id="welcome">환영합니다! <br>${loginUser}님</h5>
               </div>
               <div id="logout">
@@ -407,29 +407,29 @@ margin: 0;
       <script src="/app/assets/js/main.js"></script>
 <script>
    const cp = "${cp}";
+   const loginUser = "${loginUser}";
 </script>
 <script>
 function datecheck(){
-   const xhr = new XMLHttpRequest();
-
-   xhr.onreadystatechange = function(){
-      if(xhr.readyState == 4){
-         if(xhr.status == 200){
-            let txt = xhr.responseText;
-            txt = txt.trim();
-            if(txt == "O"){
-               
-            }
-            else{
-               alert("로그인 및 구독 갱신 후 다시 이용 바랍니다.");
-               location.href = "${cp}/";
-            }
-         }
-      }
-   }
-   
-   xhr.open("GET",cp+"/user/dateCheck.us?userid=${loginUser}",true);
-   xhr.send();
+	   const xhr = new XMLHttpRequest();
+	
+	   xhr.onreadystatechange = function(){
+	      if(xhr.readyState == 4){
+	         if(xhr.status == 200){
+	            let txt = xhr.responseText;
+	            txt = txt.trim();
+	            if(txt == "O"){
+	               
+	            }
+	            else{
+	               alert("로그인 및 구독 갱신 후 다시 이용 바랍니다.");
+	               location.href = "${cp}/";
+	            }
+	         }
+	      }
+	   }
+	   xhr.open("GET",cp+"/user/dateCheck.us?userid=${loginUser}",true);
+	   xhr.send();
 }
 </script>
 <script>

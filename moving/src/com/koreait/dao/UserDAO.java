@@ -114,5 +114,16 @@ public class UserDAO {
 	public String newProfile(String userid) {
 		return sqlsession.selectOne("User.newProfile",userid);
 	}
+	
+	public boolean pwchangechk(String userid, String userphone) {
+	      HashMap<String, String> datas = new HashMap<String, String>();
+	         datas.put("userid", userid);
+	         datas.put("userphone", userphone);
+	         return (Integer)sqlsession.selectOne("User.pwchangechk",datas) == 1;
+	   }
+	
+	   public UserDTO getUserList(String userid) {
+		      return sqlsession.selectOne("User.userList",userid);
+		   }
 
 }

@@ -13,7 +13,9 @@ import com.koreait.dto.UserDTO;
 public class SearchIdOkAction implements Action {
    @Override
    public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-      System.out.println("체크");
+     resp.setCharacterEncoding("UTF-8");
+     resp.setContentType("text/html; charset=utf-8");
+     System.out.println("체크");
       UserDAO udao = new UserDAO();
       UserDTO user = new UserDTO();
       String username = req.getParameter("username");
@@ -23,16 +25,20 @@ public class SearchIdOkAction implements Action {
       user.setUserphone(userphone);
 
       System.out.println(user);
-//      resp.setCharacterEncoding("UTF-8");
-//      resp.setContentType("text/html; charset=utf-8");
-      PrintWriter out = resp.getWriter();
-      ActionTo transfer = new ActionTo();
-      transfer.setRedirect(false);
+      
+     
       String userid = udao.searchId(userphone);
       if(userid == null) {
-         System.out.println("폰번호 db확인 없을것.");
+        PrintWriter out = resp.getWriter();
+         out.print("<script>");
+         out.print("alert('정보가 올바르지 않습니다.!');");
+         out.print("location.href='"+ req.getContextPath()+"/user/searchid.us';");
+         out.print("</script>");
+         return null;
          
       } else {
+        ActionTo transfer = new ActionTo();
+         transfer.setRedirect(false);
          System.out.println(udao.searchId(userphone));
          req.setAttribute("userid", userid);
          req.setAttribute("username", username);
@@ -40,8 +46,8 @@ public class SearchIdOkAction implements Action {
          transfer.setRedirect(false);
          transfer.setPath("/app/user/SearchIdCorrect.jsp");
          
+         return transfer;
       }
-      return transfer;
       
    }
 }

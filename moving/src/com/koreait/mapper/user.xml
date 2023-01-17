@@ -63,4 +63,10 @@
    <select id="newProfile" parameterType="string" resultType="string">
    		select userphoto from user where userid=#{userid}
    </select>
+   <select id="pwchangechk" parameterType="hashmap" resultType="_int">
+      select count(*) from user where userid=#{userid} and userphone=#{userphone}
+   </select>
+      <select id="userList" parameterType="string" resultType="userdto">
+      select * from user where userid=#{userid}
+   </select>
 </mapper>

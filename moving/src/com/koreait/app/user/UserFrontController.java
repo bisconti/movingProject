@@ -61,6 +61,8 @@ public class UserFrontController extends HttpServlet{
           resp.setContentType("text/html; charset=utf-8");
           req.getSession().removeAttribute("loginUser");
           req.getSession().removeAttribute("User");
+          req.getSession().removeAttribute("userphoto");
+          req.getSession().removeAttribute("age");
           PrintWriter out = resp.getWriter();
           out.write("<script>");
           out.write("alert('로그아웃 되었습니다.');");
@@ -81,6 +83,11 @@ public class UserFrontController extends HttpServlet{
          transfer.setRedirect(false);
          break;
       case "/user/searchid.us" :
+         transfer = new ActionTo();
+          transfer.setPath("/app/user/SearchId.jsp");
+          transfer.setRedirect(false);
+          break;
+      case "/user/searchidok.us" :
          try {
             transfer = new SearchIdOkAction().execute(req,resp);
          } catch (Exception e) {
@@ -88,6 +95,11 @@ public class UserFrontController extends HttpServlet{
          }
          break;
       case "/user/searchpw.us" :
+         transfer = new ActionTo();
+          transfer.setPath("/app/user/SearchPw.jsp");
+          transfer.setRedirect(false);
+          break;
+      case "/user/searchpwok.us" :
          try {
             transfer = new SearchPwAction().execute(req,resp);
          } catch (Exception e) {
@@ -101,32 +113,35 @@ public class UserFrontController extends HttpServlet{
             System.out.println("WARN: UpdatePwAction : "+e);
          }
          break;
-      case "/user/mypage.us" :
-         transfer = new ActionTo();
-         transfer.setPath("/app/user/mypage.jsp");
-         transfer.setRedirect(false);
-         break;
+         
+      case "/user/mypage.us":
+          try {
+             transfer = new MypageAction().execute(req,resp);
+          } catch (Exception e) {
+             System.out.println("WARN:mypage : "+e);
+          }
+          break;
          
       case "/user/terms.us":
-	    	transfer = new ActionTo();
-	    	transfer.setPath("/app/user/terms.jsp");
-	    	transfer.setRedirect(false);
-	    	break;
-	    	
-	  case "/user/dateCheck.us":
-			try {
-				new DateCheckAction().execute(req,resp);
-			} catch (Exception e) {
-				System.out.println("WARN:Subscribe : "+e);
-			}
-			break;
-			
-	  case "/user/joinview.us":
-		  	transfer = new ActionTo();
-		  	transfer.setPath("/app/user/joinview.jsp");
-		  	transfer.setRedirect(false);
-		  	break;
-		  	
+          transfer = new ActionTo();
+          transfer.setPath("/app/user/terms.jsp");
+          transfer.setRedirect(false);
+          break;
+          
+     case "/user/dateCheck.us":
+         try {
+            new DateCheckAction().execute(req,resp);
+         } catch (Exception e) {
+            System.out.println("WARN:Subscribe : "+e);
+         }
+         break;
+         
+     case "/user/joinview.us":
+           transfer = new ActionTo();
+           transfer.setPath("/app/user/joinview.jsp");
+           transfer.setRedirect(false);
+           break;
+           
       case "/user/subscribeOk.us":
           try {
             transfer = new SubscribeOkAction().execute(req,resp);
@@ -142,12 +157,12 @@ public class UserFrontController extends HttpServlet{
           break;   
          
       case "/user/adduserphoto.us":
-    	  try {
-			transfer = new AddPhotoAction().execute(req,resp);
-		} catch (Exception e) {
-			System.out.println("WARN:AddPhoto : "+e);
-		}
-    	 break;
+         try {
+         transfer = new AddPhotoAction().execute(req,resp);
+      } catch (Exception e) {
+         System.out.println("WARN:AddPhoto : "+e);
+      }
+        break;
       case "/user/changepw.us" :
           try {
              new ChangePwAction().execute(req, resp);
@@ -205,7 +220,7 @@ public class UserFrontController extends HttpServlet{
           break;
           
       case "/user/modifyProfile.us":
-    	  
+         
       }
       
       //전송 일괄처리(어디인지, 어떤 방식인지는 몰라도 그냥 transfer라는 객체에 담겨있는 정보를 해석해서 그대로 페이지를 이동)
@@ -229,7 +244,6 @@ public class UserFrontController extends HttpServlet{
    
    
 }
-
 
 
 
