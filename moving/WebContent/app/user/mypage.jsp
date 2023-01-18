@@ -39,7 +39,7 @@
 	<div id="right_area">
      <br><br><br>
       <form>
-        <br><h2>"${loginUser}"님의 마이페이지</h2>
+        <br><h2 style="">"${loginUser}"님의 마이페이지</h2>
         <fieldset>
           <legend>INFO</legend>
           <table>
@@ -71,7 +71,7 @@
           </table>
         </fieldset><br>
         <fieldset style="border: 1px solid red; width: 500px">
-          <legend>PASSOWRD</legend>
+          <legend>PASSWORD</legend>
           <table>
             <tr>
                 <th><label for="userpw">현재 비밀번호</label></th>
