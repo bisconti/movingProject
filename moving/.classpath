@@ -3,10 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk-11.0.15.1">
 		<attributes>
-<<<<<<< Updated upstream
 			<attribute name="module" value="true"/>
-=======
->>>>>>> Stashed changes
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
@@ -17,7 +14,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-<<<<<<< Updated upstream
 	<classpathentry kind="lib" path="C:/0900_GB_JHR/jsp/resource/cos.jar"/>
 	<classpathentry kind="lib" path="C:/0900_GB_JHR/jsp/resource/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/lib/jstl.jar"/>
 	<classpathentry kind="lib" path="C:/0900_GB_JHR/jsp/resource/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/lib/standard.jar"/>
@@ -25,7 +21,5 @@
 	<classpathentry kind="lib" path="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.30.jar"/>
 	<classpathentry kind="lib" path="C:/0900_GB_JHR/jsp/resource/java-sdk-2.2-http-cv52/javaSDK-2.2.jar"/>
 	<classpathentry kind="lib" path="C:/0900_GB_JHR/jsp/resource/java-sdk-2.2-http-cv52/json-simple-1.1.1.jar"/>
-=======
->>>>>>> Stashed changes
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
