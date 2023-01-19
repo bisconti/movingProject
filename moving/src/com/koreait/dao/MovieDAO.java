@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.koreait.dto.FileDTO;
 import com.koreait.dto.MovieDTO;
+import com.koreait.dto.MoviedataDTO;
 import com.koreait.mybatis.SqlMapConfig;
 
 public class MovieDAO {
@@ -143,7 +145,23 @@ public class MovieDAO {
 	      return (Integer)sqlsession.selectOne("Movie.checklike",datas);
 	   }
 
-	public List<MovieDTO> Moviewishlist(String userid) {
+	   public List<MovieDTO> Moviewishlist(String userid) {
 		  return sqlsession.selectList("Movie.wishlist",userid) ;
-	}
+	   }
+	
+	   public boolean insertMovie(MovieDTO movie) {
+	      return sqlsession.insert("Movie.insertMovie",movie) == 1;
+	   }
+
+	   public int getLastNum() {
+	      return sqlsession.selectOne("Movie.getLastNum");
+	   }
+	   public boolean insertfile(FileDTO file) {
+	      MoviedataDTO mdd = new MoviedataDTO();
+	      mdd.setMovienum(file.getMovienum());
+	      mdd.setMoviephoto(file.getOrgname());
+	      mdd.setMoviefilm(file.getSystemname());
+	      return sqlsession.insert("Movie.insertfile",mdd) == 1;
+	   }
+
 }	

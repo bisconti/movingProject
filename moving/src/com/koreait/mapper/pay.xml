@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Pay">
+   <insert id="insertPay" parameterType="paydto">
+      insert into pay (userid,price) 
+      values(#{userid},#{price}) 
+   </insert>
+   <update id="updatePayYear" parameterType="string">
+      UPDATE pay set date = DATE_ADD(date, interval 1 YEAR),price="99,000￦" where userid = #{userid}
+   </update>
+   <update id="updatePayMonth" parameterType="string">
+      UPDATE pay set date = DATE_ADD(date, interval 1 MONTH),price="9,900￦" where userid = #{userid}
+   </update>
+   <select id="checkPay" parameterType="string" resultType="_int">
+   	  select count(*) from pay where userid =#{userid}
+   </select>
+      <select id="payList" parameterType="string" resultType="paydto">
+      select * from pay where userid=#{userid}
+   </select>
+</mapper>

@@ -61,7 +61,17 @@ blockquote, q {
 		content: '';
 		content: none;
 	}
-
+#hey{
+	font-weight: bold;
+}
+#heyhey{
+   text-align: left;
+   font-weight: bold;
+   color: #fff;
+}
+#heyhey:hover{
+	color: red;
+}
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -188,8 +198,12 @@ a{
 	font-weight: bold;
 	color: white;
 }
-#totlaview{
-	float: right;
+#totalview{
+	width: 18%;
+	position: relative;
+	left: 80%;
+	font-weight: bold;
+	color: white;
 }
 #totalview > p{
 	font-weight: bold;
@@ -202,7 +216,6 @@ a{
     margin-left: 20px;
     width: 40%;
     height: 75px;
-    /* border: solid 1px rgb(241, 241, 241) ; */
 }
 #moviecontent > div{
     margin: 5px;
@@ -216,62 +229,23 @@ a{
     float: left;
     height: 75px;
     width: 50%;
-    /* border: solid 1px rgb(228, 217, 217) ; */
 }
 #actor{
-    width: 17%;
-    float: left;
-    height: 75px;
-    /* border: solid 1px rgb(228, 217, 217) ; */
+	
 }
 #movieopen{
     float: left;
     width: 26%;
     height: 75px;
-    /* border: solid 1px rgb(228, 217, 217) ; */
 }
 #moviesummary{
     float: left;
     width: 70%;
     height: 150px;
-    /* border: solid 1px rgb(228, 217, 217) ; */
 }
 #genre{
-    float: left;
-    height: 150px;
-    width: 25%;
-    /* border: solid 1px rgb(228, 217, 217) ; */
+	
 }
-
-	.top_box{
-		margin-top: 100px;
-	}
-
-	#title1,#title2,#title3,#title4{
-		width: 30%;
-		margin-left: 40px;
-		margin-bottom: 10px;
-	}
-	#title1 > h2{
-		font-weight: bold;
-		color: white;
-	}
-
-	#title2 > h2{
-		font-weight: bold;
-		color: white;
-	}
-
-	#title3 > h2{
-		font-weight: bold;
-		color: white;
-	}
-
-	#title4 > h2{
-		font-weight: bold;
-		color: white;
-	}
-
 
 /* Basic */
 

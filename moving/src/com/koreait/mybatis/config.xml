@@ -3,32 +3,34 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<typeAliases>
-		<typeAlias type="com.koreait.dto.UserDTO" alias="userdto"/>
-		<typeAlias type="com.koreait.dto.BoardDTO" alias="boarddto"/>
-		<typeAlias type="com.koreait.dto.MovieDTO" alias="moviedto"/>
-		<typeAlias type="com.koreait.dto.ReplyDTO" alias="replydto"/>
-		<typeAlias type="com.koreait.dto.QnaDTO" alias="qnadto"/>
-	</typeAliases>
-	<environments default="development">
-		<environment id="development">
-			<transactionManager type="JDBC"/>
-			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-				<property name="url" value="jdbc:mysql://localhost:3306/moving"/>
-				<property name="username" value="root"/>
-				<property name="password" value="1234"/>
-			</dataSource>
-		</environment>
-	</environments>
-	<mappers>
-		<mapper resource="com/koreait/mapper/user.xml"/>
-		<mapper resource="com/koreait/mapper/board.xml"/>
-		<mapper resource="com/koreait/mapper/movie.xml"/>
-		<mapper resource="com/koreait/mapper/qna.xml"/>
-	</mappers>
+   <typeAliases>
+      <typeAlias type="com.koreait.dto.UserDTO" alias="userdto"/>
+      <typeAlias type="com.koreait.dto.BoardDTO" alias="boarddto"/>
+      <typeAlias type="com.koreait.dto.MovieDTO" alias="moviedto"/>
+      <typeAlias type="com.koreait.dto.ReplyDTO" alias="replydto"/>
+      <typeAlias type="com.koreait.dto.QnaDTO" alias="qnadto"/>
+      <typeAlias type="com.koreait.dto.PayDTO" alias="paydto"/>
+      <typeAlias type="com.koreait.dto.MoviedataDTO" alias="moviedatadto"/>
+   </typeAliases>
+   <environments default="development">
+      <environment id="development">
+         <transactionManager type="JDBC"/>
+         <dataSource type="POOLED">
+            <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://localhost:3306/moving"/>
+            <property name="username" value="root"/>
+            <property name="password" value="1234"/>
+         </dataSource>
+      </environment>
+   </environments>
+   <mappers>
+      <mapper resource="com/koreait/mapper/user.xml"/>
+      <mapper resource="com/koreait/mapper/board.xml"/>
+      <mapper resource="com/koreait/mapper/movie.xml"/>
+      <mapper resource="com/koreait/mapper/qna.xml"/>
+      <mapper resource="com/koreait/mapper/pay.xml"/>
+   </mappers>
 </configuration>
-
 
 
 

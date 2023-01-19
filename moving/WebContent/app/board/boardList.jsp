@@ -135,6 +135,11 @@
     </div> 
 <%@include file="/app/common/footer.jsp" %>    
 </body>
+<style>
+.container{
+	margin-left: 0;
+}
+</style>
 <script>
 	function search(){
 		const q = document.getElementById("q");

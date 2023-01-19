@@ -9,10 +9,11 @@
 		(select movienum from movie order by movierelease desc limit ${i},1)
 	</select>
 	<select id="watched" parameterType="hashmap" resultType="moviedto">
-		select * from moviedata md join watched w
-		on md.movienum = w.movienum where userid=#{userid} 
-		group by md.movienum order by time desc limit ${i},1;
-	</select>
+      select * from moviedata md join watched w
+      on md.movienum = w.movienum join movie m 
+      on md.movienum = m.movienum where userid=#{userid} 
+      group by md.movienum order by time desc limit ${i},1;
+   </select>
 	<select id="mostView" parameterType="_int" resultType="moviedto">
 		select * from moviedata md join movie m
 		on m.movienum = md.movienum where md.movienum =
@@ -75,4 +76,14 @@
 		      select * from movie m join wishlist w on m.movienum = w.movienum join moviedata md
       on md.movienum = m.movienum where userid = #{userid};
     </select>
+    <select id="getLastNum" resultType="_int">
+      select max(movienum) from movie
+   </select>
+   <insert id="insertMovie" parameterType="moviedto">
+      insert into movie(typename,actorname,movietitle,movierelease,movieended,national,agelimit) values(#{typename},#{actorname},#{movietitle},#{movierelease},#{movieended},#{national},#{agelimit})
+   </insert>
+   <insert id="insertfile" parameterType="moviedatadto">
+      insert into
+      moviedata(movienum,moviephoto,moviefilm) values(#{movienum},#{moviephoto},#{moviefilm})
+   </insert>
 </mapper>

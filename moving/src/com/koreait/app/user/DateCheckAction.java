@@ -11,7 +11,7 @@ import com.koreait.action.Action;
 import com.koreait.action.ActionTo;
 import com.koreait.dao.UserDAO;
 
-public class SubscribeAction implements Action{
+public class DateCheckAction implements Action{
 
 	@Override
 	public ActionTo execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -26,7 +26,7 @@ public class SubscribeAction implements Action{
 	if (result < 0) {
 		out.write("O");
 	}
-	else if(result > 0){
+	else if(result > 0 || userid==null){
 		out.write("X");
 	}
 	out.close();

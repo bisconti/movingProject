@@ -19,21 +19,25 @@ html {
         height: 100%;
     }
     #div{
+       padding-top : 5%;
+       width: 100%
         color: white;
-        margin: 343px auto;
-        min-height: 50%;
-        margin-left: 600px;
-    }
-    div{
-        width: 40%;
+        min-height: 10%;
     }
     #div1{
-        text-align: center;
+       text-align:center;
+       margin: 0 auto;
         padding-top: 20px;
-        height: 300px;
-        float: left;
+        height: 100px;
         font-size: 40px;
-        width: 30%;
+        width: 50%;
+    }
+    #div2{
+       text-align:center;
+       margin: 0 auto;
+        height: 200px;
+        font-size: 60px;
+        width: 50%;
     }
     a{
         color:white ;
@@ -141,7 +145,7 @@ html {
     box-sizing: border-box;
 }
 #logout_a > span{
-	font-weight: bold;
+   font-weight: bold;
 }
 #search_what{
     position: relative;
@@ -183,10 +187,12 @@ html {
 body{
 margin: 0;
 }
+
 </style>
 </head>
 <body>
- <div id="header">
+<header>
+      <div id="header">
          <div id="logo">
             <a href="${cp}/"><img src="/app/img/moving_logo.png" alt="" id="logos"></a>
         </div>
@@ -198,33 +204,42 @@ margin: 0;
             </span>
          </div>
          <c:choose>
-         	<c:when test="${loginUser == null}">
-		        <div id="login">
-		            <a href="/user/userlogin.us" id="login_a"><span>로그인</span></a>
-		        </div>
-         	</c:when>
-         	<c:otherwise>
-	            <div id="mypage">
-	            	<a href="${cp}/user/mypage.us"><img src="/app/img/basicprofile.jpg" alt="" id="myprofile"></a>
-	            		<h5 id="welcome">환영합니다! <br>${loginUser}님</h5>
-	        	</div>
-	        	<div id="logout">
-		            <a href="${cp}/user/userlogout.us" id="logout_a"><span>로그아웃</span></a>
-		        </div>
-         	</c:otherwise>
+            <c:when test="${loginUser == null}">
+              <div id="login">
+                  <a href="/user/userlogin.us" id="login_a"><span>로그인</span></a>
+              </div>
+            </c:when>
+            <c:otherwise>
+               <div id="mypage">
+                  <a href="${cp}/user/mypage.us"><img src="/app/userprofile/${userphoto}" alt="" id="myprofile"></a>
+                     <h5 id="welcome">환영합니다! <br>${loginUser}님</h5>
+              </div>
+              <div id="logout">
+                  <a href="${cp}/user/userlogout.us" id="logout_a"><span>로그아웃</span></a>
+              </div>
+            </c:otherwise>
          </c:choose>
       </div>
-<div id="div">
-<h1>관리자님 오신걸 환영합니다</h1>
-    <div id="sky">
-        <a href="">고객센터 문의 보기</a>
-    </div>
-    <div id="sky">
-        <a href="${cp}/app/manager/fileupload.jsp">영화 업로드 </a>
-    </div>
-</div>
-</body>
-<%@include file="/app/common/footer.jsp" %>
+   </header>
+      <div id="div">
+          <div id="div2">
+              <p>Manager</p>
+          </div>
+          <div id="div1">
+              <a href="${cp}/movie/center.mo">고객센터 문의 보기</a>
+          </div>
+          <div id="div1">
+              <a href= "${cp}/movie/fileupload.mo">영화 업로드 </a>
+          </div>
+      </div>
+      </body>
+      <%@include file="/app/common/footer.jsp" %> 
+      <style>
+      #footer{
+      position: absolute;
+      bottom: 0;
+      }
+      </style>
 <script>
    function search() {
       const ms = document.getElementById("ms");
@@ -236,5 +251,6 @@ margin: 0;
       }
       location.href = "${cp}/movie/moviesearch.mo?ms="+ms.value;
    }
-</script> 
+</script>
 </html>
+

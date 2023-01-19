@@ -11,7 +11,7 @@
 <body>
    <%@include file="/app/common/header.jsp" %>
       <div id="movie">
-         <iframe onclick="plusWatch()" width="100%" height="100%" src="../app/film/${movieList.moviefilm}"></iframe>
+         <iframe onclick="plusWatch()" width="100%" height="100%" src="../app/file/${movieList.moviefilm}"></iframe>
       </div>
       <div id="i">
             <c:choose>
@@ -51,74 +51,74 @@
       </c:otherwise>
       </c:choose>
       <div id="totalview">
-      	<p>조회수: ${movieList.view_cnt}</p>
-      	<a id="a" class="fuck" href="${cp}/movie/wishlist.mo?userid=${loginUser}">나의 찜목록 보기♥</a>
+         <div id="hey"><p>조회수: ${movieList.view_cnt}</p></div>
+         <div id="heyhey"><a class="fuck" href="${cp}/movie/wishlist.mo?userid=${loginUser}">나의 찜목록 보기♥</a></div><br>
+		 <div id="genre"><p>장르: ${movieList.typename}</p></div>	
+		 <div id="actor"><p>주연배우: ${movieList.actorname}</p></div>
       </div>
      </div>
    <div id="moviecontent">
-         <div id="movietitle"><p>제목 : ${movieList.movietitle}</p></div>
+        <div id="movietitle"><p>제목 : ${movieList.movietitle}</p></div>
         <div id="movieopen"><p>개봉일 : ${movieList.movierelease}</p></div>
-        <div id="actor"><p>주연배우: ${movieList.actorname}</p></div>
         <div id="moviesummary"><p>${movieList.moviecontents}</p></div>
-        <div id="genre"><p>장르: ${movieList.typename}</p></div>
    </div>
    <hr>
    <div id="nextmovie_word">
-   		<p>이런 영화는 어떠세요?</p>
+         <p>이런 영화는 어떠세요?</p>
    </div>
    <div id="nextmovie">
       <section class="carousel">
          <div class="reel">
          <c:if test="${movieList.movienum != movie1.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie1.movienum}&movieage=${movie1.agelimit}" class="image featured"><img src="../app/file/${movie1.moviephoto}" alt=""/></a>
             </article>
          </c:if>
-		 <c:if test="${movieList.movienum != movie2.movienum}">
+       <c:if test="${movieList.movienum != movie2.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie2.movienum}" class="image featured"><img src="../app/file/${movie2.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie2.movienum}&movieage=${movie2.agelimit}" class="image featured"><img src="../app/file/${movie2.moviephoto}" alt=""/></a>
             </article>
-		 </c:if>
-		 <c:if test="${movieList.movienum != movie3.movienum}">
+       </c:if>
+       <c:if test="${movieList.movienum != movie3.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie3.movienum}" class="image featured"><img src="../app/file/${movie3.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie3.movienum}&movieage=${movie3.agelimit}" class="image featured"><img src="../app/file/${movie3.moviephoto}" alt=""/></a>
             </article>
-		 </c:if>
-		 <c:if test="${movieList.movienum != movie4.movienum}">
+       </c:if>
+       <c:if test="${movieList.movienum != movie4.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie4.movienum}" class="image featured"><img src="../app/file/${movie4.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie4.movienum}&movieage=${movie4.agelimit}" class="image featured"><img src="../app/file/${movie4.moviephoto}" alt=""/></a>
             </article>
-		 </c:if>
-		 <c:if test="${movieList.movienum != movie5.movienum}">
+       </c:if>
+       <c:if test="${movieList.movienum != movie5.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie5.movienum}" class="image featured"><img src="../app/file/${movie5.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie5.movienum}&movieage=${movie5.agelimit}" class="image featured"><img src="../app/file/${movie5.moviephoto}" alt=""/></a>
             </article>
-		 </c:if>
-		 <c:if test="${movieList.movienum != movie6.movienum}">
+       </c:if>
+       <c:if test="${movieList.movienum != movie6.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie6.movienum}" class="image featured"><img src="../app/file/${movie6.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie6.movienum}&movieage=${movie6.agelimit}" class="image featured"><img src="../app/file/${movie6.moviephoto}" alt=""/></a>
             </article>
-		 </c:if>
-	  	 <c:if test="${movieList.movienum != movie7.movienum}">
+       </c:if>
+         <c:if test="${movieList.movienum != movie7.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie7.movienum}" class="image featured"><img src="../app/file/${movie7.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie7.movienum}&movieage=${movie7.agelimit}" class="image featured"><img src="../app/file/${movie7.moviephoto}" alt=""/></a>
             </article>
-	  	 </c:if>
-		 <c:if test="${movieList.movienum != movie8.movienum}">
+         </c:if>
+       <c:if test="${movieList.movienum != movie8.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie8.movienum}" class="image featured"><img src="../app/file/${movie8.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie8.movienum}&movieage=${movie8.agelimit}" class="image featured"><img src="../app/file/${movie8.moviephoto}" alt=""/></a>
             </article>
-		 </c:if>
-		 <c:if test="${movieList.movienum != movie9.movienum}">
+       </c:if>
+       <c:if test="${movieList.movienum != movie9.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie9.movienum}" class="image featured"><img src="../app/file/${movie9.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie9.movienum}&movieage=${movie9.agelimit}" class="image featured"><img src="../app/file/${movie9.moviephoto}" alt=""/></a>
             </article>
-		 </c:if>
-		 <c:if test="${movieList.movienum != movie10.movienum}">
+       </c:if>
+       <c:if test="${movieList.movienum != movie10.movienum}">
             <article>
-               <a href="${cp}/movie/moviedetail.mo?movienum=${movie10.movienum}" class="image featured"><img src="../app/file/${movie10.moviephoto}" alt=""/></a>
+               <a href="${cp}/movie/moviedetail.mo?movienum=${movie10.movienum}&movieage=${movie10.agelimit}" class="image featured"><img src="../app/file/${movie10.moviephoto}" alt=""/></a>
             </article>
-		 </c:if>
+       </c:if>
          </div>
       </section>
    </div>
@@ -133,7 +133,7 @@
 <script src="/app/assets/js/util.js"></script>
 <script src="/app/assets/js/main.js"></script>
 <script>
-	const cp = "${cp}";
+   const cp = "${cp}";
 </script>
 <script>
    // <![CDATA[  <-- For SVG support
@@ -221,51 +221,51 @@ $(function(){
 </script>
 <script>
 function wishcheck(){
-	   const xhr = new XMLHttpRequest();
-	   const like = document.getElementsByClassName("like");
-	   
-	   xhr.onreadystatechange = function(){
-	      if(xhr.readyState == 4){
-	         if(xhr.status == 200){
-	            let txt = xhr.responseText;
-	            txt = txt.trim();
-	            if(txt == "O"){
-	               document.getElementById("wish").src="/app/img/heart.png";
-	            }
-	            else{
-	               document.getElementById("wish").src="/app/img/noheart.png";
+      const xhr = new XMLHttpRequest();
+      const like = document.getElementsByClassName("like");
+      
+      xhr.onreadystatechange = function(){
+         if(xhr.readyState == 4){
+            if(xhr.status == 200){
+               let txt = xhr.responseText;
+               txt = txt.trim();
+               if(txt == "O"){
+                  document.getElementById("wish").src="/app/img/heart.png";
+               }
+               else{
+                  document.getElementById("wish").src="/app/img/noheart.png";
 
-	            }
-	         }
-	      }
-	   }
-	   
-	   xhr.open("GET",cp+"/movie/wishcheck.mo?movienum=${movieList.movienum}",true);
-	   xhr.send();
-	}
-	 
-	function likecheck(){
-	      const xhr = new XMLHttpRequest();
-	      const like = document.getElementsByClassName("icon heart");
-	      
-	      xhr.onreadystatechange = function(){
-	         if(xhr.readyState == 4){
-	            if(xhr.status == 200){
-	               let txt = xhr.responseText;
-	               txt = txt.trim();
-	               if(txt == "O"){
-	                  document.getElementById("heart").src="/app/img/구독완료.png";
-	               }
-	               else{
-	                  document.getElementById("heart").src="/app/img/구독하기.png";
+               }
+            }
+         }
+      }
+      
+      xhr.open("GET",cp+"/movie/wishcheck.mo?movienum=${movieList.movienum}",true);
+      xhr.send();
+   }
+    
+   function likecheck(){
+         const xhr = new XMLHttpRequest();
+         const like = document.getElementsByClassName("icon heart");
+         
+         xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+               if(xhr.status == 200){
+                  let txt = xhr.responseText;
+                  txt = txt.trim();
+                  if(txt == "O"){
+                     document.getElementById("heart").src="/app/img/구독완료.png";
+                  }
+                  else{
+                     document.getElementById("heart").src="/app/img/구독하기.png";
 
-	               }
-	            }
-	         }
-	      }
-	      
-	      xhr.open("GET",cp+"/movie/likecheck.mo?movienum=${movieList.movienum}",true);
-	      xhr.send();
-	   }
+                  }
+               }
+            }
+         }
+         
+         xhr.open("GET",cp+"/movie/likecheck.mo?movienum=${movieList.movienum}",true);
+         xhr.send();
+      }
 </script>
 </html>

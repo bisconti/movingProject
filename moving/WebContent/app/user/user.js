@@ -86,9 +86,18 @@ function sendit(){
     }
     
     const birthyear = document.getElementById("birth-year")
-    if(birthyear.value == ""){
+    if(birthyear.value == "none"){
        alert("출생연도를 선택해주세요 !")
-       birth-year.focus();
+       return false;
+    }
+    const birthmonth = document.getElementById("birth-month")
+    if(birthmonth.value == "none"){
+       alert("월을 선택해주세요 !")
+       return false;
+    }
+    const birthday = document.getElementById("birth-day")
+    if(birthday.value == "none"){
+       alert("일자를 선택해주세요 !")
        return false;
     }
     const userphone = joinForm.userphone;
@@ -270,7 +279,6 @@ birthDayEl.addEventListener('focus', function(){
         }
         obj.value = phone;
     }
-
 
 
 
